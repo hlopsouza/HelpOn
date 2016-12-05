@@ -1,4 +1,5 @@
 ﻿using HelpOn.Dominio.Models;
+using HelpOn.Persistencia.UnitOfWork;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace HelpOn.Controllers
     {
 
         HelpOnEntities context = new HelpOnEntities();
-
+        UnitOfWork _unit = new UnitOfWork();
         [HttpGet]
         public ActionResult ListarUnidades()
         {
@@ -34,6 +35,12 @@ namespace HelpOn.Controllers
                 context.SaveChanges();
                 return RedirectToAction("ListarUnidades");
          
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _unit.Dispose();
+            base.Dispose(disposing);
         }
     }
 }
