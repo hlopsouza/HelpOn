@@ -20,7 +20,8 @@ namespace HelpOn.Persistencia.UnitOfWork
             GC.SuppressFinalize(this);
         }
 
-       
+
+
 
         private IGenericRepository<Gerente> _gerenteRepository;
         public IGenericRepository<Gerente> GerenteRepository
@@ -58,6 +59,19 @@ namespace HelpOn.Persistencia.UnitOfWork
                     _andarRepository = new GenericRepository<Andar>(_context);
                 }
                 return _andarRepository;
+            }
+        }
+
+        private IGenericRepository<Unidade> _unidadeRepository;
+        public IGenericRepository<Unidade> UnidadeRepository
+        {
+            get
+            {
+                if (_unidadeRepository == null)
+                {
+                    _unidadeRepository = new GenericRepository<Unidade>(_context);
+                }
+                return _unidadeRepository;
             }
         }
 

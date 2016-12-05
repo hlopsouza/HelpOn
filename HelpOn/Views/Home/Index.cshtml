@@ -20,31 +20,35 @@
                             <label class="col-md-2 control-label" for="Nome">Nome</label>
                             <div class="col-md-10">
                                 <input id="Nome" name="Nome" type="text" placeholder="Nome da unidade" class="form-control" autofocus>
+                                @Html.ValidationMessage("Nome", new { @class = "text-danger" })
                             </div>
                         </div>
-                        @Html.ValidationMessage("Nome")
+                       
 
                         <!-- CEP -->
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="CEP">CEP</label>
                             <div class="col-md-10">
                                 <input id="CEP" name="CEP" type="text" placeholder="Informe o CEP" class="form-control">
+                                @Html.ValidationMessage("CEP", new { @class = "text-danger" })
                             </div>
                         </div>
-                        @Html.ValidationMessage("CEP")
+                       
 
                         <!-- Logradouro e número -->
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="Logradouro">Logradouro</label>
                             <div class="col-md-5">
                                 <input id="Logradouro" name="Logradouro" type="text" placeholder="Informe o Logradouro" class="form-control">
+                                @Html.ValidationMessage("Logradouro", new { @class = "text-danger" })
                             </div>
-                            @Html.ValidationMessage("Logradouro")
+                          
                             <label class="col-md-1 control-label" for="Numero">Número</label>
                             <div class="col-md-4">
                                 <input id="Numero" name="Numero" type="text" placeholder="Informe o número" class="form-control">
+                                @Html.ValidationMessage("Numero", new { @class = "text-danger" })
                             </div>
-                            @Html.ValidationMessage("Numero")
+                          
                         </div>
 
                         <!-- Complemento -->
@@ -60,18 +64,20 @@
                             <label class="col-md-2 control-label" for="Bairro">Bairro</label>
                             <div class="col-md-10">
                                 <input id="Bairro" name="Bairro" type="text" placeholder="Informe o Bairro" class="form-control">
+                                @Html.ValidationMessage("Bairro", new { @class = "text-danger" })
                             </div>
                         </div>
-                        @Html.ValidationMessage("Bairro")
+                       
 
                         <!-- Cidade -->
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="Cidade">Cidade</label>
                             <div class="col-md-10">
                                 <input id="Cidade" name="Cidade" type="text" placeholder="Informe a Cidade" class="form-control">
+                                @Html.ValidationMessage("Cidade", new { @class = "text-danger" })
                             </div>
                         </div>
-                        @Html.ValidationMessage("Cidade")
+                      
 
                         <!-- Form actions -->
                         <div class="form-group">

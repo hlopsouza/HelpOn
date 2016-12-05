@@ -11,12 +11,11 @@ namespace HelpOn.Controllers
     public class HomeController : Controller
     {
 
-        HelpOnEntities context = new HelpOnEntities();
         UnitOfWork _unit = new UnitOfWork();
         [HttpGet]
         public ActionResult ListarUnidades()
         {
-            List<Unidade> unidades = context.Unidade.ToList();
+            ICollection<Unidade> unidades = _unit.UnidadeRepository.Listar();
             ViewBag.Unidades = unidades;
             return View();
         }
@@ -30,10 +29,17 @@ namespace HelpOn.Controllers
         [HttpPost]
         public ActionResult Cadastrar(Unidade unidade)
         {
-            
-                context.Unidade.Add(unidade);
-                context.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                _unit.UnidadeRepository.Cadastrar(unidade);
                 return RedirectToAction("ListarUnidades");
+            }
+            else
+            {
+                return View("Index");
+            }
+           
+            
          
         }
 

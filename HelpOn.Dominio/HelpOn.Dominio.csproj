@@ -81,6 +81,7 @@
     <Compile Include="Models\Monitor.cs">
       <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PartialsClass\UnidadeMetadado.cs" />
     <Compile Include="Models\Professor.cs">
       <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
