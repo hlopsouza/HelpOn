@@ -75,5 +75,10 @@ namespace HelpOn.Persistencia.UnitOfWork
             }
         }
 
+        public void Salvar()
+        {
+            _context.SaveChanges();
+        }
+
     }
 }

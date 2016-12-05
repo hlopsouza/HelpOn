@@ -32,6 +32,7 @@ namespace HelpOn.Controllers
             if (ModelState.IsValid)
             {
                 _unit.UnidadeRepository.Cadastrar(unidade);
+                _unit.Salvar();
                 return RedirectToAction("ListarUnidades");
             }
             else
