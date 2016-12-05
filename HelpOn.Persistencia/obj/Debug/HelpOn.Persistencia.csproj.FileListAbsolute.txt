@@ -1,1 +1,12 @@
 C:\Users\W-NOTE\Desktop\HelpOn\HelpOn.Persistencia\obj\Debug\HelpOn.Persistencia.csprojResolveAssemblyReference.cache
+C:\Users\W-NOTE\Desktop\HelpOn\HelpOn.Persistencia\bin\Debug\HelpOn.Persistencia.dll.config
+C:\Users\W-NOTE\Desktop\HelpOn\HelpOn.Persistencia\bin\Debug\HelpOn.Persistencia.dll
+C:\Users\W-NOTE\Desktop\HelpOn\HelpOn.Persistencia\bin\Debug\HelpOn.Persistencia.pdb
+C:\Users\W-NOTE\Desktop\HelpOn\HelpOn.Persistencia\bin\Debug\EntityFramework.dll
+C:\Users\W-NOTE\Desktop\HelpOn\HelpOn.Persistencia\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\W-NOTE\Desktop\HelpOn\HelpOn.Persistencia\bin\Debug\HelpOn.Dominio.dll
+C:\Users\W-NOTE\Desktop\HelpOn\HelpOn.Persistencia\bin\Debug\HelpOn.Dominio.pdb
+C:\Users\W-NOTE\Desktop\HelpOn\HelpOn.Persistencia\bin\Debug\EntityFramework.xml
+C:\Users\W-NOTE\Desktop\HelpOn\HelpOn.Persistencia\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\W-NOTE\Desktop\HelpOn\HelpOn.Persistencia\obj\Debug\HelpOn.Persistencia.dll
+C:\Users\W-NOTE\Desktop\HelpOn\HelpOn.Persistencia\obj\Debug\HelpOn.Persistencia.pdb

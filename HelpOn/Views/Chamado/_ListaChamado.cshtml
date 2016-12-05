@@ -1,0 +1,16 @@
+﻿@model List<HelpOn.Dominio.Models.Andar>
+
+@foreach (var andar in Model)
+{
+    foreach (var laboratorio in andar.Laboratorio)
+    {
+        foreach (var chamado in laboratorio.Chamado)
+        {
+            <tr>
+                <td>@chamado.Descricao</td>
+                <td>@chamado.Processo</td>
+                <td>@chamado.NumeroLab</td>
+            </tr>
+        }
+    }
+}

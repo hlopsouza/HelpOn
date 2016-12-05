@@ -1,0 +1,47 @@
+﻿@model HelpOn.Web.ViewModel.AndarViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<table class="table">
+   <thead>
+       <tr>
+           <td>Chamado</td>
+           <td>Status</td>
+           <td>Laboratorio</td>
+       </tr>
+   </thead>
+    <tbody>
+        @Html.Partial("_listaChamado", Model.Andares)
+    </tbody>
+</table>
+
+<input type="button" class="btn btn-primary" value="Atualizar" id="atualiza" />
+<script>
+
+    $.ajax({
+        url: "localhost:28125/api/andar",
+        method: "GET",
+        success: function (data) {
+            $.each(data, function (index, item) {
+                //Criar uma nova linha
+                var linha = $("<tr>");
+                linha.append($("<td>").text(item.Id));
+                linha.append($("<td>").text(item.Numero));
+                linha.append($("<td>").text(item.UnidadeId));
+
+                $("tbody").html(linha);
+            });
+        }
+    })
+
+    var tempo = window.setInterval(carrega, 3000);
+    function carrega() {
+        
+        }
+    
+   
+   
+
+</script>

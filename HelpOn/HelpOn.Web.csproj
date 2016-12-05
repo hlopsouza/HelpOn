@@ -149,12 +149,17 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ChamadoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Filtros\AutorizacaoFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\AndarViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -170,6 +175,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\ListarUnidades.cshtml" />
+    <Content Include="Views\Chamado\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Chamado\_listaChamado.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -187,6 +195,10 @@
     <ProjectReference Include="..\HelpOn.Dominio\HelpOn.Dominio.csproj">
       <Project>{40aa95c4-6d4f-4a2a-9429-5ae21e4f1c40}</Project>
       <Name>HelpOn.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HelpOn.Persistencia\HelpOn.Persistencia.csproj">
+      <Project>{252ad652-cc40-44f2-ada6-7e268b56b9ea}</Project>
+      <Name>HelpOn.Persistencia</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

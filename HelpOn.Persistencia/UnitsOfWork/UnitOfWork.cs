@@ -27,7 +27,7 @@ namespace HelpOn.Persistencia.UnitOfWork
         {
             get
             {
-                if (_funcionarioRepository == null)
+                if (_gerenteRepository == null)
                 {
                     _gerenteRepository = new GenericRepository<Gerente>(_context);
                 }
