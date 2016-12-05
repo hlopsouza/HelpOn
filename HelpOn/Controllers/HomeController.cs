@@ -15,10 +15,25 @@ namespace HelpOn.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-          
+
             List<Unidade> lista = context.Unidades.ToList();
             ViewBag.Unidades = lista;
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Cadastrar(Unidade unidade)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Unidades.Add(unidade);
+                context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+               // Tratar aqui return View("Index");
+            }
         }
     }
 }
