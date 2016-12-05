@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HelpOnModelStoreContainer" CdmEntityContainer="HelpOnEntities">
+    <EntitySetMapping Name="Andars">
+      <EntityTypeMapping TypeName="HelpOnModel.Andar">
+        <MappingFragment StoreEntitySet="Andar">
+          <ScalarProperty Name="NumeroAndar" ColumnName="NumeroAndar" />
+          <ScalarProperty Name="IDUnidade" ColumnName="IDUnidade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Chamadoes">
+      <EntityTypeMapping TypeName="HelpOnModel.Chamado">
+        <MappingFragment StoreEntitySet="Chamado">
+          <ScalarProperty Name="IDChamado" ColumnName="IDChamado" />
+          <ScalarProperty Name="IDProfessor" ColumnName="IDProfessor" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="Processo" ColumnName="Processo" />
+          <ScalarProperty Name="NumeroLab" ColumnName="NumeroLab" />
+          <ScalarProperty Name="NumeroAndar" ColumnName="NumeroAndar" />
+          <ScalarProperty Name="IDUnidade" ColumnName="IDUnidade" />
+          <ScalarProperty Name="IDMonitor" ColumnName="IDMonitor" />
+          <ScalarProperty Name="DataChamado" ColumnName="DataChamado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gerentes">
+      <EntityTypeMapping TypeName="HelpOnModel.Gerente">
+        <MappingFragment StoreEntitySet="Gerente">
+          <ScalarProperty Name="IDGerente" ColumnName="IDGerente" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+          <ScalarProperty Name="DataCadastro" ColumnName="DataCadastro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Laboratorios">
+      <EntityTypeMapping TypeName="HelpOnModel.Laboratorio">
+        <MappingFragment StoreEntitySet="Laboratorio">
+          <ScalarProperty Name="NumeroLab" ColumnName="NumeroLab" />
+          <ScalarProperty Name="NumeroAndar" ColumnName="NumeroAndar" />
+          <ScalarProperty Name="IDUnidade" ColumnName="IDUnidade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Monitors">
+      <EntityTypeMapping TypeName="HelpOnModel.Monitor">
+        <MappingFragment StoreEntitySet="Monitor">
+          <ScalarProperty Name="IDMonitor" ColumnName="IDMonitor" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+          <ScalarProperty Name="DataCadastro" ColumnName="DataCadastro" />
+          <ScalarProperty Name="NumeroAndar" ColumnName="NumeroAndar" />
+          <ScalarProperty Name="IDUnidade" ColumnName="IDUnidade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Professors">
+      <EntityTypeMapping TypeName="HelpOnModel.Professor">
+        <MappingFragment StoreEntitySet="Professor">
+          <ScalarProperty Name="IDProfessor" ColumnName="IDProfessor" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+          <ScalarProperty Name="DataCadastro" ColumnName="DataCadastro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Unidades">
+      <EntityTypeMapping TypeName="HelpOnModel.Unidade">
+        <MappingFragment StoreEntitySet="Unidade">
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="IDUnidade" ColumnName="IDUnidade" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+          <ScalarProperty Name="Logradouro" ColumnName="Logradouro" />
+          <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+          <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+          <ScalarProperty Name="UF" ColumnName="UF" />
+          <ScalarProperty Name="DataCadastro" ColumnName="DataCadastro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

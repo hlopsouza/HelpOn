@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HelpOnModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Andar">
+    <Key>
+      <PropertyRef Name="NumeroAndar" />
+      <PropertyRef Name="IDUnidade" />
+    </Key>
+    <Property Name="NumeroAndar" Type="Int32" Nullable="false" />
+    <Property Name="IDUnidade" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Unidade" Relationship="Self.FK_Andar_Unidade" FromRole="Andar" ToRole="Unidade" />
+    <NavigationProperty Name="Laboratorios" Relationship="Self.FK_Laboratorio_Unidade" FromRole="Andar" ToRole="Laboratorio" />
+    <NavigationProperty Name="Monitors" Relationship="Self.FK_Monitor_Andar" FromRole="Andar" ToRole="Monitor" />
+  </EntityType>
+  <EntityType Name="Chamado">
+    <Key>
+      <PropertyRef Name="IDChamado" />
+    </Key>
+    <Property Name="IDChamado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDProfessor" Type="Int32" Nullable="false" />
+    <Property Name="Descricao" Type="String" MaxLength="400" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Processo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NumeroLab" Type="Int32" Nullable="false" />
+    <Property Name="NumeroAndar" Type="Int32" Nullable="false" />
+    <Property Name="IDUnidade" Type="Int32" Nullable="false" />
+    <Property Name="IDMonitor" Type="Int32" />
+    <Property Name="DataChamado" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Laboratorio" Relationship="Self.FK_Chamado_Laboratorio" FromRole="Chamado" ToRole="Laboratorio" />
+    <NavigationProperty Name="Monitor" Relationship="Self.FK_Chamado_Monitor" FromRole="Chamado" ToRole="Monitor" />
+    <NavigationProperty Name="Professor" Relationship="Self.FK_Chamado_Professor" FromRole="Chamado" ToRole="Professor" />
+  </EntityType>
+  <EntityType Name="Gerente">
+    <Key>
+      <PropertyRef Name="IDGerente" />
+    </Key>
+    <Property Name="IDGerente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Senha" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DataCadastro" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Laboratorio">
+    <Key>
+      <PropertyRef Name="NumeroLab" />
+      <PropertyRef Name="NumeroAndar" />
+      <PropertyRef Name="IDUnidade" />
+    </Key>
+    <Property Name="NumeroLab" Type="Int32" Nullable="false" />
+    <Property Name="NumeroAndar" Type="Int32" Nullable="false" />
+    <Property Name="IDUnidade" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Andar" Relationship="Self.FK_Laboratorio_Unidade" FromRole="Laboratorio" ToRole="Andar" />
+    <NavigationProperty Name="Chamadoes" Relationship="Self.FK_Chamado_Laboratorio" FromRole="Laboratorio" ToRole="Chamado" />
+  </EntityType>
+  <EntityType Name="Monitor">
+    <Key>
+      <PropertyRef Name="IDMonitor" />
+    </Key>
+    <Property Name="IDMonitor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CPF" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Senha" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DataCadastro" Type="DateTime" Precision="3" />
+    <Property Name="NumeroAndar" Type="Int32" Nullable="false" />
+    <Property Name="IDUnidade" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Andar" Relationship="Self.FK_Monitor_Andar" FromRole="Monitor" ToRole="Andar" />
+    <NavigationProperty Name="Chamadoes" Relationship="Self.FK_Chamado_Monitor" FromRole="Monitor" ToRole="Chamado" />
+  </EntityType>
+  <EntityType Name="Professor">
+    <Key>
+      <PropertyRef Name="IDProfessor" />
+    </Key>
+    <Property Name="IDProfessor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CPF" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Senha" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DataCadastro" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Chamadoes" Relationship="Self.FK_Chamado_Professor" FromRole="Professor" ToRole="Chamado" />
+  </EntityType>
+  <EntityType Name="Unidade">
+    <Key>
+      <PropertyRef Name="IDUnidade" />
+    </Key>
+    <Property Name="IDUnidade" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CEP" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Logradouro" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Complemento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Bairro" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Cidade" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DataCadastro" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Andars" Relationship="Self.FK_Andar_Unidade" FromRole="Unidade" ToRole="Andar" />
+    <Property Name="Numero" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Andar_Unidade">
+    <End Role="Unidade" Type="Self.Unidade" Multiplicity="1" />
+    <End Role="Andar" Type="Self.Andar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unidade">
+        <PropertyRef Name="IDUnidade" />
+      </Principal>
+      <Dependent Role="Andar">
+        <PropertyRef Name="IDUnidade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Laboratorio_Unidade">
+    <End Role="Andar" Type="Self.Andar" Multiplicity="1" />
+    <End Role="Laboratorio" Type="Self.Laboratorio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Andar">
+        <PropertyRef Name="NumeroAndar" />
+        <PropertyRef Name="IDUnidade" />
+      </Principal>
+      <Dependent Role="Laboratorio">
+        <PropertyRef Name="NumeroAndar" />
+        <PropertyRef Name="IDUnidade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Monitor_Andar">
+    <End Role="Andar" Type="Self.Andar" Multiplicity="1" />
+    <End Role="Monitor" Type="Self.Monitor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Andar">
+        <PropertyRef Name="NumeroAndar" />
+        <PropertyRef Name="IDUnidade" />
+      </Principal>
+      <Dependent Role="Monitor">
+        <PropertyRef Name="NumeroAndar" />
+        <PropertyRef Name="IDUnidade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Chamado_Laboratorio">
+    <End Role="Laboratorio" Type="Self.Laboratorio" Multiplicity="1" />
+    <End Role="Chamado" Type="Self.Chamado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Laboratorio">
+        <PropertyRef Name="NumeroLab" />
+        <PropertyRef Name="NumeroAndar" />
+        <PropertyRef Name="IDUnidade" />
+      </Principal>
+      <Dependent Role="Chamado">
+        <PropertyRef Name="NumeroLab" />
+        <PropertyRef Name="NumeroAndar" />
+        <PropertyRef Name="IDUnidade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Chamado_Monitor">
+    <End Role="Monitor" Type="Self.Monitor" Multiplicity="0..1" />
+    <End Role="Chamado" Type="Self.Chamado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Monitor">
+        <PropertyRef Name="IDMonitor" />
+      </Principal>
+      <Dependent Role="Chamado">
+        <PropertyRef Name="IDMonitor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Chamado_Professor">
+    <End Role="Professor" Type="Self.Professor" Multiplicity="1" />
+    <End Role="Chamado" Type="Self.Chamado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Professor">
+        <PropertyRef Name="IDProfessor" />
+      </Principal>
+      <Dependent Role="Chamado">
+        <PropertyRef Name="IDProfessor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HelpOnEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Andars" EntityType="Self.Andar" />
+    <EntitySet Name="Chamadoes" EntityType="Self.Chamado" />
+    <EntitySet Name="Gerentes" EntityType="Self.Gerente" />
+    <EntitySet Name="Laboratorios" EntityType="Self.Laboratorio" />
+    <EntitySet Name="Monitors" EntityType="Self.Monitor" />
+    <EntitySet Name="Professors" EntityType="Self.Professor" />
+    <EntitySet Name="Unidades" EntityType="Self.Unidade" />
+    <AssociationSet Name="FK_Andar_Unidade" Association="Self.FK_Andar_Unidade">
+      <End Role="Unidade" EntitySet="Unidades" />
+      <End Role="Andar" EntitySet="Andars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Laboratorio_Unidade" Association="Self.FK_Laboratorio_Unidade">
+      <End Role="Andar" EntitySet="Andars" />
+      <End Role="Laboratorio" EntitySet="Laboratorios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Monitor_Andar" Association="Self.FK_Monitor_Andar">
+      <End Role="Andar" EntitySet="Andars" />
+      <End Role="Monitor" EntitySet="Monitors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Chamado_Laboratorio" Association="Self.FK_Chamado_Laboratorio">
+      <End Role="Laboratorio" EntitySet="Laboratorios" />
+      <End Role="Chamado" EntitySet="Chamadoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Chamado_Monitor" Association="Self.FK_Chamado_Monitor">
+      <End Role="Monitor" EntitySet="Monitors" />
+      <End Role="Chamado" EntitySet="Chamadoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Chamado_Professor" Association="Self.FK_Chamado_Professor">
+      <End Role="Professor" EntitySet="Professors" />
+      <End Role="Chamado" EntitySet="Chamadoes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
