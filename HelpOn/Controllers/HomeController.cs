@@ -24,16 +24,12 @@ namespace HelpOn.Controllers
         [HttpPost]
         public ActionResult Cadastrar(Unidade unidade)
         {
-            if (ModelState.IsValid)
-            {
+            
                 context.Unidades.Add(unidade);
                 context.SaveChanges();
                 return RedirectToAction("Index");
-            }
-            else
-            {
-               // Tratar aqui return View("Index");
-            }
+          
+            
         }
     }
 }
