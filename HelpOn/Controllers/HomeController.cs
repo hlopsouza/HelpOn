@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HelpOn.Dominio.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,15 @@ namespace HelpOn.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Home
+
+        HelpOnEntities context = new HelpOnEntities();
+
+        [HttpGet]
         public ActionResult Index()
         {
+          
+            List<Unidade> lista = context.Unidades.ToList();
+            ViewBag.Unidades = lista;
             return View();
         }
     }

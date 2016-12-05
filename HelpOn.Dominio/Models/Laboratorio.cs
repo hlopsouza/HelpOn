@@ -7,27 +7,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HelpOn.Dominio.Model
+namespace HelpOn.Dominio.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Professor
+    public partial class Laboratorio
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Professor()
+        public Laboratorio()
         {
-            this.Chamado = new HashSet<Chamado>();
+            this.Chamadoes = new HashSet<Chamado>();
         }
     
-        public int IDProfessor { get; set; }
-        public string Nome { get; set; }
-        public string CPF { get; set; }
-        public string Email { get; set; }
-        public string Senha { get; set; }
-        public Nullable<System.DateTime> DataCadastro { get; set; }
+        public int NumeroLab { get; set; }
+        public int NumeroAndar { get; set; }
+        public int IDUnidade { get; set; }
     
+        public virtual Andar Andar { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Chamado> Chamado { get; set; }
+        public virtual ICollection<Chamado> Chamadoes { get; set; }
     }
 }

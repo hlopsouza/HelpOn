@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c0bb1fe4063c457cbe93ac67e9d1fcc2" Name="Diagram1">
-        <EntityTypeShape EntityType="HelpOnModel.Andar" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+      <Diagram DiagramId="6fa31bff5238483683a2ccf484d071b8" Name="Diagram1">
+        <EntityTypeShape EntityType="HelpOnModel.Andar" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HelpOnModel.Chamado" Width="1.5" PointX="7.5" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="HelpOnModel.Gerente" Width="1.5" PointX="1.5" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HelpOnModel.Gerente" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HelpOnModel.Laboratorio" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="HelpOnModel.Monitor" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="HelpOnModel.Professor" Width="1.5" PointX="8" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="HelpOnModel.Unidade" Width="1.5" PointX="0.5" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HelpOnModel.Monitor" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HelpOnModel.Professor" Width="1.5" PointX="5.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HelpOnModel.Unidade" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
         <AssociationConnector Association="HelpOnModel.FK_Andar_Unidade" ManuallyRouted="false" />
         <AssociationConnector Association="HelpOnModel.FK_Laboratorio_Unidade" ManuallyRouted="false" />
         <AssociationConnector Association="HelpOnModel.FK_Monitor_Andar" ManuallyRouted="false" />

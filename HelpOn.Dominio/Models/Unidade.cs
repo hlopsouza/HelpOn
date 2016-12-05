@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HelpOn.Dominio.Model
+namespace HelpOn.Dominio.Models
 {
     using System;
     using System.Collections.Generic;
@@ -17,7 +17,7 @@ namespace HelpOn.Dominio.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Unidade()
         {
-            this.Andar = new HashSet<Andar>();
+            this.Andars = new HashSet<Andar>();
         }
     
         public int IDUnidade { get; set; }
@@ -29,8 +29,9 @@ namespace HelpOn.Dominio.Model
         public string Cidade { get; set; }
         public string UF { get; set; }
         public Nullable<System.DateTime> DataCadastro { get; set; }
+        public int Numero { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Andar> Andar { get; set; }
+        public virtual ICollection<Andar> Andars { get; set; }
     }
 }

@@ -3,5 +3,59 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<br />
+
+<div class="panel panel-default">
+    <div class="panel-body tabs">
+        <ul class="nav nav-pills">
+            <li class="active">
+                <a href="#listarunidade" data-toggle="tab">
+                    <i class="glyphicon glyphicon-map-marker"></i> Unidades Cadastradas
+                </a>
+            </li>
+            <li>
+                <a href="#cadastrarunidade" data-toggle="tab">
+                    <i class="glyphicon glyphicon-edit"></i> Cadastro de Unidades
+                </a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="listarunidade">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Unidade</th>
+                            <th>Logradouro</th>
+                            <th>Número</th>
+                            <th>CEP</th>
+                            <th>Bairro</th>
+                            <th>Cidade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var unidade in ViewBag.Unidades)
+                        {
+                            <tr>
+                                <td>@unidade.Nome</td>
+                                <td>@unidade.Logradouro</td>
+                                <td>@unidade.Numero</td>
+                                <td>@unidade.CEP</td>
+                                <td>@unidade.Bairro</td>
+                                <td>@unidade.Cidade</td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="cadastrarunidade">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget rutrum purus. Donec hendrerit ante ac metus sagittis elementum. Mauris feugiat nisl sit amet neque luctus, a tincidunt odio auctor. </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
 

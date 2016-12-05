@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HelpOn.Dominio.Model
+namespace HelpOn.Dominio.Models
 {
     using System;
     using System.Collections.Generic;

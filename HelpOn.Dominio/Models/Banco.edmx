@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HelpOnModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="HelpOnModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Andar">
           <Key>
             <PropertyRef Name="NumeroAndar" />
@@ -84,6 +84,7 @@
           <Property Name="Cidade" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="UF" Type="varchar" MaxLength="2" Nullable="false" />
           <Property Name="DataCadastro" Type="datetime" />
+          <Property Name="Numero" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Andar_Unidade">
           <End Role="Unidade" Type="Self.Unidade" Multiplicity="1" />
@@ -198,8 +199,7 @@
             <End Role="Monitor" EntitySet="Monitor" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HelpOnModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -211,8 +211,8 @@
           <Property Name="NumeroAndar" Type="Int32" Nullable="false" />
           <Property Name="IDUnidade" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Unidade" Relationship="Self.FK_Andar_Unidade" FromRole="Andar" ToRole="Unidade" />
-          <NavigationProperty Name="Laboratorio" Relationship="Self.FK_Laboratorio_Unidade" FromRole="Andar" ToRole="Laboratorio" />
-          <NavigationProperty Name="Monitor" Relationship="Self.FK_Monitor_Andar" FromRole="Andar" ToRole="Monitor" />
+          <NavigationProperty Name="Laboratorios" Relationship="Self.FK_Laboratorio_Unidade" FromRole="Andar" ToRole="Laboratorio" />
+          <NavigationProperty Name="Monitors" Relationship="Self.FK_Monitor_Andar" FromRole="Andar" ToRole="Monitor" />
         </EntityType>
         <EntityType Name="Chamado">
           <Key>
@@ -251,7 +251,7 @@
           <Property Name="NumeroAndar" Type="Int32" Nullable="false" />
           <Property Name="IDUnidade" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Andar" Relationship="Self.FK_Laboratorio_Unidade" FromRole="Laboratorio" ToRole="Andar" />
-          <NavigationProperty Name="Chamado" Relationship="Self.FK_Chamado_Laboratorio" FromRole="Laboratorio" ToRole="Chamado" />
+          <NavigationProperty Name="Chamadoes" Relationship="Self.FK_Chamado_Laboratorio" FromRole="Laboratorio" ToRole="Chamado" />
         </EntityType>
         <EntityType Name="Monitor">
           <Key>
@@ -266,7 +266,7 @@
           <Property Name="NumeroAndar" Type="Int32" Nullable="false" />
           <Property Name="IDUnidade" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Andar" Relationship="Self.FK_Monitor_Andar" FromRole="Monitor" ToRole="Andar" />
-          <NavigationProperty Name="Chamado" Relationship="Self.FK_Chamado_Monitor" FromRole="Monitor" ToRole="Chamado" />
+          <NavigationProperty Name="Chamadoes" Relationship="Self.FK_Chamado_Monitor" FromRole="Monitor" ToRole="Chamado" />
         </EntityType>
         <EntityType Name="Professor">
           <Key>
@@ -278,7 +278,7 @@
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Senha" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DataCadastro" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Chamado" Relationship="Self.FK_Chamado_Professor" FromRole="Professor" ToRole="Chamado" />
+          <NavigationProperty Name="Chamadoes" Relationship="Self.FK_Chamado_Professor" FromRole="Professor" ToRole="Chamado" />
         </EntityType>
         <EntityType Name="Unidade">
           <Key>
@@ -293,7 +293,8 @@
           <Property Name="Cidade" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="UF" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DataCadastro" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Andar" Relationship="Self.FK_Andar_Unidade" FromRole="Unidade" ToRole="Andar" />
+          <NavigationProperty Name="Andars" Relationship="Self.FK_Andar_Unidade" FromRole="Unidade" ToRole="Andar" />
+          <Property Name="Numero" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="FK_Andar_Unidade">
           <End Role="Unidade" Type="Self.Unidade" Multiplicity="1" />
@@ -376,36 +377,36 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="HelpOnEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Andar" EntityType="Self.Andar" />
-          <EntitySet Name="Chamado" EntityType="Self.Chamado" />
-          <EntitySet Name="Gerente" EntityType="Self.Gerente" />
-          <EntitySet Name="Laboratorio" EntityType="Self.Laboratorio" />
-          <EntitySet Name="Monitor" EntityType="Self.Monitor" />
-          <EntitySet Name="Professor" EntityType="Self.Professor" />
-          <EntitySet Name="Unidade" EntityType="Self.Unidade" />
+          <EntitySet Name="Andars" EntityType="Self.Andar" />
+          <EntitySet Name="Chamadoes" EntityType="Self.Chamado" />
+          <EntitySet Name="Gerentes" EntityType="Self.Gerente" />
+          <EntitySet Name="Laboratorios" EntityType="Self.Laboratorio" />
+          <EntitySet Name="Monitors" EntityType="Self.Monitor" />
+          <EntitySet Name="Professors" EntityType="Self.Professor" />
+          <EntitySet Name="Unidades" EntityType="Self.Unidade" />
           <AssociationSet Name="FK_Andar_Unidade" Association="Self.FK_Andar_Unidade">
-            <End Role="Unidade" EntitySet="Unidade" />
-            <End Role="Andar" EntitySet="Andar" />
+            <End Role="Unidade" EntitySet="Unidades" />
+            <End Role="Andar" EntitySet="Andars" />
           </AssociationSet>
           <AssociationSet Name="FK_Laboratorio_Unidade" Association="Self.FK_Laboratorio_Unidade">
-            <End Role="Andar" EntitySet="Andar" />
-            <End Role="Laboratorio" EntitySet="Laboratorio" />
+            <End Role="Andar" EntitySet="Andars" />
+            <End Role="Laboratorio" EntitySet="Laboratorios" />
           </AssociationSet>
           <AssociationSet Name="FK_Monitor_Andar" Association="Self.FK_Monitor_Andar">
-            <End Role="Andar" EntitySet="Andar" />
-            <End Role="Monitor" EntitySet="Monitor" />
+            <End Role="Andar" EntitySet="Andars" />
+            <End Role="Monitor" EntitySet="Monitors" />
           </AssociationSet>
           <AssociationSet Name="FK_Chamado_Laboratorio" Association="Self.FK_Chamado_Laboratorio">
-            <End Role="Laboratorio" EntitySet="Laboratorio" />
-            <End Role="Chamado" EntitySet="Chamado" />
+            <End Role="Laboratorio" EntitySet="Laboratorios" />
+            <End Role="Chamado" EntitySet="Chamadoes" />
           </AssociationSet>
           <AssociationSet Name="FK_Chamado_Monitor" Association="Self.FK_Chamado_Monitor">
-            <End Role="Monitor" EntitySet="Monitor" />
-            <End Role="Chamado" EntitySet="Chamado" />
+            <End Role="Monitor" EntitySet="Monitors" />
+            <End Role="Chamado" EntitySet="Chamadoes" />
           </AssociationSet>
           <AssociationSet Name="FK_Chamado_Professor" Association="Self.FK_Chamado_Professor">
-            <End Role="Professor" EntitySet="Professor" />
-            <End Role="Chamado" EntitySet="Chamado" />
+            <End Role="Professor" EntitySet="Professors" />
+            <End Role="Chamado" EntitySet="Chamadoes" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -414,7 +415,7 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="HelpOnModelStoreContainer" CdmEntityContainer="HelpOnEntities">
-          <EntitySetMapping Name="Andar">
+          <EntitySetMapping Name="Andars">
             <EntityTypeMapping TypeName="HelpOnModel.Andar">
               <MappingFragment StoreEntitySet="Andar">
                 <ScalarProperty Name="NumeroAndar" ColumnName="NumeroAndar" />
@@ -422,7 +423,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Chamado">
+          <EntitySetMapping Name="Chamadoes">
             <EntityTypeMapping TypeName="HelpOnModel.Chamado">
               <MappingFragment StoreEntitySet="Chamado">
                 <ScalarProperty Name="IDChamado" ColumnName="IDChamado" />
@@ -437,7 +438,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Gerente">
+          <EntitySetMapping Name="Gerentes">
             <EntityTypeMapping TypeName="HelpOnModel.Gerente">
               <MappingFragment StoreEntitySet="Gerente">
                 <ScalarProperty Name="IDGerente" ColumnName="IDGerente" />
@@ -448,7 +449,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Laboratorio">
+          <EntitySetMapping Name="Laboratorios">
             <EntityTypeMapping TypeName="HelpOnModel.Laboratorio">
               <MappingFragment StoreEntitySet="Laboratorio">
                 <ScalarProperty Name="NumeroLab" ColumnName="NumeroLab" />
@@ -457,7 +458,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Monitor">
+          <EntitySetMapping Name="Monitors">
             <EntityTypeMapping TypeName="HelpOnModel.Monitor">
               <MappingFragment StoreEntitySet="Monitor">
                 <ScalarProperty Name="IDMonitor" ColumnName="IDMonitor" />
@@ -471,7 +472,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Professor">
+          <EntitySetMapping Name="Professors">
             <EntityTypeMapping TypeName="HelpOnModel.Professor">
               <MappingFragment StoreEntitySet="Professor">
                 <ScalarProperty Name="IDProfessor" ColumnName="IDProfessor" />
@@ -483,9 +484,10 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Unidade">
+          <EntitySetMapping Name="Unidades">
             <EntityTypeMapping TypeName="HelpOnModel.Unidade">
               <MappingFragment StoreEntitySet="Unidade">
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
                 <ScalarProperty Name="IDUnidade" ColumnName="IDUnidade" />
                 <ScalarProperty Name="Nome" ColumnName="Nome" />
                 <ScalarProperty Name="CEP" ColumnName="CEP" />
@@ -512,7 +514,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
