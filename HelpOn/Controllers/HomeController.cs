@@ -13,11 +13,16 @@ namespace HelpOn.Controllers
         HelpOnEntities context = new HelpOnEntities();
 
         [HttpGet]
+        public ActionResult ListarUnidades()
+        {
+            List<Unidade> unidades = context.Unidade.ToList();
+            ViewBag.Unidades = unidades;
+            return View();
+        }
+
+        [HttpGet]
         public ActionResult Index()
         {
-
-            List<Unidade> lista = context.Unidades.ToList();
-            ViewBag.Unidades = lista;
             return View();
         }
 
@@ -25,11 +30,10 @@ namespace HelpOn.Controllers
         public ActionResult Cadastrar(Unidade unidade)
         {
             
-                context.Unidades.Add(unidade);
+                context.Unidade.Add(unidade);
                 context.SaveChanges();
-                return RedirectToAction("Index");
-          
-            
+                return RedirectToAction("ListarUnidades");
+         
         }
     }
 }

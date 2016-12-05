@@ -5,6 +5,5 @@ C:\Users\Henrique\Documents\Visual Studio 2015\Projects\HelpOn\HelpOn.Dominio\bi
 C:\Users\Henrique\Documents\Visual Studio 2015\Projects\HelpOn\HelpOn.Dominio\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Henrique\Documents\Visual Studio 2015\Projects\HelpOn\HelpOn.Dominio\bin\Debug\EntityFramework.xml
 C:\Users\Henrique\Documents\Visual Studio 2015\Projects\HelpOn\HelpOn.Dominio\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Henrique\Documents\Visual Studio 2015\Projects\HelpOn\HelpOn.Dominio\obj\Debug\HelpOn.Dominio.csprojResolveAssemblyReference.cache
 C:\Users\Henrique\Documents\Visual Studio 2015\Projects\HelpOn\HelpOn.Dominio\obj\Debug\HelpOn.Dominio.dll
 C:\Users\Henrique\Documents\Visual Studio 2015\Projects\HelpOn\HelpOn.Dominio\obj\Debug\HelpOn.Dominio.pdb

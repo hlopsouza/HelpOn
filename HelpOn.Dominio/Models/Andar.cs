@@ -17,8 +17,8 @@ namespace HelpOn.Dominio.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Andar()
         {
-            this.Laboratorios = new HashSet<Laboratorio>();
-            this.Monitors = new HashSet<Monitor>();
+            this.Laboratorio = new HashSet<Laboratorio>();
+            this.Monitor = new HashSet<Monitor>();
         }
     
         public int NumeroAndar { get; set; }
@@ -26,8 +26,8 @@ namespace HelpOn.Dominio.Models
     
         public virtual Unidade Unidade { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Laboratorio> Laboratorios { get; set; }
+        public virtual ICollection<Laboratorio> Laboratorio { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Monitor> Monitors { get; set; }
+        public virtual ICollection<Monitor> Monitor { get; set; }
     }
 }

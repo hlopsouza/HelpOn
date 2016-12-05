@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "ListarUnidades";
+}
+
+<br>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <i class="glyphicon glyphicon-map-marker"></i>Unidades cadastradas
+    </div>
+    <div class="panel-body">
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Unidade</th>
+                    <th>Logradouro</th>
+                    <th>Número</th>
+                    <th>CEP</th>
+                    <th>Bairro</th>
+                    <th>Cidade</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var unidade in ViewBag.Unidades)
+                {
+                    <tr>
+                        <td>@unidade.Nome</td>
+                        <td>@unidade.Logradouro</td>
+                        <td>@unidade.Numero</td>
+                        <td>@unidade.CEP</td>
+                        <td>@unidade.Bairro</td>
+                        <td>@unidade.Cidade</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

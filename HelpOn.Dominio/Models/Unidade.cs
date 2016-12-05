@@ -17,20 +17,20 @@ namespace HelpOn.Dominio.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Unidade()
         {
-            this.Andars = new HashSet<Andar>();
+            this.Andar = new HashSet<Andar>();
         }
     
         public int IDUnidade { get; set; }
         public string Nome { get; set; }
         public string CEP { get; set; }
         public string Logradouro { get; set; }
+        public int Numero { get; set; }
         public string Complemento { get; set; }
         public string Bairro { get; set; }
         public string Cidade { get; set; }
         public Nullable<System.DateTime> DataCadastro { get; set; }
-        public int Numero { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Andar> Andars { get; set; }
+        public virtual ICollection<Andar> Andar { get; set; }
     }
 }

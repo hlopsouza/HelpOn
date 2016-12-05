@@ -169,6 +169,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Home\ListarUnidades.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -184,7 +185,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HelpOn.Dominio\HelpOn.Dominio.csproj">
-      <Project>{855b1296-d4d8-4b9a-9b27-e2dd2c92680a}</Project>
+      <Project>{40aa95c4-6d4f-4a2a-9429-5ae21e4f1c40}</Project>
       <Name>HelpOn.Dominio</Name>
     </ProjectReference>
   </ItemGroup>

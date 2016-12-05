@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{855B1296-D4D8-4B9A-9B27-E2DD2C92680A}</ProjectGuid>
+    <ProjectGuid>{40AA95C4-6D4F-4A2A-9429-5AE21E4F1C40}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HelpOn.Dominio</RootNamespace>
@@ -87,7 +87,6 @@
     <Compile Include="Models\Unidade.cs">
       <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\UnidadeMetadado.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -25,12 +25,12 @@ namespace HelpOn.Dominio.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Andar> Andars { get; set; }
-        public virtual DbSet<Chamado> Chamadoes { get; set; }
-        public virtual DbSet<Gerente> Gerentes { get; set; }
-        public virtual DbSet<Laboratorio> Laboratorios { get; set; }
-        public virtual DbSet<Monitor> Monitors { get; set; }
-        public virtual DbSet<Professor> Professors { get; set; }
-        public virtual DbSet<Unidade> Unidades { get; set; }
+        public virtual DbSet<Andar> Andar { get; set; }
+        public virtual DbSet<Chamado> Chamado { get; set; }
+        public virtual DbSet<Gerente> Gerente { get; set; }
+        public virtual DbSet<Laboratorio> Laboratorio { get; set; }
+        public virtual DbSet<Monitor> Monitor { get; set; }
+        public virtual DbSet<Professor> Professor { get; set; }
+        public virtual DbSet<Unidade> Unidade { get; set; }
     }
 }

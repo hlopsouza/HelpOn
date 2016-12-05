@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="HelpOnModelStoreContainer" CdmEntityContainer="HelpOnEntities">
-    <EntitySetMapping Name="Andars">
+    <EntitySetMapping Name="Andar">
       <EntityTypeMapping TypeName="HelpOnModel.Andar">
         <MappingFragment StoreEntitySet="Andar">
           <ScalarProperty Name="NumeroAndar" ColumnName="NumeroAndar" />
@@ -9,7 +9,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Chamadoes">
+    <EntitySetMapping Name="Chamado">
       <EntityTypeMapping TypeName="HelpOnModel.Chamado">
         <MappingFragment StoreEntitySet="Chamado">
           <ScalarProperty Name="IDChamado" ColumnName="IDChamado" />
@@ -24,7 +24,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Gerentes">
+    <EntitySetMapping Name="Gerente">
       <EntityTypeMapping TypeName="HelpOnModel.Gerente">
         <MappingFragment StoreEntitySet="Gerente">
           <ScalarProperty Name="IDGerente" ColumnName="IDGerente" />
@@ -35,7 +35,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Laboratorios">
+    <EntitySetMapping Name="Laboratorio">
       <EntityTypeMapping TypeName="HelpOnModel.Laboratorio">
         <MappingFragment StoreEntitySet="Laboratorio">
           <ScalarProperty Name="NumeroLab" ColumnName="NumeroLab" />
@@ -44,7 +44,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Monitors">
+    <EntitySetMapping Name="Monitor">
       <EntityTypeMapping TypeName="HelpOnModel.Monitor">
         <MappingFragment StoreEntitySet="Monitor">
           <ScalarProperty Name="IDMonitor" ColumnName="IDMonitor" />
@@ -58,7 +58,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Professors">
+    <EntitySetMapping Name="Professor">
       <EntityTypeMapping TypeName="HelpOnModel.Professor">
         <MappingFragment StoreEntitySet="Professor">
           <ScalarProperty Name="IDProfessor" ColumnName="IDProfessor" />
@@ -70,18 +70,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Unidades">
+    <EntitySetMapping Name="Unidade">
       <EntityTypeMapping TypeName="HelpOnModel.Unidade">
         <MappingFragment StoreEntitySet="Unidade">
-          <ScalarProperty Name="Numero" ColumnName="Numero" />
           <ScalarProperty Name="IDUnidade" ColumnName="IDUnidade" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
           <ScalarProperty Name="CEP" ColumnName="CEP" />
           <ScalarProperty Name="Logradouro" ColumnName="Logradouro" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
           <ScalarProperty Name="Complemento" ColumnName="Complemento" />
           <ScalarProperty Name="Bairro" ColumnName="Bairro" />
           <ScalarProperty Name="Cidade" ColumnName="Cidade" />
-          <ScalarProperty Name="UF" ColumnName="UF" />
           <ScalarProperty Name="DataCadastro" ColumnName="DataCadastro" />
         </MappingFragment>
       </EntityTypeMapping>

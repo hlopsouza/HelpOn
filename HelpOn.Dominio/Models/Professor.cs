@@ -17,7 +17,7 @@ namespace HelpOn.Dominio.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Professor()
         {
-            this.Chamadoes = new HashSet<Chamado>();
+            this.Chamado = new HashSet<Chamado>();
         }
     
         public int IDProfessor { get; set; }
@@ -28,6 +28,6 @@ namespace HelpOn.Dominio.Models
         public Nullable<System.DateTime> DataCadastro { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Chamado> Chamadoes { get; set; }
+        public virtual ICollection<Chamado> Chamado { get; set; }
     }
 }
