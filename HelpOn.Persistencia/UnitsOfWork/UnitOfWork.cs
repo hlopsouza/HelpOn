@@ -75,6 +75,19 @@ namespace HelpOn.Persistencia.UnitOfWork
             }
         }
 
+        private IGenericRepository<Chamado> _chamadoRepository;
+        public IGenericRepository<Chamado> ChamadoRepository
+        {
+            get
+            {
+                if (_chamadoRepository == null)
+                {
+                    _chamadoRepository = new GenericRepository<Chamado>(_context);
+                }
+                return _chamadoRepository;
+            }
+        }
+
         public void Salvar()
         {
             _context.SaveChanges();

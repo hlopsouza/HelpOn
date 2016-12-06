@@ -1,9 +1,37 @@
 ﻿@model HelpOn.Web.ViewModel.AndarViewModel
 @{
     ViewBag.Title = "Index";
+    
 }
 
 <h2>Index</h2>
+@using (Ajax.BeginForm("Buscar", null, new AjaxOptions
+{
+    HttpMethod = "get",
+    UpdateTargetId = "tabela",
+    InsertionMode = InsertionMode.Replace
+},
+                new { @id = "formularioBusca", @class = "form-inline", @method = "get" }))
+{
+    <div class="col-md-3">
+        <select name="Processo" class="form-control">
+            <option value="Aberto" selected="selected">Aberto</option>
+            <option value="Atendido">Atendido</option>
+            <option value="Solucionado">Solucionado</option>
+        </select>
+    </div>
+    <div class="col-md-3">
+        <select name="NumeroLab" class="form-control">
+            @foreach (var andar in Model.Andares)
+            {
+                <option value="@andar.NumeroAndar">Unidade: @andar.Unidade.IDUnidade  Laboratorio: @andar.NumeroAndar</option>
+            }
+
+
+        </select>
+    </div>
+    <input type="submit" value="Buscar" />
+}
 <table class="table">
    <thead>
        <tr>
@@ -12,8 +40,8 @@
            <td>Laboratorio</td>
        </tr>
    </thead>
-    <tbody>
-        @Html.Partial("_listaChamado", Model.Andares)
+    <tbody id="tabela">
+        @Html.Partial("_listaChamado", Model.Laboratorios)
     </tbody>
 </table>
 

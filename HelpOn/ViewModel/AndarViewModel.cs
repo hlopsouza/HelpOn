@@ -9,6 +9,7 @@ namespace HelpOn.Web.ViewModel
 {
     public class AndarViewModel
     {
+        public SelectList ListaAndar { get; set; }
         public ICollection<Laboratorio> Laboratorios { get; set; }
         public ICollection<Andar> Andares { get; set; }
         public int Id { get; set; }
