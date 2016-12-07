@@ -1,4 +1,6 @@
 ﻿
+@model ICollection<HelpOn.Dominio.Models.Unidade>
+
 @{
     ViewBag.Title = "ListarUnidades";
 }
@@ -23,7 +25,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var unidade in ViewBag.Unidades)
+                @foreach (var unidade in Model)
                 {
                     <tr>
                         <td>@unidade.Nome</td>

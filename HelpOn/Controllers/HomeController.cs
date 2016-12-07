@@ -12,13 +12,13 @@ namespace HelpOn.Controllers
     {
 
         UnitOfWork _unit = new UnitOfWork();
+
         [HttpGet]
         public ActionResult ListarUnidades()
         {
 
             ICollection<Unidade> unidades = _unit.UnidadeRepository.Listar();
-            ViewBag.Unidades = unidades;
-            return View();
+            return View(unidades);
         }
 
         [HttpGet]
