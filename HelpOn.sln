@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelpOn.Dominio", "HelpOn.Do
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelpOn.Persistencia", "HelpOn.Persistencia\HelpOn.Persistencia.csproj", "{252AD652-CC40-44F2-ADA6-7E268B56B9EA}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "HelpOn.Database", "HelpOn.Database\HelpOn.Database.sqlproj", "{D4467AFC-8A33-4170-8C34-0C1D0C8D5817}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,12 @@ Global
 		{252AD652-CC40-44F2-ADA6-7E268B56B9EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{252AD652-CC40-44F2-ADA6-7E268B56B9EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{252AD652-CC40-44F2-ADA6-7E268B56B9EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4467AFC-8A33-4170-8C34-0C1D0C8D5817}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4467AFC-8A33-4170-8C34-0C1D0C8D5817}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4467AFC-8A33-4170-8C34-0C1D0C8D5817}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D4467AFC-8A33-4170-8C34-0C1D0C8D5817}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4467AFC-8A33-4170-8C34-0C1D0C8D5817}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4467AFC-8A33-4170-8C34-0C1D0C8D5817}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

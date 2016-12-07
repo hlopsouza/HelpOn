@@ -9,7 +9,7 @@ namespace HelpOn.Persistencia.Repositories
 {
    public class ChamadoRepository : GenericRepository<Chamado>, IChamadoRepository
     {
-        public ChamadoRepository(HelpOnEntities context) : base(context)
+        public ChamadoRepository(BancoContext context) : base(context)
         {
         }
 

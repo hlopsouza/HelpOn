@@ -29,10 +29,10 @@ namespace HelpOn.Web.Controllers
         [HttpPost]
         public ActionResult Index(string Email, string Senha)
         {
-            var gerente = _unit.GerenteRepository.BuscarLogin(a => a.Email.Contains(Email) && a.Senha == Senha);
-            if (gerente != null)
+            var Funcionario = _unit.FuncionarioRepository.BuscarLogin(a => a.Email.Contains(Email) && a.Senha == Senha);
+            if (Funcionario != null)
             {
-                Session["usuarioLogado"] = gerente;
+                Session["usuarioLogado"] = Funcionario;
                 return RedirectToAction("Index", "Chamado");
             }
            return RedirectToAction("Index", new { msg = "Login ou Senha incorretos" });

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="HelpOnModelStoreContainer" CdmEntityContainer="HelpOnEntities">
+  <EntityContainerMapping StorageEntityContainer="HelpOnDatabaseModelStoreContainer" CdmEntityContainer="BancoContext">
     <EntitySetMapping Name="Andar">
-      <EntityTypeMapping TypeName="HelpOnModel.Andar">
+      <EntityTypeMapping TypeName="HelpOn.DatabaseModel.Andar">
         <MappingFragment StoreEntitySet="Andar">
           <ScalarProperty Name="NumeroAndar" ColumnName="NumeroAndar" />
           <ScalarProperty Name="IDUnidade" ColumnName="IDUnidade" />
@@ -10,33 +10,34 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Chamado">
-      <EntityTypeMapping TypeName="HelpOnModel.Chamado">
+      <EntityTypeMapping TypeName="HelpOn.DatabaseModel.Chamado">
         <MappingFragment StoreEntitySet="Chamado">
           <ScalarProperty Name="IDChamado" ColumnName="IDChamado" />
-          <ScalarProperty Name="IDProfessor" ColumnName="IDProfessor" />
           <ScalarProperty Name="Descricao" ColumnName="Descricao" />
           <ScalarProperty Name="Processo" ColumnName="Processo" />
           <ScalarProperty Name="NumeroLab" ColumnName="NumeroLab" />
           <ScalarProperty Name="NumeroAndar" ColumnName="NumeroAndar" />
           <ScalarProperty Name="IDUnidade" ColumnName="IDUnidade" />
-          <ScalarProperty Name="IDMonitor" ColumnName="IDMonitor" />
+          <ScalarProperty Name="IDFuncionario" ColumnName="IDFuncionario" />
           <ScalarProperty Name="DataChamado" ColumnName="DataChamado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Gerente">
-      <EntityTypeMapping TypeName="HelpOnModel.Gerente">
-        <MappingFragment StoreEntitySet="Gerente">
-          <ScalarProperty Name="IDGerente" ColumnName="IDGerente" />
+    <EntitySetMapping Name="Funcionario">
+      <EntityTypeMapping TypeName="HelpOn.DatabaseModel.Funcionario">
+        <MappingFragment StoreEntitySet="Funcionario">
+          <ScalarProperty Name="IDFuncionario" ColumnName="IDFuncionario" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Senha" ColumnName="Senha" />
           <ScalarProperty Name="DataCadastro" ColumnName="DataCadastro" />
+          <ScalarProperty Name="Nivel" ColumnName="Nivel" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Laboratorio">
-      <EntityTypeMapping TypeName="HelpOnModel.Laboratorio">
+      <EntityTypeMapping TypeName="HelpOn.DatabaseModel.Laboratorio">
         <MappingFragment StoreEntitySet="Laboratorio">
           <ScalarProperty Name="NumeroLab" ColumnName="NumeroLab" />
           <ScalarProperty Name="NumeroAndar" ColumnName="NumeroAndar" />
@@ -44,34 +45,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Monitor">
-      <EntityTypeMapping TypeName="HelpOnModel.Monitor">
-        <MappingFragment StoreEntitySet="Monitor">
-          <ScalarProperty Name="IDMonitor" ColumnName="IDMonitor" />
-          <ScalarProperty Name="Nome" ColumnName="Nome" />
-          <ScalarProperty Name="CPF" ColumnName="CPF" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Senha" ColumnName="Senha" />
-          <ScalarProperty Name="DataCadastro" ColumnName="DataCadastro" />
-          <ScalarProperty Name="NumeroAndar" ColumnName="NumeroAndar" />
-          <ScalarProperty Name="IDUnidade" ColumnName="IDUnidade" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Professor">
-      <EntityTypeMapping TypeName="HelpOnModel.Professor">
-        <MappingFragment StoreEntitySet="Professor">
-          <ScalarProperty Name="IDProfessor" ColumnName="IDProfessor" />
-          <ScalarProperty Name="Nome" ColumnName="Nome" />
-          <ScalarProperty Name="CPF" ColumnName="CPF" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Senha" ColumnName="Senha" />
-          <ScalarProperty Name="DataCadastro" ColumnName="DataCadastro" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Unidade">
-      <EntityTypeMapping TypeName="HelpOnModel.Unidade">
+      <EntityTypeMapping TypeName="HelpOn.DatabaseModel.Unidade">
         <MappingFragment StoreEntitySet="Unidade">
           <ScalarProperty Name="IDUnidade" ColumnName="IDUnidade" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />

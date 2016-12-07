@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace HelpOn.Web.ViewModel
 {
-    public class AndarViewModel
+    public class ChamadoViewModel
     {
         public SelectList ListaAndar { get; set; }
         public ICollection<Laboratorio> Laboratorios { get; set; }

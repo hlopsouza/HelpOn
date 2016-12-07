@@ -11,10 +11,10 @@ namespace HelpOn.Persistencia.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        private HelpOnEntities _context;
+        private BancoContext _context;
         protected DbSet<T> _dbSet;
 
-        public GenericRepository(HelpOnEntities context)
+        public GenericRepository(BancoContext context)
         {
             _context = context;
             _dbSet = _context.Set<T>();

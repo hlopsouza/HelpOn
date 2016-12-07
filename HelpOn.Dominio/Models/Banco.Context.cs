@@ -13,10 +13,10 @@ namespace HelpOn.Dominio.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class HelpOnEntities : DbContext
+    public partial class BancoContext : DbContext
     {
-        public HelpOnEntities()
-            : base("name=HelpOnEntities")
+        public BancoContext()
+            : base("name=BancoContext")
         {
         }
     
@@ -27,10 +27,8 @@ namespace HelpOn.Dominio.Models
     
         public virtual DbSet<Andar> Andar { get; set; }
         public virtual DbSet<Chamado> Chamado { get; set; }
-        public virtual DbSet<Gerente> Gerente { get; set; }
+        public virtual DbSet<Funcionario> Funcionario { get; set; }
         public virtual DbSet<Laboratorio> Laboratorio { get; set; }
-        public virtual DbSet<Monitor> Monitor { get; set; }
-        public virtual DbSet<Professor> Professor { get; set; }
         public virtual DbSet<Unidade> Unidade { get; set; }
     }
 }

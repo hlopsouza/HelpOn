@@ -10,7 +10,7 @@ namespace HelpOn.Persistencia.UnitOfWork
 {
     public class UnitOfWork : IDisposable
     {
-        private HelpOnEntities _context = new HelpOnEntities();
+        private BancoContext _context = new BancoContext();
         public void Dispose()
         {
             if (_context != null)
@@ -23,16 +23,16 @@ namespace HelpOn.Persistencia.UnitOfWork
 
 
 
-        private IGenericRepository<Gerente> _gerenteRepository;
-        public IGenericRepository<Gerente> GerenteRepository
+        private IGenericRepository<Funcionario> _FuncionarioRepository;
+        public IGenericRepository<Funcionario> FuncionarioRepository
         {
             get
             {
-                if (_gerenteRepository == null)
+                if (_FuncionarioRepository == null)
                 {
-                    _gerenteRepository = new GenericRepository<Gerente>(_context);
+                    _FuncionarioRepository = new GenericRepository<Funcionario>(_context);
                 }
-                return _gerenteRepository;
+                return _FuncionarioRepository;
             }
         }
 

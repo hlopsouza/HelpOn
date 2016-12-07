@@ -12,24 +12,22 @@ namespace HelpOn.Dominio.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Monitor
+    public partial class Funcionario
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Monitor()
+        public Funcionario()
         {
             this.Chamado = new HashSet<Chamado>();
         }
     
-        public int IDMonitor { get; set; }
+        public int IDFuncionario { get; set; }
         public string Nome { get; set; }
         public string CPF { get; set; }
         public string Email { get; set; }
         public string Senha { get; set; }
         public Nullable<System.DateTime> DataCadastro { get; set; }
-        public int NumeroAndar { get; set; }
-        public int IDUnidade { get; set; }
+        public string Nivel { get; set; }
     
-        public virtual Andar Andar { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Chamado> Chamado { get; set; }
     }

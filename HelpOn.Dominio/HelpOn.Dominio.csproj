@@ -55,46 +55,48 @@
       <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Banco.Context.cs">
-      <DependentUpon>Banco.Context.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>Banco.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Banco.cs">
-      <DependentUpon>Banco.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Banco.Designer.cs">
-      <DependentUpon>Banco.edmx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>Banco.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Chamado.cs">
       <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Gerente.cs">
+    <Compile Include="Models\Funcionario.cs">
       <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Laboratorio.cs">
       <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Monitor.cs">
-      <DependentUpon>Banco.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\PartialsClass\UnidadeMetadado.cs" />
-    <Compile Include="Models\Professor.cs">
-      <DependentUpon>Banco.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Unidade.cs">
       <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
     <EntityDeploy Include="Models\Banco.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Banco.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Models\Banco.edmx.diagram">
+      <DependentUpon>Banco.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Models\Banco.Context.tt">
@@ -107,18 +109,6 @@
       <DependentUpon>Banco.edmx</DependentUpon>
       <LastGenOutput>Banco.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Models\Banco.edmx.diagram">
-      <DependentUpon>Banco.edmx</DependentUpon>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -18,10 +18,9 @@ namespace HelpOn.Web.Controllers
         // GET: Chamado
         public ActionResult Index()
         {
-            var viewModel = new AndarViewModel()
+            var viewModel = new ChamadoViewModel()
             {
                 Andares = _unit.AndarRepository.Listar(),
-                Laboratorios = _unit.LaboratorioRepository.Listar(),
                 ListaAndar = ListaAndar(),
                 Chamados = _unit.ChamadoRepository.BuscarChamadosAbertos()
                
