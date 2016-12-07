@@ -31,15 +31,24 @@ namespace HelpOn.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult Buscar(string Processo, int? NumeroLab)
+        public ActionResult Buscar(string Processo, int? NumeroAndar)
         {
             ICollection<Chamado> lista;
 
             lista = _unit.ChamadoRepository.BuscarPor(c => c.Processo.Contains(Processo) &&
-            (c.NumeroLab == NumeroLab || Processo == null));
+            (c.NumeroAndar == NumeroAndar || Processo == null));
 
 
             return PartialView("_listaChamado", lista);
+        }
+
+        [HttpPost]
+        public ActionResult AtenderChamado(int IDChamado, String Processo)
+        {
+            var chamado = _unit.ChamadoRepository.BuscarPorId(IDChamado);
+            chamado.Processo = "Em Processo";
+            _unit.ChamadoRepository.Atualizar(chamado);
+            return PartialView("_listaChamado", _unit.ChamadoRepository.Listar());
         }
 
         public SelectList ListaAndar()
