@@ -16,7 +16,7 @@ namespace HelpOn.Controllers
         [HttpGet]
         public ActionResult ListarUnidades()
         {
-
+            var msg = TempData["mensagem"];
             ICollection<Unidade> unidades = _unit.UnidadeRepository.Listar();
             return View(unidades);
         }
@@ -36,6 +36,7 @@ namespace HelpOn.Controllers
             {
                 _unit.UnidadeRepository.Cadastrar(unidade);
                 _unit.Salvar();
+                TempData["mensagem"] = "Unidade cadastrada com sucesso!";
                 return RedirectToAction("ListarUnidades");
             }
             else

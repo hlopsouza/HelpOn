@@ -1,0 +1,13 @@
+﻿@helper Message(object mensagem, string classe, string svgclasse, string useclasse)
+{
+if (@mensagem != null)
+{
+        <br>
+
+
+        <div class="@classe" role="alert">
+            <svg class="@svgclasse"><use xlink:href="@useclasse"></use></svg>
+            @mensagem
+        </div>
+}
+}

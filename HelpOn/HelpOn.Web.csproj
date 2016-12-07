@@ -134,6 +134,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="App_Code\HelperMensagens.cshtml" />
     <None Include="Properties\PublishProfiles\FabricaHelpOn - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\FabricaHelpOn - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\HelpOn.pubxml" />
