@@ -15,7 +15,7 @@ namespace HelpOn.Controllers
         [HttpGet]
         public ActionResult ListarUnidades()
         {
-            
+
             ICollection<Unidade> unidades = _unit.UnidadeRepository.Listar();
             ViewBag.Unidades = unidades;
             return View();
@@ -24,23 +24,10 @@ namespace HelpOn.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            ViewBag.IP = Request.UserHostAddress.ToString();
-            string IP  =  Request.UserHostAddress.ToString();
-            if (IP.Equals("10.20.24.41") )
-            {
-                return RedirectToAction("Professor");
-            }
-            else
-            {
-                return View();
-            }
-          
-        }
 
-        public ActionResult Professor()
-        {
             return View();
         }
+
 
         [HttpPost]
         public ActionResult Cadastrar(Unidade unidade)
@@ -55,9 +42,6 @@ namespace HelpOn.Controllers
             {
                 return View("Index");
             }
-           
-            
-         
         }
 
         protected override void Dispose(bool disposing)

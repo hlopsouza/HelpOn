@@ -179,7 +179,6 @@
     <Content Include="Views\Chamado\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Chamado\_listaChamado.cshtml" />
-    <Content Include="Views\Home\Professor.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
