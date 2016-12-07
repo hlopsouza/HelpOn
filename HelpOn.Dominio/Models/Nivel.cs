@@ -12,25 +12,18 @@ namespace HelpOn.Dominio.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Funcionario
+    public partial class Nivel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Funcionario()
+        public Nivel()
         {
-            this.Chamado = new HashSet<Chamado>();
+            this.Funcionario = new HashSet<Funcionario>();
         }
     
-        public int IDFuncionario { get; set; }
+        public int IdNivel { get; set; }
         public string Nome { get; set; }
-        public string CPF { get; set; }
-        public string Email { get; set; }
-        public string Senha { get; set; }
-        public Nullable<System.DateTime> DataCadastro { get; set; }
-        public string Nivel { get; set; }
-        public int IDNivel { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Chamado> Chamado { get; set; }
-        public virtual Nivel Nivel1 { get; set; }
+        public virtual ICollection<Funcionario> Funcionario { get; set; }
     }
 }

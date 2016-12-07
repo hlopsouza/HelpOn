@@ -23,6 +23,7 @@ namespace HelpOn.Dominio.Models
         public int NumeroLab { get; set; }
         public int NumeroAndar { get; set; }
         public int IDUnidade { get; set; }
+        public string IPMaquinaProf { get; set; }
     
         public virtual Andar Andar { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
