@@ -8,7 +8,7 @@
         <EntityTypeShape EntityType="HelpOnModel.Andar" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HelpOnModel.Chamado" Width="1.5" PointX="7.5" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="HelpOnModel.Gerente" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HelpOnModel.Laboratorio" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HelpOnModel.Laboratorio" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HelpOnModel.Monitor" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="HelpOnModel.Professor" Width="1.5" PointX="5.25" PointY="9.5" IsExpanded="true" />
         <EntityTypeShape EntityType="HelpOnModel.Unidade" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />

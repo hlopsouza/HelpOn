@@ -1,18 +1,18 @@
-﻿@model List<HelpOn.Dominio.Models.Laboratorio>
+﻿@model List<HelpOn.Dominio.Models.Chamado>
 
 
-    @foreach (var laboratorio in Model)
-    {
-        foreach (var chamado in laboratorio.Chamado)
+    
+    
+        @foreach (var chamado in Model)
         {
-            if(chamado.Processo == "Aberto")
-            {
+            
+            
             <tr>
                 <td>@chamado.Descricao</td>
                 <td>@chamado.Processo</td>
                 <td>@chamado.NumeroLab</td>
             </tr>
-            }
-        }
+            
+        
     }
 

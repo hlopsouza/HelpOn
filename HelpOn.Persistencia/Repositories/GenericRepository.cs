@@ -12,7 +12,7 @@ namespace HelpOn.Persistencia.Repositories
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private HelpOnEntities _context;
-        private DbSet<T> _dbSet;
+        protected DbSet<T> _dbSet;
 
         public GenericRepository(HelpOnEntities context)
         {

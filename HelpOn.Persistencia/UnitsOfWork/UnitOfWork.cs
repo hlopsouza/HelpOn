@@ -75,14 +75,14 @@ namespace HelpOn.Persistencia.UnitOfWork
             }
         }
 
-        private IGenericRepository<Chamado> _chamadoRepository;
-        public IGenericRepository<Chamado> ChamadoRepository
+        private IChamadoRepository _chamadoRepository;
+        public IChamadoRepository ChamadoRepository
         {
             get
             {
                 if (_chamadoRepository == null)
                 {
-                    _chamadoRepository = new GenericRepository<Chamado>(_context);
+                    _chamadoRepository = new ChamadoRepository(_context);
                 }
                 return _chamadoRepository;
             }

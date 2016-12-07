@@ -12,6 +12,7 @@ namespace HelpOn.Web.ViewModel
         public SelectList ListaAndar { get; set; }
         public ICollection<Laboratorio> Laboratorios { get; set; }
         public ICollection<Andar> Andares { get; set; }
+        public ICollection<Chamado> Chamados { get; set; }
         public int Id { get; set; }
         public Nullable<int> Numero { get; set; }
         public Nullable<int> UnidadeId { get; set; }

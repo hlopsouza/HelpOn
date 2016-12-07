@@ -14,14 +14,15 @@
                 new { @id = "formularioBusca", @class = "form-inline", @method = "get" }))
 {
     <div class="col-md-3">
-        <select name="Processo" class="form-control">
+        <select name="Processo" class="form-control" id="ProcessoSelect">
             <option value="Aberto" selected="selected">Aberto</option>
             <option value="Atendido">Atendido</option>
             <option value="Solucionado">Solucionado</option>
+            <option value="">Todos</option>
         </select>
     </div>
     <div class="col-md-3">
-        <select name="NumeroLab" class="form-control">
+        <select name="NumeroLab" class="form-control" id="LaboratorioSelect">
             @foreach (var andar in Model.Andares)
             {
                 <option value="@andar.NumeroAndar">Unidade: @andar.Unidade.IDUnidade  Laboratorio: @andar.NumeroAndar</option>
@@ -30,7 +31,7 @@
 
         </select>
     </div>
-    <input type="submit" value="Buscar" />
+    <button type="submit" class="btn btn-default">Cadastrar </button>
 }
 <table class="table">
    <thead>
@@ -41,12 +42,24 @@
        </tr>
    </thead>
     <tbody id="tabela">
-        @Html.Partial("_listaChamado", Model.Laboratorios)
+        @Html.Partial("_listaChamado", Model.Chamados)
     </tbody>
 </table>
 
 <input type="button" class="btn btn-primary" value="Atualizar" id="atualiza" />
+@section scripts{
 <script>
+    $().ready(function () {
+        $("#ProcessoSelect").change(function () {
+            $("#formularioBusca").submit();
+        });
+        
+        $("LaboratorioSelect").change(function () {
+            $("#formularioBusca").submit();
+        });
+        
+
+    })
 
     $.ajax({
         url: "localhost:28125/api/andar",
@@ -66,10 +79,11 @@
 
     var tempo = window.setInterval(carrega, 3000);
     function carrega() {
-        
-        }
-    
-   
+
+    }
+
    
 
+
 </script>
+}
