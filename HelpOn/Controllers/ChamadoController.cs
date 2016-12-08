@@ -46,9 +46,11 @@ namespace HelpOn.Web.Controllers
         public ActionResult AtenderChamado(int IDChamado, String Processo)
         {
             var chamado = _unit.ChamadoRepository.BuscarPorId(IDChamado);
-            chamado.Processo = "Em Processo";
+            chamado.Processo = Processo;
             _unit.ChamadoRepository.Atualizar(chamado);
-            return PartialView("_listaChamado", _unit.ChamadoRepository.Listar());
+            _unit.Salvar();
+            ICollection<Chamado> lista = _unit.ChamadoRepository.BuscarChamadosAbertos();
+            return PartialView("_listaChamado", lista);
         }
 
         public SelectList ListaAndar()

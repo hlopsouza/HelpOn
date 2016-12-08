@@ -59,11 +59,19 @@
                 Deseja atender o chamado ?
             </div>
             <div class="modal-footer">
-                @using (Html.BeginForm("AtenderChamado", "Chamado"))
+                @using (Ajax.BeginForm("AtenderChamado", null, new AjaxOptions
+                {
+                    HttpMethod = "post",
+                    UpdateTargetId = "tabela",
+                    InsertionMode = InsertionMode.Replace
+                },
+            new { @id = "mudaProcessos", @class = "form-inline", @method = "post" }))
                 {
                     <input type="hidden" id="IDChamado" name="IDChamado" />
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-                    <button type="submit" class="btn btn-danger" value="Em Processo" id="Em Processo" name="Processo">Sim</button>
+                    <button type="submit" class="btn btn-primary botaoChamado" value="Aberto" id="Aberto" name="Processo">Aberto</button>
+                    <button type="submit" class="btn btn-warning botaoChamado" value="Em Processo" id="EmProcesso" name="Processo">Em Processo</button>
+                    <button type="submit" class="btn btn-danger botaoChamado" value="Fechado" id="Fechado" name="Processo">Fechado</button>
+                    <button type="button" class="btn btn-default botaoFechaModel" data-dismiss="modal">Cancelar</button>
                 }
             </div>
         </div>
@@ -74,6 +82,14 @@
 @section scripts{
 <script>
     $().ready(function () {
+
+        $(".botaoChamado").click(function () {
+            
+                $(".botaoFechaModel").trigger('click');
+                $(".botaoFechaModel").trigger('click');
+
+        });
+
         $("#ProcessoSelect").change(function () {
             $("#formularioBusca").submit();
         });
@@ -100,10 +116,7 @@
         }
     })
 
-    var tempo = window.setInterval(carrega, 3000);
-    function carrega() {
-
-    }
+    
 
    
 
