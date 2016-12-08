@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<br>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <i class="glyphicon glyphicon-edit"></i>Cadastrar Funcionário
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <br />
+
+
+
+                @using (@Html.BeginForm("Cadastrar", "Funcionario", "POST"))
+                {
+                    <div class="form-horizontal">
+                        <fieldset>
+                            <!-- Nome -->
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="Nome">Nome</label>
+                                <div class="col-md-10">
+                                    <input id="Nome" name="Nome" type="text" placeholder="Nome do funcionário" class="form-control" autofocus>
+                                    @Html.ValidationMessage("Nome", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+                            <!-- CPF -->
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="CPF">CPF</label>
+                                <div class="col-md-10">
+                                    <input id="CPF" name="CPF" type="text" placeholder="Informe o CPF" class="form-control">
+                                    @Html.ValidationMessage("CPF", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <!-- E-mail -->
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="Email">E-mail</label>
+                                <div class="col-md-10">
+                                    <input id="Email" name="Email" type="email" placeholder="Informe o e-mail" class="form-control">
+                                    @Html.ValidationMessage("Email", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <!-- Nível -->
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="IDNivel">Nível</label>
+                                <div class="col-md-10">
+                                  <select id="IDNivel" name="IDNivel" class="form-control">
+                                      @foreach (var nivel in ViewBag.Nivel)
+                                      {
+                                        <option value="@nivel.IDNivel">@nivel.Nome</option>
+                                      }
+                                     
+                                  </select>
+                                </div>
+                            </div>
+
+                            <!-- Senha -->
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="Senha">Senha</label>
+                                <div class="col-md-10">
+                                    <input id="Senha" name="Senha" type="password" placeholder="******" class="form-control">
+                                    @Html.ValidationMessage("Senha", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+
+
+                            <!-- Form actions -->
+                            <div class="form-group">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-10">
+                                    <br />
+                                    <button type="submit" class="btn btn-default">
+                                        <i class="glyphicon glyphicon-floppy-disk"></i> Cadastrar
+                                    </button>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section scripts{
+    <script>
+        $().ready(function () {
+
+            // Add máscara ao CPF
+            $("#CPF").mask("999.999.999-99");
+
+        });
+
+    </script>
+}
+
+
+
+
+
+
