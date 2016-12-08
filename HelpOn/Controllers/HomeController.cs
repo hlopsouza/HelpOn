@@ -58,6 +58,15 @@ namespace HelpOn.Controllers
             return View("ListarUnidades");
         }
 
+        [HttpPost]
+        public ActionResult Excluir(int IDUnidade)
+        {
+            _unit.UnidadeRepository.Remover(IDUnidade);
+            _unit.Salvar();
+            TempData["mensagem"] = "Unidade removida com sucesso!";
+            return RedirectToAction("ListarUnidades");
+        }
+
         [HttpGet]
         public ActionResult Details(int id)
         {
