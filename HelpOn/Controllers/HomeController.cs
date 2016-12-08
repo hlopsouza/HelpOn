@@ -31,7 +31,7 @@ namespace HelpOn.Controllers
             //string IP = Request.UserHostAddress.ToString();
 
             //String para usar no test - Deve ser um IP que esteja cadastrado no Banco para chamar Laboratorio
-            string IP = "10.20.24.41";
+            string IP = "10.20.21.41";
 
             var listaLab = _unit.LaboratorioRepository.Listar();
 
@@ -39,7 +39,7 @@ namespace HelpOn.Controllers
             {
                 if (IP.Equals(lab.IPMaquinaProf))
                 {
-                    return RedirectToAction("Laboratorio");
+                    return RedirectToAction("Laboratorio", "Laboratorio");
                 }
                
             }
@@ -47,33 +47,7 @@ namespace HelpOn.Controllers
             return View();
         }
 
-        [HttpGet]
-        public ActionResult Laboratorio()
-        {
-            //ViewBag.IP = Request.UserHostAddress.ToString();
-            //string IP = Request.UserHostAddress.ToString();
-
-            string IP = "10.20.24.41";
-
-            //Captura a substring do IP e constrói o número do Laboratório
-            StringBuilder ips = new StringBuilder();
-            ips.Append(IP.Substring(6, 1));
-            ips.Append("0");
-            ips.Append(IP.Substring(7, 1));
-            IP = ips.ToString();
-            var IPLab = Int32.Parse(IP);
-
-            var viewModel = new ChamadoViewModel()
-            {
-                Lab = _unit.LaboratorioRepository.BuscarPorUnitario(lab => lab.NumeroLab == IPLab),
-              
-
-            };
-
-            return View(viewModel);
-        }
-
-
+  
         [HttpPost]
         public ActionResult Cadastrar(Unidade unidade)
         {

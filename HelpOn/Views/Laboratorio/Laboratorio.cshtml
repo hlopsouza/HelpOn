@@ -1,0 +1,96 @@
+﻿@model HelpOn.Web.ViewModel.ChamadoViewModel
+
+@{
+    ViewBag.Title = "Laboratorio";
+}
+
+<h2>Laboratorio</h2>
+
+
+<div id="botoes">
+    <div style="float:left;width:45%">
+        <button class="btn btn-custom btn-lg btn-block" id="solicitarMonitor" data-toggle="modal" data-target="#myModal">Solicitar Monitor</button>
+        <button class="btn btn-custom btn-lg btn-block" id="bloquearInternet" data-toggle="modal" data-target="#myModal">Bloquear Internet</button>
+        <button class="btn btn-custom btn-lg btn-block" id="liberarInternet" data-toggle="modal" data-target="#myModal">Liberar Internet</button>
+        <button class="btn btn-custom btn-lg btn-block" id="bloquearPublico" data-toggle="modal" data-target="#myModal">Bloquear HD Público</button>
+
+    </div>
+    <div style="float:right;width:45%">
+        <button class="btn btn-custom btn-lg btn-block" id="liberarPublico" data-toggle="modal" data-target="#myModal">Liberar HD Público</button>
+        <button class="btn btn-custom btn-lg btn-block" id="bloquearPortal" data-toggle="modal" data-target="#myModal">Bloquear Portal do Aluno</button>
+        <button class="btn btn-custom btn-lg btn-block" id="liberarPortal" data-toggle="modal" data-target="#myModal">Liberar Portal do Aluno</button>
+        <button class="btn btn-custom btn-lg btn-block" id="alterarAC" data-toggle="modal" data-target="#myModal">Alterar °C Ar Condicionado</button>
+    </div>
+</div>
+
+ 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Atenção!</h4>
+            </div>
+            <div class="modal-body">
+               
+            </div>
+            <div class="modal-footer">
+                @using (Html.BeginForm("Cadastrar", "Chamado", "POST"))
+                {
+                    @Html.HiddenFor(c => c.Descricao)
+                    @Html.HiddenFor(c => c.Processo, new { @Value = "Aberto" })
+                    @Html.HiddenFor(c => c.NumeroLab, new { @Value = Model.Lab.NumeroLab })
+                    @Html.HiddenFor(c => c.NumeroAndar, new { @Value = Model.Lab.NumeroAndar })
+                    @Html.HiddenFor(c => c.IDUnidade, new { @Value = Model.Lab.IDUnidade })
+                    @Html.HiddenFor(c => c.DataChamado, new { @Value = DateTime.Now })
+                    
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-custom">Enviar Solicitação</button>
+                }   
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+  <script>
+      $().ready(function () {
+          $("#botoes button").click(function () {
+
+              if ($(this).html() == "Solicitar Monitor") {
+                  $("#Descricao").val("Monitor Requisitado no Laboratório");
+                  $(".modal-body").html("Deseja Realmente solicitar um Monitor?");                  
+              } else
+                  if ($(this).html() == "Bloquear Internet") {
+                      $("#Descricao").val("Bloquear Internet");
+                      $(".modal-body").html("Deseja realmente solicitar o bloqueio da Internet no Laboratório?");
+                  } else
+                      if ($(this).html() == "Liberar Internet") {
+                          $("#Descricao").val("Liberar Internet");
+                          $(".modal-body").html("Deseja realmente solicitar a liberação da Internet no Laboratório?");
+                      } else
+                          if ($(this).html() == "Bloquear HD Público") {
+                              $("#Descricao").val("Bloquear HD Público");
+                              $(".modal-body").html("Deseja realmente solicitar o bloqueio do HD Público no Laboratório?");
+                          } else
+                              if ($(this).html() == "Liberar HD Público") {
+                                  $("#Descricao").val("Liberar HD Público");
+                                  $(".modal-body").html("Deseja realmente solicitar a liberação do HD Público no Laboratório?");
+                              } else
+                                  if ($(this).html() == "Bloquear Portal do Aluno") {
+                                      $("#Descricao").val("Bloquear Portal do Aluno");
+                                      $(".modal-body").html("Deseja realmente solicitar o bloqueio do Portal do Aluno no Laboratório?");
+                                  } else
+                                      if ($(this).html() == "Liberar Portal do Aluno") {
+                                          $("#Descricao").val("Liberar Portal do Aluno");
+                                          $(".modal-body").html("Deseja realmente solicitar a liberação do Portal do Aluno no Laboratório?");
+                                      } else
+                                          if ($(this).html() == "Alterar °C Ar Condicionado") {
+                                              $("#Descricao").val("Alterar °C Ar Condicionado");
+                                              $(".modal-body").html("Deseja realmente solicitar a alteração de Temperatura do Ar Condicionado no Laboratório?");
+                                          }
+          });
+      });
+</script>
+}
