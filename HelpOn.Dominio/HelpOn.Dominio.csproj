@@ -75,6 +75,9 @@
     <Compile Include="Models\C__RefactorLog.cs">
       <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Descricao.cs">
+      <DependentUpon>Banco.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Funcionario.cs">
       <DependentUpon>Banco.tt</DependentUpon>
     </Compile>

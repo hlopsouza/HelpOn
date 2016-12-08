@@ -28,6 +28,7 @@ namespace HelpOn.Dominio.Models
         public virtual DbSet<C__RefactorLog> C__RefactorLog { get; set; }
         public virtual DbSet<Andar> Andar { get; set; }
         public virtual DbSet<Chamado> Chamado { get; set; }
+        public virtual DbSet<Descricao> Descricao { get; set; }
         public virtual DbSet<Funcionario> Funcionario { get; set; }
         public virtual DbSet<Laboratorio> Laboratorio { get; set; }
         public virtual DbSet<Nivel> Nivel { get; set; }

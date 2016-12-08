@@ -15,15 +15,18 @@ namespace HelpOn.Dominio.Models
     public partial class Chamado
     {
         public int IDChamado { get; set; }
-        public string Descricao { get; set; }
+        public int IDDescricao { get; set; }
         public string Processo { get; set; }
         public int NumeroLab { get; set; }
         public int NumeroAndar { get; set; }
         public int IDUnidade { get; set; }
         public Nullable<int> IDFuncionario { get; set; }
         public Nullable<System.DateTime> DataChamado { get; set; }
+        public Nullable<int> IDNivel { get; set; }
     
+        public virtual Descricao Descricao { get; set; }
         public virtual Funcionario Funcionario { get; set; }
         public virtual Laboratorio Laboratorio { get; set; }
+        public virtual Nivel Nivel { get; set; }
     }
 }

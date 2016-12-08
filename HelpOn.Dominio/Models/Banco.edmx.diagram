@@ -4,19 +4,22 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="78a22b56949e4ace9f0d9805ad721402" Name="Diagram1">
-        <EntityTypeShape EntityType="HelpOnModel.C__RefactorLog" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HelpOnModel.Andar" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HelpOnModel.Chamado" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="HelpOnModel.Funcionario" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="HelpOnModel.Laboratorio" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HelpOnModel.Nivel" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HelpOnModel.Unidade" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="HelpOnModel.FK_Andar_Unidade" ManuallyRouted="false" />
-        <AssociationConnector Association="HelpOnModel.FK_Laboratorio_Andar" ManuallyRouted="false" />
-        <AssociationConnector Association="HelpOnModel.FK_Chamado_Funcionario" ManuallyRouted="false" />
-        <AssociationConnector Association="HelpOnModel.FK_Chamado_Laboratorio" ManuallyRouted="false" />
-        <AssociationConnector Association="HelpOnModel.PK_Funcionario_Nivel" ManuallyRouted="false" />
+      <Diagram DiagramId="56e7c1da67eb4705afad03b916879f8d" Name="Diagram1">
+        <EntityTypeShape EntityType="HelpOn.DatabaseModel.C__RefactorLog" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HelpOn.DatabaseModel.Andar" Width="1.5" PointX="0.75" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HelpOn.DatabaseModel.Chamado" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HelpOn.DatabaseModel.Descricao" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HelpOn.DatabaseModel.Funcionario" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HelpOn.DatabaseModel.Laboratorio" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HelpOn.DatabaseModel.Nivel" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HelpOn.DatabaseModel.Unidade" Width="1.5" PointX="1.5" PointY="15.75" IsExpanded="true" />
+        <AssociationConnector Association="HelpOn.DatabaseModel.FK_Andar_Unidade" ManuallyRouted="false" />
+        <AssociationConnector Association="HelpOn.DatabaseModel.FK_Laboratorio_Andar" ManuallyRouted="false" />
+        <AssociationConnector Association="HelpOn.DatabaseModel.FK_Chamado_Descricao" ManuallyRouted="false" />
+        <AssociationConnector Association="HelpOn.DatabaseModel.FK_Chamado_Funcionario" ManuallyRouted="false" />
+        <AssociationConnector Association="HelpOn.DatabaseModel.FK_Chamado_Laboratorio" ManuallyRouted="false" />
+        <AssociationConnector Association="HelpOn.DatabaseModel.FK_Chamado_Nivel" ManuallyRouted="false" />
+        <AssociationConnector Association="HelpOn.DatabaseModel.PK_Funcionario_Nivel" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
