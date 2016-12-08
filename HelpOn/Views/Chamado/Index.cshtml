@@ -16,16 +16,16 @@
     <div class="col-md-3">
         <select name="Processo" class="form-control" id="ProcessoSelect">
             <option value="Aberto" selected="selected">Aberto</option>
-            <option value="Atendido">Atendido</option>
-            <option value="Solucionado">Solucionado</option>
+            <option value="Em Processo">Em Processo</option>
+            <option value="Fechado">Fechado</option>
             <option value="">Todos</option>
         </select>
     </div>
     <div class="col-md-3">
-        <select name="NumeroLab" class="form-control" id="LaboratorioSelect">
+        <select name="NumeroAndar" class="form-control" id="LaboratorioSelect">
             @foreach (var andar in Model.Andares)
             {
-                <option value="@andar.NumeroAndar">Unidade: @andar.Unidade.IDUnidade  Laboratorio: @andar.NumeroAndar</option>
+                <option value="@andar.NumeroAndar">Unidade: @andar.Unidade.IDUnidade  Andar: @andar.NumeroAndar</option>
             }
 
 
@@ -38,6 +38,8 @@
        <tr>
            <td>Chamado</td>
            <td>Status</td>
+           <td>Unidade</td>
+           <td>Andar</td>
            <td>Laboratorio</td>
        </tr>
    </thead>
@@ -45,19 +47,56 @@
         @Html.Partial("_listaChamado", Model.Chamados)
     </tbody>
 </table>
+<!---- Modal ------>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Confirmação</h4>
+            </div>
+            <div class="modal-body">
+                Deseja atender o chamado ?
+            </div>
+            <div class="modal-footer">
+                @using (Ajax.BeginForm("AtenderChamado", null, new AjaxOptions
+                {
+                    HttpMethod = "post",
+                    UpdateTargetId = "tabela",
+                    InsertionMode = InsertionMode.Replace
+                },
+            new { @id = "mudaProcessos", @class = "form-inline", @method = "post" }))
+                {
+                    <input type="hidden" id="IDChamado" name="IDChamado" />
+                    <button type="submit" class="btn btn-primary botaoChamado" value="Aberto" id="Aberto" name="Processo">Aberto</button>
+                    <button type="submit" class="btn btn-warning botaoChamado" value="Em Processo" id="EmProcesso" name="Processo">Em Processo</button>
+                    <button type="submit" class="btn btn-danger botaoChamado" value="Fechado" id="Fechado" name="Processo">Fechado</button>
+                    <button type="button" class="btn btn-default botaoFechaModel" data-dismiss="modal">Cancelar</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
 
 <input type="button" class="btn btn-primary" value="Atualizar" id="atualiza" />
 @section scripts{
 <script>
     $().ready(function () {
+
+        $(".botaoChamado").click(function () {
+            
+                $(".botaoFechaModel").trigger('click');
+                $(".botaoFechaModel").trigger('click');
+
+        });
+
         $("#ProcessoSelect").change(function () {
             $("#formularioBusca").submit();
         });
         
-        $("LaboratorioSelect").change(function () {
+        $("#LaboratorioSelect").change(function () {
             $("#formularioBusca").submit();
         });
-        
 
     })
 
@@ -77,10 +116,7 @@
         }
     })
 
-    var tempo = window.setInterval(carrega, 3000);
-    function carrega() {
-
-    }
+    
 
    
 

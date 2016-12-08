@@ -1,6 +1,6 @@
 ﻿@model List<HelpOn.Dominio.Models.Chamado>
 
-
+       
     
     
         @foreach (var chamado in Model)
@@ -9,7 +9,13 @@
             
             <tr>
                 <td>@chamado.Descricao</td>
-                <td>@chamado.Processo</td>
+                <td>
+                    <button onclick="IDChamado.value = @chamado.IDChamado" type="button" class="@chamado.Processo" data-toggle="modal" data-target="#myModal">
+                        @chamado.Processo
+                    </button>
+                </td>
+                <td>@chamado.IDUnidade</td>
+                <td>@chamado.NumeroAndar</td>
                 <td>@chamado.NumeroLab</td>
             </tr>
             
