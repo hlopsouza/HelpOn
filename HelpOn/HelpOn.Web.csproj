@@ -163,6 +163,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\ChamadoViewModel.cs" />
+    <Compile Include="ViewModel\FuncionarioViewModel.cs" />
     <Compile Include="ViewModel\UnidadeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +187,7 @@
     <Content Include="Views\Unidade\Edit.cshtml" />
     <Content Include="Views\Funcionario\Cadastrar.cshtml" />
     <Content Include="Views\Funcionario\ListarFuncionarios.cshtml" />
+    <Content Include="Views\Funcionario\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
