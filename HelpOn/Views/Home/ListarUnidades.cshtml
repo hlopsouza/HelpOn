@@ -23,8 +23,6 @@
                     <th>Unidade</th>
                     <th>Logradouro</th>
                     <th>Número</th>
-                    <th>CEP</th>
-                    <th>Bairro</th>
                     <th>Cidade</th>
                     <th>Opções</th>
                 </tr>
@@ -36,14 +34,14 @@
                         <td>@unidade.Nome</td>
                         <td>@unidade.Logradouro</td>
                         <td>@unidade.Numero</td>
-                        <td>@unidade.CEP</td>
-                        <td>@unidade.Bairro</td>
                         <td>@unidade.Cidade</td>
                         <td>
 
                             <button class="btn btn-default details" data-id="@unidade.IDUnidade"><i class="glyphicon glyphicon-file"></i></button>
-                            <button class="btn btn-danger delete" data-id="@unidade.IDUnidade"><i class="glyphicon glyphicon-trash"></i></button>
-                            <button class="btn btn-primary edit" data-id="@unidade.IDUnidade"><i class="glyphicon glyphicon-edit"></i></button>
+                            <button class="btn btn-info edit" data-id="@unidade.IDUnidade"><i class="glyphicon glyphicon-edit"></i></button>
+                            <button class="btn btn-danger delete" onclick="IDUnidade.value = @unidade.IDUnidade" data-toggle="modal" data-target="#deletar">
+                                <i class="glyphicon glyphicon-trash"></i>
+                            </button>
                         </td>
                     </tr>
                 }
@@ -52,6 +50,29 @@
         </table>
         <div class="modal fade" id="modal">
 
+        </div>
+    </div>
+</div>
+
+<!-- Modal Deletar Unidade -->
+<div class="modal fade" id="deletar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 align="center" class="modal-title" id="myModalLabel">Confirmação de Exclusão</h3>
+            </div>
+            <div class="modal-body">
+                Tem certeza que deseja excluir essa unidade?
+            </div>
+            <div class="modal-footer">
+                @using (Html.BeginForm("Excluir", "Home","POST"))
+                {
+                    <input type="hidden" id="IDUnidade" name="IDUnidade" />
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Não</button>
+                    <button type="submit" class="btn btn-danger">Sim</button>
+                }
+            </div>
         </div>
     </div>
 </div>
