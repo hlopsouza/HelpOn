@@ -27,7 +27,7 @@ namespace HelpOn.Web.Controllers
 
                 
             };
-            return View(viewModel);
+            return View("ListaChamados",viewModel);
         }
 
         [HttpGet]

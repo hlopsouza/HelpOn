@@ -20,7 +20,7 @@ namespace HelpOn.Dominio.Models
             this.Funcionario = new HashSet<Funcionario>();
         }
     
-        public int IdNivel { get; set; }
+        public int IDNivel { get; set; }
         public string Nome { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

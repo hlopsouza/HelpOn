@@ -1,5 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="HelpOnModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="HelpOn.DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__RefactorLog">
+    <Key>
+      <PropertyRef Name="OperationKey" />
+    </Key>
+    <Property Name="OperationKey" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
   <EntityType Name="Andar">
     <Key>
       <PropertyRef Name="NumeroAndar" />
@@ -46,9 +52,9 @@
   </EntityType>
   <EntityType Name="Nivel">
     <Key>
-      <PropertyRef Name="IdNivel" />
+      <PropertyRef Name="IDNivel" />
     </Key>
-    <Property Name="IdNivel" Type="int" Nullable="false" />
+    <Property Name="IDNivel" Type="int" Nullable="false" />
     <Property Name="Nome" Type="varchar" MaxLength="80" Nullable="false" />
   </EntityType>
   <EntityType Name="Unidade">
@@ -124,14 +130,15 @@
     <End Role="Funcionario" Type="Self.Funcionario" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Nivel">
-        <PropertyRef Name="IdNivel" />
+        <PropertyRef Name="IDNivel" />
       </Principal>
       <Dependent Role="Funcionario">
         <PropertyRef Name="IDNivel" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="HelpOnModelStoreContainer">
+  <EntityContainer Name="HelpOnDatabaseModelStoreContainer">
+    <EntitySet Name="__RefactorLog" EntityType="Self.__RefactorLog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Andar" EntityType="Self.Andar" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Chamado" EntityType="Self.Chamado" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Funcionario" EntityType="Self.Funcionario" Schema="dbo" store:Type="Tables" />

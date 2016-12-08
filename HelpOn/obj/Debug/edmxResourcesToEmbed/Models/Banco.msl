@@ -39,7 +39,7 @@
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Senha" ColumnName="Senha" />
           <ScalarProperty Name="DataCadastro" ColumnName="DataCadastro" />
-          <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+          <ScalarProperty Name="IDNivel" ColumnName="IDNivel" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -49,6 +49,15 @@
           <ScalarProperty Name="NumeroLab" ColumnName="NumeroLab" />
           <ScalarProperty Name="NumeroAndar" ColumnName="NumeroAndar" />
           <ScalarProperty Name="IDUnidade" ColumnName="IDUnidade" />
+          <ScalarProperty Name="IPMaquinaProf" ColumnName="IPMaquinaProf" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nivel">
+      <EntityTypeMapping TypeName="HelpOn.DatabaseModel.Nivel">
+        <MappingFragment StoreEntitySet="Nivel">
+          <ScalarProperty Name="IDNivel" ColumnName="IDNivel" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

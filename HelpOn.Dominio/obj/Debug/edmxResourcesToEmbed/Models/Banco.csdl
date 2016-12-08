@@ -1,5 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="HelpOnModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="HelpOn.DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__RefactorLog">
+    <Key>
+      <PropertyRef Name="OperationKey" />
+    </Key>
+    <Property Name="OperationKey" Type="Guid" Nullable="false" />
+  </EntityType>
   <EntityType Name="Andar">
     <Key>
       <PropertyRef Name="NumeroAndar" />
@@ -54,9 +60,9 @@
   </EntityType>
   <EntityType Name="Nivel">
     <Key>
-      <PropertyRef Name="IdNivel" />
+      <PropertyRef Name="IDNivel" />
     </Key>
-    <Property Name="IdNivel" Type="Int32" Nullable="false" />
+    <Property Name="IDNivel" Type="Int32" Nullable="false" />
     <Property Name="Nome" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Funcionario" Relationship="Self.PK_Funcionario_Nivel" FromRole="Nivel" ToRole="Funcionario" />
   </EntityType>
@@ -134,7 +140,7 @@
     <End Role="Funcionario" Type="Self.Funcionario" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Nivel">
-        <PropertyRef Name="IdNivel" />
+        <PropertyRef Name="IDNivel" />
       </Principal>
       <Dependent Role="Funcionario">
         <PropertyRef Name="IDNivel" />
@@ -142,6 +148,7 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="BancoContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__RefactorLog" EntityType="Self.C__RefactorLog" />
     <EntitySet Name="Andar" EntityType="Self.Andar" />
     <EntitySet Name="Chamado" EntityType="Self.Chamado" />
     <EntitySet Name="Funcionario" EntityType="Self.Funcionario" />

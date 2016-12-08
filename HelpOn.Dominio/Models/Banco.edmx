@@ -4,7 +4,13 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HelpOnModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="HelpOn.DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__RefactorLog">
+          <Key>
+            <PropertyRef Name="OperationKey" />
+          </Key>
+          <Property Name="OperationKey" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
         <EntityType Name="Andar">
           <Key>
             <PropertyRef Name="NumeroAndar" />
@@ -51,9 +57,9 @@
         </EntityType>
         <EntityType Name="Nivel">
           <Key>
-            <PropertyRef Name="IdNivel" />
+            <PropertyRef Name="IDNivel" />
           </Key>
-          <Property Name="IdNivel" Type="int" Nullable="false" />
+          <Property Name="IDNivel" Type="int" Nullable="false" />
           <Property Name="Nome" Type="varchar" MaxLength="80" Nullable="false" />
         </EntityType>
         <EntityType Name="Unidade">
@@ -129,14 +135,15 @@
           <End Role="Funcionario" Type="Self.Funcionario" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Nivel">
-              <PropertyRef Name="IdNivel" />
+              <PropertyRef Name="IDNivel" />
             </Principal>
             <Dependent Role="Funcionario">
               <PropertyRef Name="IDNivel" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="HelpOnModelStoreContainer">
+        <EntityContainer Name="HelpOnDatabaseModelStoreContainer">
+          <EntitySet Name="__RefactorLog" EntityType="Self.__RefactorLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Andar" EntityType="Self.Andar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Chamado" EntityType="Self.Chamado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Funcionario" EntityType="Self.Funcionario" Schema="dbo" store:Type="Tables" />
@@ -168,7 +175,13 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="HelpOnModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="HelpOn.DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__RefactorLog">
+          <Key>
+            <PropertyRef Name="OperationKey" />
+          </Key>
+          <Property Name="OperationKey" Type="Guid" Nullable="false" />
+        </EntityType>
         <EntityType Name="Andar">
           <Key>
             <PropertyRef Name="NumeroAndar" />
@@ -223,9 +236,9 @@
         </EntityType>
         <EntityType Name="Nivel">
           <Key>
-            <PropertyRef Name="IdNivel" />
+            <PropertyRef Name="IDNivel" />
           </Key>
-          <Property Name="IdNivel" Type="Int32" Nullable="false" />
+          <Property Name="IDNivel" Type="Int32" Nullable="false" />
           <Property Name="Nome" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Funcionario" Relationship="Self.PK_Funcionario_Nivel" FromRole="Nivel" ToRole="Funcionario" />
         </EntityType>
@@ -303,7 +316,7 @@
           <End Role="Funcionario" Type="Self.Funcionario" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Nivel">
-              <PropertyRef Name="IdNivel" />
+              <PropertyRef Name="IDNivel" />
             </Principal>
             <Dependent Role="Funcionario">
               <PropertyRef Name="IDNivel" />
@@ -311,6 +324,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="BancoContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__RefactorLog" EntityType="Self.C__RefactorLog" />
           <EntitySet Name="Andar" EntityType="Self.Andar" />
           <EntitySet Name="Chamado" EntityType="Self.Chamado" />
           <EntitySet Name="Funcionario" EntityType="Self.Funcionario" />
@@ -343,9 +357,16 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="HelpOnModelStoreContainer" CdmEntityContainer="BancoContext">
+        <EntityContainerMapping StorageEntityContainer="HelpOnDatabaseModelStoreContainer" CdmEntityContainer="BancoContext">
+          <EntitySetMapping Name="C__RefactorLog">
+            <EntityTypeMapping TypeName="HelpOn.DatabaseModel.C__RefactorLog">
+              <MappingFragment StoreEntitySet="__RefactorLog">
+                <ScalarProperty Name="OperationKey" ColumnName="OperationKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Andar">
-            <EntityTypeMapping TypeName="HelpOnModel.Andar">
+            <EntityTypeMapping TypeName="HelpOn.DatabaseModel.Andar">
               <MappingFragment StoreEntitySet="Andar">
                 <ScalarProperty Name="NumeroAndar" ColumnName="NumeroAndar" />
                 <ScalarProperty Name="IDUnidade" ColumnName="IDUnidade" />
@@ -353,7 +374,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Chamado">
-            <EntityTypeMapping TypeName="HelpOnModel.Chamado">
+            <EntityTypeMapping TypeName="HelpOn.DatabaseModel.Chamado">
               <MappingFragment StoreEntitySet="Chamado">
                 <ScalarProperty Name="IDChamado" ColumnName="IDChamado" />
                 <ScalarProperty Name="Descricao" ColumnName="Descricao" />
@@ -367,7 +388,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Funcionario">
-            <EntityTypeMapping TypeName="HelpOnModel.Funcionario">
+            <EntityTypeMapping TypeName="HelpOn.DatabaseModel.Funcionario">
               <MappingFragment StoreEntitySet="Funcionario">
                 <ScalarProperty Name="IDFuncionario" ColumnName="IDFuncionario" />
                 <ScalarProperty Name="Nome" ColumnName="Nome" />
@@ -380,7 +401,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Laboratorio">
-            <EntityTypeMapping TypeName="HelpOnModel.Laboratorio">
+            <EntityTypeMapping TypeName="HelpOn.DatabaseModel.Laboratorio">
               <MappingFragment StoreEntitySet="Laboratorio">
                 <ScalarProperty Name="NumeroLab" ColumnName="NumeroLab" />
                 <ScalarProperty Name="NumeroAndar" ColumnName="NumeroAndar" />
@@ -390,15 +411,15 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Nivel">
-            <EntityTypeMapping TypeName="HelpOnModel.Nivel">
+            <EntityTypeMapping TypeName="HelpOn.DatabaseModel.Nivel">
               <MappingFragment StoreEntitySet="Nivel">
-                <ScalarProperty Name="IdNivel" ColumnName="IdNivel" />
+                <ScalarProperty Name="IDNivel" ColumnName="IDNivel" />
                 <ScalarProperty Name="Nome" ColumnName="Nome" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Unidade">
-            <EntityTypeMapping TypeName="HelpOnModel.Unidade">
+            <EntityTypeMapping TypeName="HelpOn.DatabaseModel.Unidade">
               <MappingFragment StoreEntitySet="Unidade">
                 <ScalarProperty Name="IDUnidade" ColumnName="IDUnidade" />
                 <ScalarProperty Name="Nome" ColumnName="Nome" />

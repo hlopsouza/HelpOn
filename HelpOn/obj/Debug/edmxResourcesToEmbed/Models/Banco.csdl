@@ -41,8 +41,9 @@
     <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Senha" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="DataCadastro" Type="DateTime" Precision="3" />
-    <Property Name="Nivel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IDNivel" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Chamado" Relationship="Self.FK_Chamado_Funcionario" FromRole="Funcionario" ToRole="Chamado" />
+    <NavigationProperty Name="Nivel" Relationship="Self.PK_Funcionario_Nivel" FromRole="Funcionario" ToRole="Nivel" />
   </EntityType>
   <EntityType Name="Laboratorio">
     <Key>
@@ -53,8 +54,17 @@
     <Property Name="NumeroLab" Type="Int32" Nullable="false" />
     <Property Name="NumeroAndar" Type="Int32" Nullable="false" />
     <Property Name="IDUnidade" Type="Int32" Nullable="false" />
+    <Property Name="IPMaquinaProf" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Andar" Relationship="Self.FK_Laboratorio_Andar" FromRole="Laboratorio" ToRole="Andar" />
     <NavigationProperty Name="Chamado" Relationship="Self.FK_Chamado_Laboratorio" FromRole="Laboratorio" ToRole="Chamado" />
+  </EntityType>
+  <EntityType Name="Nivel">
+    <Key>
+      <PropertyRef Name="IDNivel" />
+    </Key>
+    <Property Name="IDNivel" Type="Int32" Nullable="false" />
+    <Property Name="Nome" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Funcionario" Relationship="Self.PK_Funcionario_Nivel" FromRole="Nivel" ToRole="Funcionario" />
   </EntityType>
   <EntityType Name="Unidade">
     <Key>
@@ -125,12 +135,25 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="PK_Funcionario_Nivel">
+    <End Role="Nivel" Type="Self.Nivel" Multiplicity="1" />
+    <End Role="Funcionario" Type="Self.Funcionario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nivel">
+        <PropertyRef Name="IDNivel" />
+      </Principal>
+      <Dependent Role="Funcionario">
+        <PropertyRef Name="IDNivel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="BancoContext" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="C__RefactorLog" EntityType="Self.C__RefactorLog" />
     <EntitySet Name="Andar" EntityType="Self.Andar" />
     <EntitySet Name="Chamado" EntityType="Self.Chamado" />
     <EntitySet Name="Funcionario" EntityType="Self.Funcionario" />
     <EntitySet Name="Laboratorio" EntityType="Self.Laboratorio" />
+    <EntitySet Name="Nivel" EntityType="Self.Nivel" />
     <EntitySet Name="Unidade" EntityType="Self.Unidade" />
     <AssociationSet Name="FK_Andar_Unidade" Association="Self.FK_Andar_Unidade">
       <End Role="Unidade" EntitySet="Unidade" />
@@ -147,6 +170,10 @@
     <AssociationSet Name="FK_Chamado_Laboratorio" Association="Self.FK_Chamado_Laboratorio">
       <End Role="Laboratorio" EntitySet="Laboratorio" />
       <End Role="Chamado" EntitySet="Chamado" />
+    </AssociationSet>
+    <AssociationSet Name="PK_Funcionario_Nivel" Association="Self.PK_Funcionario_Nivel">
+      <End Role="Nivel" EntitySet="Nivel" />
+      <End Role="Funcionario" EntitySet="Funcionario" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

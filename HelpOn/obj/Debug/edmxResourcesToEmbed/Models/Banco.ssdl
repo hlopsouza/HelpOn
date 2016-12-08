@@ -37,7 +37,7 @@
     <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Senha" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="DataCadastro" Type="datetime" />
-    <Property Name="Nivel" Type="varchar" MaxLength="20" />
+    <Property Name="IDNivel" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Laboratorio">
     <Key>
@@ -48,6 +48,14 @@
     <Property Name="NumeroLab" Type="int" Nullable="false" />
     <Property Name="NumeroAndar" Type="int" Nullable="false" />
     <Property Name="IDUnidade" Type="int" Nullable="false" />
+    <Property Name="IPMaquinaProf" Type="varchar" MaxLength="14" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Nivel">
+    <Key>
+      <PropertyRef Name="IDNivel" />
+    </Key>
+    <Property Name="IDNivel" Type="int" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="80" Nullable="false" />
   </EntityType>
   <EntityType Name="Unidade">
     <Key>
@@ -117,12 +125,25 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="PK_Funcionario_Nivel">
+    <End Role="Nivel" Type="Self.Nivel" Multiplicity="1" />
+    <End Role="Funcionario" Type="Self.Funcionario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nivel">
+        <PropertyRef Name="IDNivel" />
+      </Principal>
+      <Dependent Role="Funcionario">
+        <PropertyRef Name="IDNivel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="HelpOnDatabaseModelStoreContainer">
     <EntitySet Name="__RefactorLog" EntityType="Self.__RefactorLog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Andar" EntityType="Self.Andar" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Chamado" EntityType="Self.Chamado" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Funcionario" EntityType="Self.Funcionario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Laboratorio" EntityType="Self.Laboratorio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Nivel" EntityType="Self.Nivel" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Unidade" EntityType="Self.Unidade" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Andar_Unidade" Association="Self.FK_Andar_Unidade">
       <End Role="Unidade" EntitySet="Unidade" />
@@ -139,6 +160,10 @@
     <AssociationSet Name="FK_Laboratorio_Andar" Association="Self.FK_Laboratorio_Andar">
       <End Role="Andar" EntitySet="Andar" />
       <End Role="Laboratorio" EntitySet="Laboratorio" />
+    </AssociationSet>
+    <AssociationSet Name="PK_Funcionario_Nivel" Association="Self.PK_Funcionario_Nivel">
+      <End Role="Nivel" EntitySet="Nivel" />
+      <End Role="Funcionario" EntitySet="Funcionario" />
     </AssociationSet>
   </EntityContainer>
 </Schema>
