@@ -12,35 +12,22 @@ namespace HelpOn.Controllers
     {
 
         UnitOfWork _unit = new UnitOfWork();
+
         [HttpGet]
         public ActionResult ListarUnidades()
         {
-            
+            var msg = TempData["mensagem"];
             ICollection<Unidade> unidades = _unit.UnidadeRepository.Listar();
-            ViewBag.Unidades = unidades;
-            return View();
+            return View(unidades);
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            ViewBag.IP = Request.UserHostAddress.ToString();
-            string IP  =  Request.UserHostAddress.ToString();
-            if (IP.Equals("10.20.24.41") )
-            {
-                return RedirectToAction("Professor");
-            }
-            else
-            {
-                return View();
-            }
-          
-        }
 
-        public ActionResult Professor()
-        {
             return View();
         }
+
 
         [HttpPost]
         public ActionResult Cadastrar(Unidade unidade)
@@ -49,15 +36,13 @@ namespace HelpOn.Controllers
             {
                 _unit.UnidadeRepository.Cadastrar(unidade);
                 _unit.Salvar();
+                TempData["mensagem"] = "Unidade cadastrada com sucesso!";
                 return RedirectToAction("ListarUnidades");
             }
             else
             {
                 return View("Index");
             }
-           
-            
-         
         }
 
         protected override void Dispose(bool disposing)

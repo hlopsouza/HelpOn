@@ -78,6 +78,14 @@
     <Compile Include="Models\Laboratorio.cs">
       <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Nivel.cs">
+      <DependentUpon>Banco.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PartialsClass\AndarMetadado.cs" />
+    <Compile Include="Models\PartialsClass\ChamadoMetadado.cs" />
+    <Compile Include="Models\PartialsClass\FuncionarioMetadado.cs" />
+    <Compile Include="Models\PartialsClass\LaboratorioMetadado.cs" />
+    <Compile Include="Models\PartialsClass\NivelMetadado.cs" />
     <Compile Include="Models\PartialsClass\UnidadeMetadado.cs" />
     <Compile Include="Models\Unidade.cs">
       <DependentUpon>Banco.tt</DependentUpon>

@@ -29,6 +29,7 @@ namespace HelpOn.Dominio.Models
         public virtual DbSet<Chamado> Chamado { get; set; }
         public virtual DbSet<Funcionario> Funcionario { get; set; }
         public virtual DbSet<Laboratorio> Laboratorio { get; set; }
+        public virtual DbSet<Nivel> Nivel { get; set; }
         public virtual DbSet<Unidade> Unidade { get; set; }
     }
 }

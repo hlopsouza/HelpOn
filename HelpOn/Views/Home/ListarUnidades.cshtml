@@ -1,7 +1,8 @@
 ﻿
-@{
-    ViewBag.Title = "ListarUnidades";
-}
+@model ICollection<HelpOn.Dominio.Models.Unidade>
+
+
+@HelperMensagens.Message(TempData["mensagem"], "alert bg-success", "glyph stroked checkmark", "#stroked-checkmark")
 
 <br>
 
@@ -23,7 +24,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var unidade in ViewBag.Unidades)
+                @foreach (var unidade in Model)
                 {
                     <tr>
                         <td>@unidade.Nome</td>

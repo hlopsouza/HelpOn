@@ -2,6 +2,8 @@
 	[NumeroLab] [int] NOT NULL,
 	[NumeroAndar] [int] NOT NULL,
 	[IDUnidade] [int] NOT NULL,
+	[IPMaquinaProf] [VARCHAR](14) NOT NULL,
+
  CONSTRAINT [PK_Laboratorio_Unidade] PRIMARY KEY CLUSTERED 
 (
 	[NumeroLab] ASC,

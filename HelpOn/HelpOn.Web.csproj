@@ -134,6 +134,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="App_Code\HelperMensagens.cshtml" />
     <None Include="Properties\PublishProfiles\FabricaHelpOn - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\FabricaHelpOn - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\HelpOn.pubxml" />
@@ -179,7 +180,6 @@
     <Content Include="Views\Chamado\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Chamado\_listaChamado.cshtml" />
-    <Content Include="Views\Home\Professor.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
