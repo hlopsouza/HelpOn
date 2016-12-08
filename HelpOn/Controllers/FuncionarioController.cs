@@ -1,5 +1,6 @@
 ﻿using HelpOn.Dominio.Models;
 using HelpOn.Persistencia.UnitOfWork;
+using HelpOn.Web.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,24 @@ namespace HelpOn.Controllers
             return View(nivel);
         }
 
+        [HttpGet]
+        public ActionResult Details(int id)
+        {
+            var funcionario = _unit.FuncionarioRepository.BuscarPorId(id);
+            var viewmodel = new FuncionarioViewModel()
+            {
+                IDFuncionario = funcionario.IDFuncionario,
+                Nome = funcionario.Nome,
+                CPF = funcionario.CPF,
+                Email = funcionario.Email,
+                Senha = funcionario.Senha,
+                DataCadastro = funcionario.DataCadastro,
+                Nivel = funcionario.Nivel
+            };
+            return View(viewmodel);
+
+        }
+
         [HttpPost]
         public ActionResult Cadastrar(Funcionario funcionario)
         {
@@ -45,6 +64,15 @@ namespace HelpOn.Controllers
                 return View("Cadastrar", nivel);
             }
             
+        }
+
+        [HttpPost]
+        public ActionResult Excluir(int IDFuncionario)
+        {
+            _unit.FuncionarioRepository.Remover(IDFuncionario);
+            _unit.Salvar();
+            TempData["mensagem"] = "Funcionário removido com sucesso!";
+            return RedirectToAction("ListarFuncionarios");
         }
 
         protected override void Dispose(bool disposing)

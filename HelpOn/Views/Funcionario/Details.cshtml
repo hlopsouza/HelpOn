@@ -1,0 +1,29 @@
+﻿@model HelpOn.Web.ViewModel.FuncionarioViewModel
+
+@{
+    Layout = null;
+    ViewBag.Title = "Details";
+}
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            <h3 align="center" class="modal-title"><i class="glyphicon glyphicon-file"></i> Detalhes do Funcionário</h3>
+        </div>
+        <div class="modal-body">
+            <p><strong>ID</strong>: @Html.DisplayFor(model => model.IDFuncionario)</p>
+            <p><strong>Nome</strong>: @Html.DisplayFor(model => model.Nome)</p>
+            <p><strong>CPF</strong>: @Html.DisplayFor(model => model.CPF)</p>
+            <p><strong>Email</strong>: @Html.DisplayFor(model => model.Email)</p>
+            <p><strong>Senha</strong>: @Html.DisplayFor(model => model.Senha)</p>
+            <p><strong>Nível</strong>: @Html.DisplayFor(model => model.Nivel.Nome)</p>
+            <p><strong>Data de cadastro</strong>: @Html.DisplayFor(model => model.DataCadastro)</p>
+            
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+        </div>
+    </div>
+</div>
+
