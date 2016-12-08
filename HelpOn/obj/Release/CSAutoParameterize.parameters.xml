@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="HelpOnEntities-Web.config Connection String" description="HelpOnEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.Banco.csdl|res://*/Models.Banco.ssdl|res://*/Models.Banco.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.\SQLEXPRESS;initial catalog=HelpOn;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\Henrique\\Documents\\Visual\ Studio\ 2015\\Projects\\HelpOn\\HelpOn\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='HelpOnEntities']/@connectionString" />
-  </parameter>
-</parameters>
