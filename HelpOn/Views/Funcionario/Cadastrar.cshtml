@@ -1,4 +1,6 @@
 ﻿
+@model  ICollection<HelpOn.Dominio.Models.Nivel> 
+
 @{
     ViewBag.Title = "Index";
 }
@@ -15,7 +17,7 @@
 
 
 
-                @using (@Html.BeginForm("Cadastrar", "Funcionario", "POST"))
+                @using (@Html.BeginForm("Cadastrar", "Funcionario", FormMethod.Post))
                 {
                     <div class="form-horizontal">
                         <fieldset>
@@ -23,7 +25,7 @@
                             <div class="form-group">
                                 <label class="col-md-2 control-label" for="Nome">Nome</label>
                                 <div class="col-md-10">
-                                    <input id="Nome" name="Nome" type="text" placeholder="Nome do funcionário" class="form-control" autofocus>
+                                    <input id="Nome" name="Nome" type="text" placeholder="Nome do funcionário" class="form-control" autofocus required>
                                     @Html.ValidationMessage("Nome", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -33,7 +35,7 @@
                             <div class="form-group">
                                 <label class="col-md-2 control-label" for="CPF">CPF</label>
                                 <div class="col-md-10">
-                                    <input id="CPF" name="CPF" type="text" placeholder="Informe o CPF" class="form-control">
+                                    <input id="CPF" name="CPF" type="text" placeholder="Informe o CPF" class="form-control" required>
                                     @Html.ValidationMessage("CPF", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -42,7 +44,7 @@
                             <div class="form-group">
                                 <label class="col-md-2 control-label" for="Email">E-mail</label>
                                 <div class="col-md-10">
-                                    <input id="Email" name="Email" type="email" placeholder="Informe o e-mail" class="form-control">
+                                    <input id="Email" name="Email" type="email" placeholder="Informe o e-mail" class="form-control" required>
                                     @Html.ValidationMessage("Email", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -52,7 +54,7 @@
                                 <label class="col-md-2 control-label" for="IDNivel">Nível</label>
                                 <div class="col-md-10">
                                   <select id="IDNivel" name="IDNivel" class="form-control">
-                                      @foreach (var nivel in ViewBag.Nivel)
+                                      @foreach (var nivel in Model)
                                       {
                                         <option value="@nivel.IDNivel">@nivel.Nome</option>
                                       }
@@ -65,7 +67,7 @@
                             <div class="form-group">
                                 <label class="col-md-2 control-label" for="Senha">Senha</label>
                                 <div class="col-md-10">
-                                    <input id="Senha" name="Senha" type="password" placeholder="******" class="form-control">
+                                    <input id="Senha" name="Senha" type="password" placeholder="******" class="form-control" required>
                                     @Html.ValidationMessage("Senha", new { @class = "text-danger" })
                                 </div>
                             </div>

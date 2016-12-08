@@ -185,7 +185,8 @@
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\Laboratorio.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
-    <Content Include="Views\Funcionario\Index.cshtml" />
+    <Content Include="Views\Funcionario\Cadastrar.cshtml" />
+    <Content Include="Views\Funcionario\ListarFuncionarios.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

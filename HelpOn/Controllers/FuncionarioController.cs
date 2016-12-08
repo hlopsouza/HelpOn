@@ -13,27 +13,36 @@ namespace HelpOn.Controllers
 
         UnitOfWork _unit = new UnitOfWork();
 
+        public ActionResult ListarFuncionarios()
+        {
+            var msg = TempData["mensagem"];
+            ICollection<Funcionario> funcionario = _unit.FuncionarioRepository.Listar();
+
+            return View(funcionario);
+        }
+
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Cadastrar()
         {
             ICollection<Nivel> nivel = _unit.NivelRepository.Listar();
-            ViewBag.Nivel = nivel;
-            return View();
+            return View(nivel);
         }
 
         [HttpPost]
-        public ActionResult Cadastrar(Funcionario func)
+        public ActionResult Cadastrar(Funcionario funcionario)
         {
             if (ModelState.IsValid)
             {
-                func.DataCadastro = DateTime.Now;
-                _unit.FuncionarioRepository.Cadastrar(func);
+                funcionario.DataCadastro = DateTime.Now;
+                _unit.FuncionarioRepository.Cadastrar(funcionario);
                 _unit.Salvar();
-                return Content("Cadastro efetuado");
+                TempData["mensagem"] = "Funcionário cadastrado com sucesso!";
+                return RedirectToAction("ListarFuncionarios");
             }
             else
             {
-                return View("Index");
+                ICollection<Nivel> nivel = _unit.NivelRepository.Listar();
+                return View("Cadastrar", nivel);
             }
             
         }
