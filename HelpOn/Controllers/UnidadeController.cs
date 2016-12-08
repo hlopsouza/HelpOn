@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace HelpOn.Controllers
 {
-    public class HomeController : Controller
+    public class UnidadeController : Controller
     {
 
         UnitOfWork _unit = new UnitOfWork();
@@ -24,7 +24,7 @@ namespace HelpOn.Controllers
         }
 
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Cadastrar()
         {
 
             return View();
@@ -84,7 +84,7 @@ namespace HelpOn.Controllers
             }
             else
             {
-                return View("Index");
+                return View("Cadastrar");
             }
 
         }

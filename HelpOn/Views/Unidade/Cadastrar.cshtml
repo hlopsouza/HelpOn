@@ -1,8 +1,4 @@
 ﻿
-@{
-    ViewBag.Title = "Index";
-}
-
 <br>
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -14,7 +10,7 @@
                 <br />  
 
               
-                    @using (@Html.BeginForm("Cadastrar", "Home", "POST"))
+                    @using (@Html.BeginForm("Cadastrar", "Unidade", FormMethod.Post))
                     {
                         <div class="form-horizontal">
                             <fieldset>
