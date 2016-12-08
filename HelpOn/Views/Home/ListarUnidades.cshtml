@@ -1,8 +1,17 @@
+
 ﻿
 @model ICollection<HelpOn.Dominio.Models.Unidade>
 
 
 @HelperMensagens.Message(TempData["mensagem"], "alert bg-success", "glyph stroked checkmark", "#stroked-checkmark")
+=======
+﻿@model ICollection<HelpOn.Dominio.Models.Unidade>
+
+
+@HelperMensagens.Message(TempData["mensagem"], "alert bg-success", "glyph stroked checkmark", "#stroked-checkmark")
+
+
+
 
 <br>
 
@@ -21,6 +30,7 @@
                     <th>CEP</th>
                     <th>Bairro</th>
                     <th>Cidade</th>
+                    <th>Opções</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,10 +43,36 @@
                         <td>@unidade.CEP</td>
                         <td>@unidade.Bairro</td>
                         <td>@unidade.Cidade</td>
+                        <td>
+
+                            <button class="btn btn-default details" data-id="@unidade.IDUnidade"><i class="glyphicon glyphicon-file"></i></button>
+                            <button class="btn btn-danger delete" data-id="@unidade.IDUnidade"><i class="glyphicon glyphicon-trash"></i></button>
+                            <button class="btn btn-primary edit" data-id="@unidade.IDUnidade"><i class="glyphicon glyphicon-edit"></i></button>
+                        </td>
                     </tr>
                 }
 
             </tbody>
         </table>
+        <div class="modal fade" id="modal">
+
+        </div>
     </div>
 </div>
+
+
+
+@section scripts{
+    <script>
+        $(function () {
+            $(".details").click(function () {
+                var id = $(this).attr("data-id");
+                $("#modal").load("Details?id=" + id, function () {
+                    $("#modal").modal();
+                })
+            });
+        })
+    </script>
+}
+
+

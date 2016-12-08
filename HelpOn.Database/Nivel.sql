@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[Nivel]
+(
+	[IDNivel] INT NOT NULL PRIMARY KEY,
+	[Nome] VARCHAR(80) NOT NULL
+)

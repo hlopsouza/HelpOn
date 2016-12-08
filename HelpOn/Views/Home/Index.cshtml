@@ -12,6 +12,7 @@
         <div class="row">
             <div class="col-md-12">
                 <br />
+<<<<<<< HEAD
                 <form class="form-horizontal" action="Cadastrar" method="post">
                     <fieldset>
                         <!-- Nome -->
@@ -21,105 +22,120 @@
                                 <input id="Nome" name="Nome" type="text" placeholder="Nome da unidade" class="form-control" autofocus>
                                 @Html.ValidationMessage("Nome", new { @class = "text-danger" })
                             </div>
-                        </div>
-                       
+=======
+              
+                    @using (@Html.BeginForm("Cadastrar", "Home", "POST"))
+                    {
+                        <div class="form-horizontal">
+                            <fieldset>
+                                <!-- Nome -->
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="Nome">Nome</label>
+                                    <div class="col-md-10">
+                                        <input id="Nome" name="Nome" type="text" placeholder="Nome da unidade" class="form-control" autofocus>
+                                        @Html.ValidationMessage("Nome", new { @class = "text-danger" })
+                                    </div>
+                                </div>
 
-                        <!-- CEP -->
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="CEP">CEP</label>
-                            <div class="col-md-10">
-                                <input id="CEP" name="CEP" type="text" placeholder="Informe o CEP" class="form-control">
-                                @Html.ValidationMessage("CEP", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                       
 
-                        <!-- Logradouro e número -->
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="Logradouro">Logradouro</label>
-                            <div class="col-md-5">
-                                <input id="Logradouro" name="Logradouro" type="text" placeholder="Informe o Logradouro" class="form-control">
-                                @Html.ValidationMessage("Logradouro", new { @class = "text-danger" })
-                            </div>
-                          
-                            <label class="col-md-1 control-label" for="Numero">Número</label>
-                            <div class="col-md-4">
-                                <input id="Numero" name="Numero" type="text" placeholder="Informe o número" class="form-control">
-                                @Html.ValidationMessage("Numero", new { @class = "text-danger" })
-                            </div>
-                          
-                        </div>
+                                <!-- CEP -->
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="CEP">CEP</label>
+                                    <div class="col-md-10">
+                                        <input id="CEP" name="CEP" type="text" placeholder="Informe o CEP" class="form-control">
+                                        @Html.ValidationMessage("CEP", new { @class = "text-danger" })
+                                    </div>
+                                </div>
 
-                        <!-- Complemento -->
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="Complemento">Complemento</label>
-                            <div class="col-md-10">
-                                <input id="Complemento" name="Complemento" type="text" placeholder="Informe o Complemento" class="form-control">
-                            </div>
-                        </div>
 
-                        <!-- Bairro -->
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="Bairro">Bairro</label>
-                            <div class="col-md-10">
-                                <input id="Bairro" name="Bairro" type="text" placeholder="Informe o Bairro" class="form-control">
-                                @Html.ValidationMessage("Bairro", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                       
+                                <!-- Logradouro e número -->
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="Logradouro">Logradouro</label>
+                                    <div class="col-md-5">
+                                        <input id="Logradouro" name="Logradouro" type="text" placeholder="Informe o Logradouro" class="form-control">
+                                        @Html.ValidationMessage("Logradouro", new { @class = "text-danger" })
+                                    </div>
 
-                        <!-- Cidade -->
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="Cidade">Cidade</label>
-                            <div class="col-md-10">
-                                <input id="Cidade" name="Cidade" type="text" placeholder="Informe a Cidade" class="form-control">
-                                @Html.ValidationMessage("Cidade", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                      
+                                    <label class="col-md-1 control-label" for="Numero">Nº</label>
+                                    <div class="col-md-4">
+                                        <input id="Numero" name="Numero" type="text" placeholder="Informe o número" class="form-control">
+                                        @Html.ValidationMessage("Numero", new { @class = "text-danger" })
+                                    </div>
 
-                        <!-- Form actions -->
-                        <div class="form-group">
-                            <div class="col-md-2"></div>
-                            <div class="col-md-10">
-                                <br />
-                                <button type="submit" class="btn btn-default">
-                                    <i class="glyphicon glyphicon-floppy-disk"></i> Cadastrar
-                                </button>
-                            </div>
+                                </div>
+
+                                <!-- Complemento -->
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="Complemento">Complemento</label>
+                                    <div class="col-md-10">
+                                        <input id="Complemento" name="Complemento" type="text" placeholder="Informe o Complemento" class="form-control">
+                                    </div>
+                                </div>
+
+                                <!-- Bairro -->
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="Bairro">Bairro</label>
+                                    <div class="col-md-10">
+                                        <input id="Bairro" name="Bairro" type="text" placeholder="Informe o Bairro" class="form-control">
+                                        @Html.ValidationMessage("Bairro", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+                                <!-- Cidade -->
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="Cidade">Cidade</label>
+                                    <div class="col-md-10">
+                                        <input id="Cidade" name="Cidade" type="text" placeholder="Informe a Cidade" class="form-control">
+                                        @Html.ValidationMessage("Cidade", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+                                <!-- Form actions -->
+                                <div class="form-group">
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-10">
+                                        <br />
+                                        <button type="submit" class="btn btn-default">
+                                            <i class="glyphicon glyphicon-floppy-disk"></i> Cadastrar
+                                        </button>
+                                    </div>
+                                </div>
+                            </fieldset>
+>>>>>>> aa48fd2aa6afbf01785cae9cb498622ba52c58f4
                         </div>
-                    </fieldset>
-                </form>
+                    }
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
 
 
-@section scripts{
-    <script>
-        $().ready(function () {
+    @section scripts{
+        <script>
+            $().ready(function () {
 
-            $("#CEP").blur(function () {
-                $.ajax({
-                    url: "http://api.postmon.com.br/v1/cep/" + $("#CEP").val(),
-                    method: "GET",
-                    success: function (data) {
-                        $("#Logradouro").val(data.logradouro);
-                        $("#Cidade").val(data.cidade);
-                        $("#Bairro").val(data.bairro);
-                    }
+                $("#CEP").blur(function () {
+                    $.ajax({
+                        url: "http://api.postmon.com.br/v1/cep/" + $("#CEP").val(),
+                        method: "GET",
+                        success: function (data) {
+                            $("#Logradouro").val(data.logradouro);
+                            $("#Cidade").val(data.cidade);
+                            $("#Bairro").val(data.bairro);
+                        }
+                    });
                 });
+
+                // Add máscara ao CEP
+                $("#CEP").mask("99999-999");
+
             });
 
-            // Add máscara ao CEP
-            $("#CEP").mask("99999-999");
-
-        });
-
-    </script>
-}
+        </script>
+    }
 
 
