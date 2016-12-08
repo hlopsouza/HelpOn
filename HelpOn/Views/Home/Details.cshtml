@@ -1,0 +1,28 @@
+﻿@model HelpOn.Web.ViewModel.UnidadeViewModel
+
+@{
+    Layout = null;
+    ViewBag.Title = "Details";
+}
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            <h4 align="center" class="modal-title">Detalhes da Unidade</h4>
+        </div>
+        <div class="modal-body">
+            <p><strong>ID</strong>: @Html.DisplayFor(model => model.IDUnidade)</p>
+            <p><strong>Nome</strong>: @Html.DisplayFor(model => model.Nome)</p>
+            <p><strong>Logradouro</strong>: @Html.DisplayFor(model => model.Logradouro)</p>
+            <p><strong>Número</strong>: @Html.DisplayFor(model => model.Numero)</p>
+            <p><strong>CEP</strong>: @Html.DisplayFor(model => model.CEP)</p>
+            <p><strong>Bairro</strong>: @Html.DisplayFor(model => model.Bairro)</p>
+            <p><strong>Cidade</strong>: @Html.DisplayFor(model => model.Cidade)</p>
+            <p><strong>Data de cadastro</strong>: @Html.DisplayFor(model => model.DataCadastro)</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+        </div>
+    </div>
+</div>
