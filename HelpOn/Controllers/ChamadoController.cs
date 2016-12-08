@@ -13,16 +13,18 @@ namespace HelpOn.Web.Controllers
     [AutorizacaoFilter]
     public class ChamadoController : Controller
     {
+        private Funcionario _usuarioLogado;
         private UnitOfWork _unit = new UnitOfWork();
 
         // GET: Chamado
         public ActionResult Index()
         {
+            _usuarioLogado = (Funcionario)Session["usuarioLogado"];
             var viewModel = new ChamadoViewModel()
             {
                 Andares = _unit.AndarRepository.Listar(),
                 ListaAndar = ListaAndar(),
-                Chamados = _unit.ChamadoRepository.BuscarChamadosAbertos()
+                Chamados = _unit.ChamadoRepository.BuscarChamadosAbertos(_usuarioLogado.IDNivel)
                
 
                 
@@ -34,9 +36,9 @@ namespace HelpOn.Web.Controllers
         public ActionResult Buscar(string Processo, int? NumeroAndar)
         {
             ICollection<Chamado> lista;
-
-            lista = _unit.ChamadoRepository.BuscarPor(c => c.Processo.Contains(Processo) &&
-            (c.NumeroAndar == NumeroAndar || Processo == null));
+            _usuarioLogado = (Funcionario)Session["usuarioLogado"];
+            lista = _unit.ChamadoRepository.BuscarPor((c => c.Processo.Contains(Processo) &&
+            (c.NumeroAndar == NumeroAndar || Processo == null) && c.IDNivel == _usuarioLogado.IDNivel));
 
 
             return PartialView("_listaChamado", lista);
@@ -45,11 +47,12 @@ namespace HelpOn.Web.Controllers
         [HttpPost]
         public ActionResult AtenderChamado(int IDChamado, String Processo)
         {
+            _usuarioLogado = (Funcionario)Session["usuarioLogado"];
             var chamado = _unit.ChamadoRepository.BuscarPorId(IDChamado);
             chamado.Processo = Processo;
             _unit.ChamadoRepository.Atualizar(chamado);
             _unit.Salvar();
-            ICollection<Chamado> lista = _unit.ChamadoRepository.BuscarChamadosAbertos();
+            ICollection<Chamado> lista = _unit.ChamadoRepository.BuscarChamadosAbertos(_usuarioLogado.IDNivel);
             return PartialView("_listaChamado", lista);
         }
 
@@ -66,7 +69,6 @@ namespace HelpOn.Web.Controllers
             var chamado = new Chamado()
             {
                 DataChamado = chamadoViewModel.DataChamado,
-                Descricao = chamadoViewModel.Descricao,
                 Processo = chamadoViewModel.Processo,
                 NumeroLab = chamadoViewModel.NumeroLab,
                 NumeroAndar = chamadoViewModel.NumeroAndar,

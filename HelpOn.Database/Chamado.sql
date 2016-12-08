@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[Chamado](
 	[IDChamado] [int] IDENTITY(1,1) NOT NULL,
 	[IDDescricao] INT NOT NULL,
-	[Processo] [varchar](15) NOT NULL CHECK  (([Processo]='Aberto' OR [Processo]='Em Processo' OR [Processo]='Fechado')),
+	[Processo] [varchar](15) NOT NULL,
 	[NumeroLab] [int] NOT NULL,
 	[NumeroAndar] [int] NOT NULL,
 	[IDUnidade] [int] NOT NULL,

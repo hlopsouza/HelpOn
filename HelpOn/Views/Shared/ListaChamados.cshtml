@@ -83,11 +83,14 @@
 <script>
     $().ready(function () {
 
-        $(".botaoChamado").click(function () {
-            
-                $(".botaoFechaModel").trigger('click');
-                $(".botaoFechaModel").trigger('click');
+        var intervalo = window.setInterval(recarregaFormulario, 500);
+        function recarregaFormulario() {
+            $("#formularioBusca").submit();
+        }
 
+        $(".botaoChamado").click(function () {
+                $(".botaoFechaModel").trigger('click');
+                $(".botaoFechaModel").trigger('click');
         });
 
         $("#ProcessoSelect").change(function () {
