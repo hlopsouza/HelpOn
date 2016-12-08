@@ -66,9 +66,9 @@
                 Tem certeza que deseja excluir essa unidade?
             </div>
             <div class="modal-footer">
-                @using (Html.BeginForm("Excluir", "Home","POST"))
+                @using (Html.BeginForm("Excluir", "Home", "POST"))
                 {
-                    <input type="hidden" id="IDUnidade" name="IDUnidade" />
+                    <input type="hidden" id="IDUnidade" name="IDUnidade">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Não</button>
                     <button type="submit" class="btn btn-danger">Sim</button>
                 }
@@ -88,8 +88,20 @@
                     $("#modal").modal();
                 })
             });
+        });
+
+        $(function () {
+            $(".edit").click(function () {
+                var id = $(this).attr("data-id");
+                $("#modal").load("Edit?id=" + id, function () {
+                    $("#modal").modal();
+                })
+            });
         })
+
     </script>
+
+
 }
 
 

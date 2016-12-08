@@ -9,13 +9,14 @@
     <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-            <h3 align="center" class="modal-title">Detalhes da Unidade</h3>
+            <h3 align="center" class="modal-title"><i class="glyphicon glyphicon-file"></i> Detalhes da Unidade</h3>
         </div>
         <div class="modal-body">
             <p><strong>ID</strong>: @Html.DisplayFor(model => model.IDUnidade)</p>
             <p><strong>Nome</strong>: @Html.DisplayFor(model => model.Nome)</p>
             <p><strong>Logradouro</strong>: @Html.DisplayFor(model => model.Logradouro)</p>
             <p><strong>Número</strong>: @Html.DisplayFor(model => model.Numero)</p>
+            <p><strong>Complemento</strong>: @Html.DisplayFor(model => model.Complemento)</p>
             <p><strong>CEP</strong>: @Html.DisplayFor(model => model.CEP)</p>
             <p><strong>Bairro</strong>: @Html.DisplayFor(model => model.Bairro)</p>
             <p><strong>Cidade</strong>: @Html.DisplayFor(model => model.Cidade)</p>

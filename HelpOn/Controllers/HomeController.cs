@@ -4,7 +4,6 @@ using HelpOn.Web.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -27,52 +26,50 @@ namespace HelpOn.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            ViewBag.IP = Request.UserHostAddress.ToString();
-            //string IP = Request.UserHostAddress.ToString();
-
-            //String para usar no test - Deve ser um IP que esteja cadastrado no Banco para chamar Laboratorio
-            string IP = "10.20.24.41";
-
-            var listaLab = _unit.LaboratorioRepository.Listar();
-
-            foreach (var lab in listaLab)
-            {
-                if (IP.Equals(lab.IPMaquinaProf))
-                {
-                    return RedirectToAction("Laboratorio");
-                }
-               
-            }
 
             return View();
         }
 
         [HttpGet]
-        public ActionResult Laboratorio()
+        public ActionResult Details(int id)
         {
-            //ViewBag.IP = Request.UserHostAddress.ToString();
-            //string IP = Request.UserHostAddress.ToString();
-
-            string IP = "10.20.24.41";
-
-            //Captura a substring do IP e constrói o número do Laboratório
-            StringBuilder ips = new StringBuilder();
-            ips.Append(IP.Substring(6, 1));
-            ips.Append("0");
-            ips.Append(IP.Substring(7, 1));
-            IP = ips.ToString();
-            var IPLab = Int32.Parse(IP);
-
-            var viewModel = new ChamadoViewModel()
+            var unidade = _unit.UnidadeRepository.BuscarPorId(id);
+            var viewmodel = new UnidadeViewModel()
             {
-                Lab = _unit.LaboratorioRepository.BuscarPorUnitario(lab => lab.NumeroLab == IPLab),
-              
-
+                Nome = unidade.Nome,
+                IDUnidade = unidade.IDUnidade,
+                CEP = unidade.CEP,
+                Logradouro = unidade.Logradouro,
+                Numero = unidade.Numero,
+                Complemento = unidade.Complemento,
+                Bairro = unidade.Bairro,
+                Cidade = unidade.Cidade,
+                DataCadastro = unidade.DataCadastro
             };
+            return View(viewmodel);
 
-            return View(viewModel);
         }
 
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var unidade = _unit.UnidadeRepository.BuscarPorId(id);
+            var viewmodel = new UnidadeViewModel()
+            {
+                IDUnidade = unidade.IDUnidade,
+                Nome = unidade.Nome,
+                CEP = unidade.CEP,
+                Logradouro = unidade.Logradouro,
+                Numero = unidade.Numero,
+                Complemento = unidade.Complemento,
+                Bairro = unidade.Bairro,
+                Cidade = unidade.Cidade,
+                DataCadastro = unidade.DataCadastro
+
+            };
+            return View(viewmodel);
+
+        }
 
         [HttpPost]
         public ActionResult Cadastrar(Unidade unidade)
@@ -95,10 +92,13 @@ namespace HelpOn.Controllers
         [HttpPost]
         public ActionResult Editar(Unidade unidade)
         {
+
             _unit.UnidadeRepository.Atualizar(unidade);
             _unit.Salvar();
             TempData["mensagem"] = "Unidade editada com sucesso!";
-            return View("ListarUnidades");
+            return RedirectToAction("ListarUnidades");
+
+
         }
 
         [HttpPost]
@@ -110,25 +110,6 @@ namespace HelpOn.Controllers
             return RedirectToAction("ListarUnidades");
         }
 
-        [HttpGet]
-        public ActionResult Details(int id)
-        {
-            var unidade = _unit.UnidadeRepository.BuscarPorId(id);
-            var viewmodel = new UnidadeViewModel()
-            {
-                Nome = unidade.Nome,
-                IDUnidade = unidade.IDUnidade,
-                CEP = unidade.CEP,
-                Logradouro = unidade.Logradouro,
-                Numero = unidade.Numero,
-                Complemento = unidade.Complemento,
-                Bairro = unidade.Bairro,
-                Cidade = unidade.Cidade,
-                DataCadastro = unidade.DataCadastro
-            };
-            return View(viewmodel);
-
-        }
 
         protected override void Dispose(bool disposing)
         {
