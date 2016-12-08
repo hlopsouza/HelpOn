@@ -58,7 +58,27 @@ namespace HelpOn.Web.Controllers
             var lista = _unit.AndarRepository.Listar();
             return new SelectList(lista, "NumeroAndar", "IDUnidade");
         }
-       
 
+        //Cadastrar Chamado Monitor
+        [HttpPost]
+        public ActionResult Cadastrar(ChamadoViewModel chamadoViewModel)
+        {
+            var chamado = new Chamado()
+            {
+                DataChamado = chamadoViewModel.DataChamado,
+                Descricao = chamadoViewModel.Descricao,
+                Processo = chamadoViewModel.Processo,
+                NumeroLab = chamadoViewModel.NumeroLab,
+                NumeroAndar = chamadoViewModel.NumeroAndar,
+                IDUnidade = chamadoViewModel.IDUnidade
+
+            };
+
+            _unit.ChamadoRepository.Cadastrar(chamado);
+            _unit.Salvar();
+
+
+            return RedirectToAction("Laboratorio", "HOME");
+        }
     }
 }

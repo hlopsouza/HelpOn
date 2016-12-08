@@ -16,5 +16,6 @@ namespace HelpOn.Persistencia.Repositories
         T BuscarPorId(int id);
         ICollection<T> BuscarPor(Expression<Func<T, bool>> filtro);
         T BuscarLogin(Expression<Func<T, bool>> filtro);
+        T BuscarPorUnitario(Expression<Func<T, bool>> filtro);
     }
 }

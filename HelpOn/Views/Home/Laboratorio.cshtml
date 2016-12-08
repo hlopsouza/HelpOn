@@ -1,0 +1,43 @@
+﻿@model HelpOn.Web.ViewModel.ChamadoViewModel
+
+@{
+    ViewBag.Title = "Laboratorio";
+}
+
+<h2>Laboratorio</h2>
+
+
+@Model.Mensagem
+
+
+
+
+<form action="/Chamado/Cadastrar" method="POST">
+    @Html.HiddenFor(c => c.Descricao, new { @Value = "Monitor Requisitado no Laboratório" })
+    
+    @Html.HiddenFor(c => c.Processo, new { @Value = "Aberto"})
+    
+    @Html.HiddenFor(c => c.NumeroLab, new { @Value = Model.Lab.NumeroLab })
+   
+    @Html.HiddenFor(c => c.NumeroAndar, new { @Value = Model.Lab.NumeroAndar })
+    
+    @Html.HiddenFor(c => c.IDUnidade, new { @Value = Model.Lab.IDUnidade })
+    
+    @Html.HiddenFor(c => c.DataChamado, new { @Value = DateTime.Now })
+   
+    
+    <label>
+        <input type="submit" name="image" value="one" style="visibility:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+             width="200px" height="50px"
+             viewBox="0 0 200 50"
+             zoomAndPan="disable">
+	 
+            <text x="50" y="25">Solicitar Monitor</text>
+            <rect x="20" y="10" width="160" height="20" fill="green" opacity="0.5" />
+            <rect x="10" y="5" width="20" height="20" fill="blue" />
+            <rect x="170" y="20" width="20" height="20" fill="blue" />
+        </svg>
+    </label>
+</form>

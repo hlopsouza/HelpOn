@@ -16,5 +16,19 @@ namespace HelpOn.Web.ViewModel
         public int Id { get; set; }
         public Nullable<int> Numero { get; set; }
         public Nullable<int> UnidadeId { get; set; }
+        public Laboratorio Lab { get; set; }
+
+        #region CHAMADO PROPERTIES
+
+        public string Descricao { get; set; }
+        public string Processo { get; set; }
+        public int NumeroLab { get; set; }
+        public int NumeroAndar { get; set; }
+        public DateTime DataChamado { get; set; }
+        public int IDUnidade { get; set; }
+        public string Mensagem { get; set; }
+
+
+        #endregion
     }
 }

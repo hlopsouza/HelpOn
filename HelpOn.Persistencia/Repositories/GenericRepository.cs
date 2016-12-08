@@ -43,6 +43,11 @@ namespace HelpOn.Persistencia.Repositories
             return _dbSet.Find(id);
         }
 
+        public T BuscarPorUnitario(Expression<Func<T, bool>> filtro)
+        {
+            return _dbSet.Where(filtro).First();
+        }
+
         public void Cadastrar(T entidade)
         {
             _dbSet.Add(entidade);

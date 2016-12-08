@@ -47,3 +47,13 @@ C:\Users\W-NOTE\Desktop\banco\bugado\HelpOn.Dominio\bin\Debug\EntityFramework.Sq
 C:\Users\W-NOTE\Desktop\banco\bugado\HelpOn.Dominio\obj\Debug\HelpOn.Dominio.csprojResolveAssemblyReference.cache
 C:\Users\W-NOTE\Desktop\banco\bugado\HelpOn.Dominio\obj\Debug\HelpOn.Dominio.dll
 C:\Users\W-NOTE\Desktop\banco\bugado\HelpOn.Dominio\obj\Debug\HelpOn.Dominio.pdb
+D:\HelpOn\HelpOn.Dominio\bin\Debug\HelpOn.Dominio.dll.config
+D:\HelpOn\HelpOn.Dominio\bin\Debug\HelpOn.Dominio.dll
+D:\HelpOn\HelpOn.Dominio\bin\Debug\HelpOn.Dominio.pdb
+D:\HelpOn\HelpOn.Dominio\bin\Debug\EntityFramework.dll
+D:\HelpOn\HelpOn.Dominio\bin\Debug\EntityFramework.SqlServer.dll
+D:\HelpOn\HelpOn.Dominio\bin\Debug\EntityFramework.xml
+D:\HelpOn\HelpOn.Dominio\bin\Debug\EntityFramework.SqlServer.xml
+D:\HelpOn\HelpOn.Dominio\obj\Debug\HelpOn.Dominio.csprojResolveAssemblyReference.cache
+D:\HelpOn\HelpOn.Dominio\obj\Debug\HelpOn.Dominio.dll
+D:\HelpOn\HelpOn.Dominio\obj\Debug\HelpOn.Dominio.pdb

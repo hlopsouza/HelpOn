@@ -10,7 +10,7 @@
 
 GO
 
-ALTER TABLE [dbo].[Andar]  WITH CHECK ADD  CONSTRAINT [FK_Andar_Unidade] FOREIGN KEY([IDUnidade])
+ALTER TABLE [dbo].[Andar]  ADD  CONSTRAINT [FK_Andar_Unidade] FOREIGN KEY([IDUnidade])
 REFERENCES [dbo].[Unidade] ([IDUnidade])
 GO
 
