@@ -12,7 +12,7 @@ namespace HelpOn.Controllers
     public class FuncionarioController : Controller
     {
 
-        UnitOfWork _unit = new UnitOfWork();
+        private UnitOfWork _unit = new UnitOfWork();
 
         public ActionResult ListarFuncionarios()
         {
@@ -47,6 +47,27 @@ namespace HelpOn.Controllers
 
         }
 
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            ICollection<Nivel> nivel = _unit.NivelRepository.Listar();
+            ViewBag.Niveis = nivel;
+            var funcionario = _unit.FuncionarioRepository.BuscarPorId(id);
+            var viewmodel = new FuncionarioViewModel()
+            {
+                IDFuncionario = funcionario.IDFuncionario,
+                Nome = funcionario.Nome,
+                CPF = funcionario.CPF,
+                Email = funcionario.Email,
+                Senha = funcionario.Senha,
+                DataCadastro = funcionario.DataCadastro,
+                Nivel = funcionario.Nivel,
+                IDNivel = funcionario.IDNivel
+            };
+            return View(viewmodel);
+
+        }
+
         [HttpPost]
         public ActionResult Cadastrar(Funcionario funcionario)
         {
@@ -63,7 +84,19 @@ namespace HelpOn.Controllers
                 ICollection<Nivel> nivel = _unit.NivelRepository.Listar();
                 return View("Cadastrar", nivel);
             }
-            
+
+        }
+
+        [HttpPost]
+        public ActionResult Editar(Funcionario funcionario)
+        {
+
+            _unit.FuncionarioRepository.Atualizar(funcionario);
+            _unit.Salvar();
+            TempData["mensagem"] = "Funcionário editado com sucesso!";
+            return RedirectToAction("ListarFuncionarios");
+
+
         }
 
         [HttpPost]
