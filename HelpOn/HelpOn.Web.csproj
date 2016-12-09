@@ -166,8 +166,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ChamadoController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LaboratorioController.cs" />
+    <Compile Include="Controllers\FuncionarioController.cs" />
+    <Compile Include="Controllers\UnidadeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Filtros\AutorizacaoFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -175,6 +176,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\ChamadoViewModel.cs" />
+    <Compile Include="ViewModel\FuncionarioViewModel.cs" />
     <Compile Include="ViewModel\UnidadeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -185,15 +187,23 @@
     </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\ListarUnidades.cshtml" />
+    <Content Include="Views\Unidade\Cadastrar.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Views\Unidade\ListarUnidades.cshtml" />
     <Content Include="Views\Shared\ListaChamados.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Shared\_listaChamado.cshtml" />
-    <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Laboratorio\Laboratorio.cshtml" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <Content Include="Views\Unidade\Details.cshtml" />
+    <Content Include="Views\Unidade\Edit.cshtml" />
+    <Content Include="Views\Funcionario\Cadastrar.cshtml" />
+    <Content Include="Views\Funcionario\ListarFuncionarios.cshtml" />
+    <Content Include="Views\Funcionario\Details.cshtml" />
+
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -14,7 +14,7 @@ namespace HelpOn.Dominio.Models
     }
     public class NivelMetadado
     {
-        public int IdNivel { get; set; }
+        public int IDNivel { get; set; }
         public string Nome { get; set; }
     }
 }

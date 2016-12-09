@@ -12,21 +12,18 @@ namespace HelpOn.Dominio.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Nivel
+    public partial class Descricao
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Nivel()
+        public Descricao()
         {
             this.Chamado = new HashSet<Chamado>();
-            this.Funcionario = new HashSet<Funcionario>();
         }
     
-        public int IDNivel { get; set; }
+        public int IDDescricao { get; set; }
         public string Nome { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Chamado> Chamado { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Funcionario> Funcionario { get; set; }
     }
 }

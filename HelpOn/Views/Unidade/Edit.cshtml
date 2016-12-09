@@ -1,0 +1,112 @@
+﻿@model HelpOn.Web.ViewModel.UnidadeViewModel
+
+@{
+    Layout = null;
+    ViewBag.Title = "Edit";
+}
+<div class="modal-dialog">
+    <div class="modal-content">
+        @using (@Html.BeginForm("Editar", "Unidade", FormMethod.Post))
+        {
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h3 align="center" class="modal-title"><i class="glyphicon glyphicon-edit"></i> Editar Unidade</h3>
+            </div>
+
+
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <fieldset>
+
+                        <!-- ID -->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="IDUnidade">ID</label>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.IDUnidade, new { @class = "form-control", @readonly = "readonly" })
+
+                            </div>
+                        </div>
+
+                        <!-- Nome -->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="Nome">Nome</label>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.Nome, new { @class = "form-control", required = "required" })
+
+                            </div>
+                        </div>
+
+
+                        <!-- CEP -->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="CEP">CEP</label>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.CEP, new { @class = "form-control", required = "required" })
+
+                            </div>
+                        </div>
+
+
+                        <!-- Logradouro e número -->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="Logradouro">Logradouro</label>
+                            <div class="col-md-5">
+                                @Html.TextBoxFor(model => model.Logradouro, new { @class = "form-control", required = "required" })
+
+                            </div>
+
+                            <label class="col-md-1 control-label" for="Numero">Nº</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(model => model.Numero, new { @class = "form-control", required = "required" })
+
+                            </div>
+
+                        </div>
+
+                        <!-- Complemento -->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="Complemento">Complemento</label>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.Complemento, new { @class = "form-control" })
+
+                            </div>
+                        </div>
+
+                        <!-- Bairro -->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="Bairro">Bairro</label>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.Bairro, new { @class = "form-control", required = "required" })
+
+                            </div>
+                        </div>
+
+
+                        <!-- Cidade -->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="Cidade">Cidade</label>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.Cidade, new { @class = "form-control", required = "required" })
+
+                            </div>
+                        </div>
+
+                        <!-- Data de cadastro -->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="DataCadastro">Data de cadastro</label>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.DataCadastro, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                    </fieldset>
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <input type="submit" value="Salvar" class="btn btn-primary">
+                <input type="button" value="Cancelar" class="btn btn-default" data-dismiss="modal">
+            </div>
+        }
+    </div>
+</div>

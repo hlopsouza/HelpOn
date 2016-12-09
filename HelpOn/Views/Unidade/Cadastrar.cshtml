@@ -1,8 +1,4 @@
 ﻿
-@{
-    ViewBag.Title = "Index";
-}
-
 <br>
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -14,7 +10,7 @@
                 <br />  
 
               
-                    @using (@Html.BeginForm("Cadastrar", "Home", "POST"))
+                    @using (@Html.BeginForm("Cadastrar", "Unidade", FormMethod.Post))
                     {
                         <div class="form-horizontal">
                             <fieldset>
@@ -22,7 +18,7 @@
                                 <div class="form-group">
                                     <label class="col-md-2 control-label" for="Nome">Nome</label>
                                     <div class="col-md-10">
-                                        <input id="Nome" name="Nome" type="text" placeholder="Nome da unidade" class="form-control" autofocus>
+                                        <input id="Nome" name="Nome" type="text" placeholder="Nome da unidade" class="form-control" autofocus required>
                                         @Html.ValidationMessage("Nome", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -32,7 +28,7 @@
                                 <div class="form-group">
                                     <label class="col-md-2 control-label" for="CEP">CEP</label>
                                     <div class="col-md-10">
-                                        <input id="CEP" name="CEP" type="text" placeholder="Informe o CEP" class="form-control">
+                                        <input id="CEP" name="CEP" type="text" placeholder="Informe o CEP" class="form-control" required>
                                         @Html.ValidationMessage("CEP", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -42,13 +38,13 @@
                                 <div class="form-group">
                                     <label class="col-md-2 control-label" for="Logradouro">Logradouro</label>
                                     <div class="col-md-5">
-                                        <input id="Logradouro" name="Logradouro" type="text" placeholder="Informe o Logradouro" class="form-control">
+                                        <input id="Logradouro" name="Logradouro" type="text" placeholder="Informe o Logradouro" class="form-control" required>
                                         @Html.ValidationMessage("Logradouro", new { @class = "text-danger" })
                                     </div>
 
                                     <label class="col-md-1 control-label" for="Numero">Nº</label>
                                     <div class="col-md-4">
-                                        <input id="Numero" name="Numero" type="text" placeholder="Informe o número" class="form-control">
+                                        <input id="Numero" name="Numero" type="text" placeholder="Informe o número" class="form-control" required>
                                         @Html.ValidationMessage("Numero", new { @class = "text-danger" })
                                     </div>
 
@@ -66,7 +62,7 @@
                                 <div class="form-group">
                                     <label class="col-md-2 control-label" for="Bairro">Bairro</label>
                                     <div class="col-md-10">
-                                        <input id="Bairro" name="Bairro" type="text" placeholder="Informe o Bairro" class="form-control">
+                                        <input id="Bairro" name="Bairro" type="text" placeholder="Informe o Bairro" class="form-control" required>
                                         @Html.ValidationMessage("Bairro", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -76,7 +72,7 @@
                                 <div class="form-group">
                                     <label class="col-md-2 control-label" for="Cidade">Cidade</label>
                                     <div class="col-md-10">
-                                        <input id="Cidade" name="Cidade" type="text" placeholder="Informe a Cidade" class="form-control">
+                                        <input id="Cidade" name="Cidade" type="text" placeholder="Informe a Cidade" class="form-control" required>
                                         @Html.ValidationMessage("Cidade", new { @class = "text-danger" })
                                     </div>
                                 </div>

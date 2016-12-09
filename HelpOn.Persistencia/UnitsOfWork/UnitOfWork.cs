@@ -75,6 +75,19 @@ namespace HelpOn.Persistencia.UnitOfWork
             }
         }
 
+        private IGenericRepository<Nivel> _nivelRepository;
+        public IGenericRepository<Nivel> NivelRepository
+        {
+            get
+            {
+                if (_nivelRepository == null)
+                {
+                    _nivelRepository = new GenericRepository<Nivel>(_context);
+                }
+                return _nivelRepository;
+            }
+        }
+
         private IChamadoRepository _chamadoRepository;
         public IChamadoRepository ChamadoRepository
         {
