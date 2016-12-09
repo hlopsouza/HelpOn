@@ -13,10 +13,13 @@ namespace HelpOn.Web.ViewModel
         public ICollection<Laboratorio> Laboratorios { get; set; }
         public ICollection<Andar> Andares { get; set; }
         public ICollection<Chamado> Chamados { get; set; }
+        public ICollection<Descricao> Descricoes { get; set; }
         public int Id { get; set; }
         public Nullable<int> Numero { get; set; }
         public Nullable<int> UnidadeId { get; set; }
         public Laboratorio Lab { get; set; }
+        public int IDDescricao { get; set; }
+        public int IDNivel { get; set; }
 
         #region CHAMADO PROPERTIES
 

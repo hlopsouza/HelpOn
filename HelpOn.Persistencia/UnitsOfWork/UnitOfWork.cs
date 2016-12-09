@@ -101,6 +101,19 @@ namespace HelpOn.Persistencia.UnitOfWork
             }
         }
 
+        private IGenericRepository<Descricao> _descricaoRepository;
+        public IGenericRepository<Descricao> DescricaoRepository
+        {
+            get
+            {
+                if (_descricaoRepository == null)
+                {
+                    _descricaoRepository = new GenericRepository<Descricao>(_context);
+                }
+                return _descricaoRepository;
+            }
+        }
+
         public void Salvar()
         {
             _context.SaveChanges();

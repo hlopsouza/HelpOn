@@ -38,6 +38,7 @@ namespace HelpOn.Controllers
             var viewModel = new ChamadoViewModel()
             {
                 Lab = _unit.LaboratorioRepository.BuscarPorUnitario(lab => lab.NumeroLab == IPLab),
+                Descricoes = _unit.DescricaoRepository.Listar()
             };
             return View(viewModel);
         }

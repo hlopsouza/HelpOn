@@ -72,7 +72,10 @@ namespace HelpOn.Web.Controllers
                 Processo = chamadoViewModel.Processo,
                 NumeroLab = chamadoViewModel.NumeroLab,
                 NumeroAndar = chamadoViewModel.NumeroAndar,
-                IDUnidade = chamadoViewModel.IDUnidade
+                IDUnidade = chamadoViewModel.IDUnidade,
+                IDNivel = chamadoViewModel.IDNivel,
+                IDDescricao = chamadoViewModel.IDDescricao
+                
 
             };
 
