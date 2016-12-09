@@ -21,7 +21,7 @@ namespace HelpOn.Controllers
         }
 
         [HttpGet]
-        public ActionResult Laboratorio()
+        public ActionResult Solicitacao()
         {
             //ViewBag.IP = Request.UserHostAddress.ToString();
             //string IP = Request.UserHostAddress.ToString();
@@ -40,9 +40,6 @@ namespace HelpOn.Controllers
             {
                 Lab = _unit.LaboratorioRepository.BuscarPorUnitario(lab => lab.NumeroLab == IPLab),
                 Descricoes = _unit.DescricaoRepository.Listar(),
-                ArrayDescricao = _unit.DescricaoRepository.Listar().ToArray(),
-                ContadorAuxiliar = 0
-                
                 
             };
             return View(viewModel);

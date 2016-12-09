@@ -26,7 +26,7 @@ namespace HelpOn.Controllers
             {
                 if (IP.Equals(lab.IPMaquinaProf))
                 {
-                    return RedirectToAction("Laboratorio", "Laboratorio");
+                    return RedirectToAction("Solicitacao", "Laboratorio");
                 }
 
             }
