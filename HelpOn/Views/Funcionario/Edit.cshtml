@@ -1,0 +1,95 @@
+﻿@model HelpOn.Web.ViewModel.FuncionarioViewModel
+
+@{
+    Layout = null;
+    ViewBag.Title = "Edit";
+}
+<div class="modal-dialog">
+    <div class="modal-content">
+        @using (@Html.BeginForm("Editar", "Funcionario", FormMethod.Post))
+        {
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h3 align="center" class="modal-title"><i class="glyphicon glyphicon-edit"></i> Editar Funcionário</h3>
+            </div>
+
+
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <fieldset>
+
+                        <!-- ID -->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="IDUnidade">ID</label>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.IDFuncionario, new { @class = "form-control", required = "required", @readonly = "readonly" })
+                            </div>
+                        </div>
+
+                        <!-- Nome -->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="Nome">Nome</label>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.Nome, new { @class = "form-control", required = "required" })
+                            </div>
+                        </div>
+
+
+                        <!-- CPF -->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="CPF">CPF</label>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.CPF, new { @class = "form-control", required = "required" })
+                            </div>
+                        </div>
+
+                        <!-- E-mail -->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="Email">E-mail</label>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", required = "required" })
+                            </div>
+                        </div>
+
+                        <!-- Nível -->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="IDNivel">Nível</label>
+                            <div class="col-md-10">
+                                <select id="IDNivel" name="IDNivel" class="form-control">
+                                    @foreach (var nivel in ViewBag.Niveis)
+                                    {
+                                        <option value="@nivel.IDNivel" selected="@nivel.IDNivel.Equals(Model.IDNivel)">
+                                            @nivel.Nome
+                                        </option>
+                                    }
+
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Senha -->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="Senha">Senha</label>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.Senha, new { @class = "form-control", required = "required" })
+                            </div>
+                        </div>
+
+                        <!-- Data de Cadastro -->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="DataCadastro">Data de cadastro</label>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.DataCadastro, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                    </fieldset>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" value="Salvar" class="btn btn-primary">
+                <input type="button" value="Cancelar" class="btn btn-default" data-dismiss="modal">
+            </div>
+        }
+    </div>
+</div>
