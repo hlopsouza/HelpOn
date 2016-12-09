@@ -10,6 +10,9 @@ namespace HelpOn.Persistencia.Repositories
     public interface IChamadoRepository:IGenericRepository<Chamado>
     {
         ICollection<Chamado> BuscarChamadosAbertos(int nivelFuncionario);
-       
+        
+
     }
+
+
 }

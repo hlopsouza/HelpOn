@@ -1,4 +1,5 @@
-﻿using HelpOn.Persistencia.UnitOfWork;
+﻿using HelpOn.Dominio.Models;
+using HelpOn.Persistencia.UnitOfWork;
 using HelpOn.Web.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -38,7 +39,11 @@ namespace HelpOn.Controllers
             var viewModel = new ChamadoViewModel()
             {
                 Lab = _unit.LaboratorioRepository.BuscarPorUnitario(lab => lab.NumeroLab == IPLab),
-                Descricoes = _unit.DescricaoRepository.Listar()
+                Descricoes = _unit.DescricaoRepository.Listar(),
+                ArrayDescricao = _unit.DescricaoRepository.Listar().ToArray(),
+                ContadorAuxiliar = 0
+                
+                
             };
             return View(viewModel);
         }

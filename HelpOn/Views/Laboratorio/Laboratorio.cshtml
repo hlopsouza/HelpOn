@@ -62,41 +62,42 @@
 
 @section scripts{
  <script>
-      $().ready(function () {
-          $("#botoes button").click(function () {
-              if ($(this).html() == "Solicitar Monitor") {
+     $().ready(function () {
+
+                  $("#botoes button").click(function () {
+                  if ($(this).html() == "Solicitar Monitor") {
                   $("#IDDescricao").val(1);
                   $(".modal-body").html("Deseja Realmente solicitar um Monitor?");
-              } else
+             } else
                   if ($(this).html() == "Bloquear Internet") {
                       $("#IDDescricao").val(2);
                       $(".modal-body").html("Deseja realmente solicitar o bloqueio da Internet no Laboratório?");
-                  } else
+             } else
                       if ($(this).html() == "Liberar Internet") {
                           $("#IDDescricao").val(3);
                           $(".modal-body").html("Deseja realmente solicitar a liberação da Internet no Laboratório?");
-                      } else
+             } else
                           if ($(this).html() == "Bloquear HD Público") {
                               $("#IDDescricao").val(4);
                               $(".modal-body").html("Deseja realmente solicitar o bloqueio do HD Público no Laboratório?");
-                          } else
+             } else
                               if ($(this).html() == "Liberar HD Público") {
                                   $("#IDDescricao").val(5);
                                   $(".modal-body").html("Deseja realmente solicitar a liberação do HD Público no Laboratório?");
-                              } else
+             } else
                                   if ($(this).html() == "Bloquear Portal do Aluno") {
                                       $("#IDDescricao").val(6);
                                       $(".modal-body").html("Deseja realmente solicitar o bloqueio do Portal do Aluno no Laboratório?");
-                                  } else
+             } else
                                       if ($(this).html() == "Liberar Portal do Aluno") {
                                           $("#IDDescricao").val(7);
                                           $(".modal-body").html("Deseja realmente solicitar a liberação do Portal do Aluno no Laboratório?");
-                                      } else
+             } else
                                           if ($(this).html() == "Alterar °C Ar Condicionado") {
                                               $("#IDDescricao").val(8);
                                               $(".modal-body").html("Deseja realmente solicitar a alteração de Temperatura do Ar Condicionado no Laboratório?");
-                                          }
-          });
+             }
+         });
       });
 </script>
 }
