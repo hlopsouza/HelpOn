@@ -32,6 +32,7 @@ namespace HelpOn.Web.Controllers
             var Funcionario = _unit.FuncionarioRepository.BuscarLogin(a => a.Email.Contains(Email) && a.Senha == Senha);
             if (Funcionario != null)
             {
+                //Adicionar Filtro de chamados pra gerente, suporte e monitor
                 Session["usuarioLogado"] = Funcionario;
                 return RedirectToAction("Index", "Chamado");
             }

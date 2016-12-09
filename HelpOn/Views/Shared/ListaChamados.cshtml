@@ -103,26 +103,7 @@
 
     })
 
-    $.ajax({
-        url: "localhost:28125/api/andar",
-        method: "GET",
-        success: function (data) {
-            $.each(data, function (index, item) {
-                //Criar uma nova linha
-                var linha = $("<tr>");
-                linha.append($("<td>").text(item.Id));
-                linha.append($("<td>").text(item.Numero));
-                linha.append($("<td>").text(item.UnidadeId));
-
-                $("tbody").html(linha);
-            });
-        }
-    })
-
-    
-
-   
-
+      
 
 </script>
 }

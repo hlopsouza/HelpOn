@@ -83,7 +83,7 @@ namespace HelpOn.Web.Controllers
             _unit.Salvar();
 
 
-            return RedirectToAction("Laboratorio", "Laboratorio");
+            return RedirectToAction("Solicitacao", "Laboratorio");
         }
     }
 }
