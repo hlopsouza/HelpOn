@@ -12,7 +12,7 @@ namespace HelpOn.Controllers
     public class UnidadeController : Controller
     {
 
-        UnitOfWork _unit = new UnitOfWork();
+        private UnitOfWork _unit = new UnitOfWork();
 
         [HttpGet]
         public ActionResult ListarUnidades()

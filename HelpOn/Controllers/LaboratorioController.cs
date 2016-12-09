@@ -11,7 +11,7 @@ namespace HelpOn.Controllers
 {
     public class LaboratorioController : Controller
     {
-        UnitOfWork _unit = new UnitOfWork();
+        private UnitOfWork _unit = new UnitOfWork();
 
         
         public ActionResult Index()
