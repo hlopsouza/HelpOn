@@ -70,6 +70,15 @@
                 var id = $(this).attr("data-id");
                 $("#modal").load("Edit?id=" + id, function () {
                     $("#modal").modal();
+                    if ($("#trocarsenha").attr("checked") == "checked") {
+                        $("#novasenha").parent().css("display", "block");
+                    } else {
+                        $("#novasenha").parent().css("display", "none");
+                    }
+                    $("#trocarsenha").click(function () {
+                        $("#novasenha").parent().slideToggle();
+                        $("#novasenha").focus();
+                    });
                 })
             });
         })

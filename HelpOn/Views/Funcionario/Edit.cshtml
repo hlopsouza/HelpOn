@@ -18,13 +18,10 @@
                 <div class="form-horizontal">
                     <fieldset>
 
-                        <!-- ID -->
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="IDUnidade">ID</label>
-                            <div class="col-md-10">
-                                @Html.TextBoxFor(model => model.IDFuncionario, new { @class = "form-control", required = "required", @readonly = "readonly" })
-                            </div>
-                        </div>
+
+                        @Html.HiddenFor(model => model.IDFuncionario)
+                        @Html.HiddenFor(model => model.DataCadastro)
+                        @Html.HiddenFor(model => model.Senha)
 
                         <!-- Nome -->
                         <div class="form-group">
@@ -67,21 +64,25 @@
                             </div>
                         </div>
 
-                        <!-- Senha -->
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="Senha">Senha</label>
+                        <div class="form-group checkbox">
+                            <label class="col-md-2"></label>
                             <div class="col-md-10">
-                                @Html.TextBoxFor(model => model.Senha, new { @class = "form-control", required = "required" })
+                                <label>
+                                    <input type="checkbox" id="trocarsenha"> Trocar senha
+                                </label></div>
                             </div>
+
+                      <br>
+
+                        <!-- Nova Senha -->
+                        <div class="form-group">
+                            <label class="col-md-2"></label>
+                            <div class="col-md-10">
+                                <input type="password" id="novasenha" name="novasenha" class="form-control" placeholder="Nova senha">
+                            </div>
+
                         </div>
 
-                        <!-- Data de Cadastro -->
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="DataCadastro">Data de cadastro</label>
-                            <div class="col-md-10">
-                                @Html.TextBoxFor(model => model.DataCadastro, new { @class = "form-control", @readonly = "readonly" })
-                            </div>
-                        </div>
                     </fieldset>
 
                 </div>
@@ -93,3 +94,5 @@
         }
     </div>
 </div>
+
+

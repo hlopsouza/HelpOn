@@ -50,7 +50,6 @@ namespace HelpOn.Controllers
             var funcionario = _unit.FuncionarioRepository.BuscarPorId(id);
             var viewmodel = new FuncionarioViewModel()
             {
-                IDFuncionario = funcionario.IDFuncionario,
                 Nome = funcionario.Nome,
                 CPF = funcionario.CPF,
                 Email = funcionario.Email,
@@ -130,8 +129,10 @@ namespace HelpOn.Controllers
         }
 
         [HttpPost]
-        public ActionResult Editar(Funcionario funcionario)
+        public ActionResult Editar(Funcionario funcionario, string novasenha)
         {
+            if(novasenha != "") funcionario.Senha = novasenha;
+         
 
             _unit.FuncionarioRepository.Atualizar(funcionario);
 
