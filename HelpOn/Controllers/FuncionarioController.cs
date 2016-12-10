@@ -88,9 +88,17 @@ namespace HelpOn.Controllers
         #region POST
 
         [HttpPost]
-        public ActionResult Cadastrar(FuncionarioViewModel funcionarioViewModel)
+        public ActionResult Cadastrar(FuncionarioViewModel funcionarioViewModel, string repeatsenha)
         {
-            if (ModelState.IsValid)
+            if (funcionarioViewModel.Senha != repeatsenha)
+            {
+                ModelState.AddModelError("repeatsenha", "As senhas não correspondem.");
+
+                funcionarioViewModel.ListaNivel = ListarNivel();
+                return View(funcionarioViewModel);
+            }
+
+            else if (ModelState.IsValid)
             {
                 var funcionario = new Funcionario()
                 {
@@ -157,7 +165,7 @@ namespace HelpOn.Controllers
             {
                 _unit.Salvar();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 TempData["mensagem"] = "Ocorreu um erro ao tentar excluir o funcionário, por favor tente mais tarde." + "Erro: " + e;
                 return RedirectToAction("ListarFuncionarios");

@@ -62,6 +62,15 @@
                                 </div>
                             </div>
 
+                            <!-- Repetir senha -->
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="repeatsenha">Repetir Senha</label>
+                                <div class="col-md-10">
+                                    <input id="repeatsenha" name="repeatsenha" type="password" placeholder="******" class="form-control" required>
+                                    @Html.ValidationMessage("repeatsenha", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
                             <!-- Form actions -->
                             <div class="form-group">
                                 <div class="col-md-2"></div>
