@@ -12,8 +12,15 @@ namespace HelpOn.Controllers
     public class FuncionarioController : Controller
     {
 
+        #region FIELD
+
         private UnitOfWork _unit = new UnitOfWork();
 
+        #endregion
+
+        #region GET
+
+        [HttpGet]
         public ActionResult ListarFuncionarios()
         {
             var msg = TempData["mensagem"];
@@ -76,6 +83,10 @@ namespace HelpOn.Controllers
 
         }
 
+        #endregion
+
+        #region POST
+
         [HttpPost]
         public ActionResult Cadastrar(FuncionarioViewModel funcionarioViewModel)
         {
@@ -120,7 +131,17 @@ namespace HelpOn.Controllers
         {
 
             _unit.FuncionarioRepository.Atualizar(funcionario);
-            _unit.Salvar();
+
+            try
+            {
+                _unit.Salvar();
+            }
+            catch (Exception e)
+            {
+                TempData["mensagem"] = "Ocorreu um erro ao tentar editar o funcionário, por favor tente mais tarde." + "Erro: " + e;
+                return RedirectToAction("ListarFuncionarios");
+            }
+
             TempData["mensagem"] = "Funcionário editado com sucesso!";
             return RedirectToAction("ListarFuncionarios");
 
@@ -131,21 +152,40 @@ namespace HelpOn.Controllers
         public ActionResult Excluir(int IDFuncionario)
         {
             _unit.FuncionarioRepository.Remover(IDFuncionario);
-            _unit.Salvar();
+
+            try
+            {
+                _unit.Salvar();
+            }
+            catch(Exception e)
+            {
+                TempData["mensagem"] = "Ocorreu um erro ao tentar excluir o funcionário, por favor tente mais tarde." + "Erro: " + e;
+                return RedirectToAction("ListarFuncionarios");
+            }
+
             TempData["mensagem"] = "Funcionário removido com sucesso!";
             return RedirectToAction("ListarFuncionarios");
         }
 
+        #endregion
+
+        #region PRIVATE
         private SelectList ListarNivel()
         {
             var lista = _unit.NivelRepository.Listar();
             return new SelectList(lista, "IDNivel", "Nome");
         }
 
+        #endregion
+
+        #region DISPOSE
+
         protected override void Dispose(bool disposing)
         {
             _unit.Dispose();
             base.Dispose(disposing);
         }
+
+        #endregion
     }
 }
