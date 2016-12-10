@@ -1,4 +1,4 @@
-﻿@model ICollection<HelpOn.Dominio.Models.Funcionario>
+﻿@model HelpOn.Web.ViewModel.FuncionarioViewModel
 
 @{
     ViewBag.Title = "ListarFuncionarios";
@@ -24,22 +24,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var funcionario in Model)
-                {
-                    <tr>
-                        <td>@funcionario.Nome</td>
-                        <td>@funcionario.Nivel.Nome</td>
-                        <td>@funcionario.Email</td>
-                        <td>
-
-                            <button class="btn btn-default details" data-id="@funcionario.IDFuncionario"><i class="glyphicon glyphicon-file"></i></button>
-                            <button class="btn btn-info edit" data-id="@funcionario.IDFuncionario"><i class="glyphicon glyphicon-edit"></i></button>
-                            <button class="btn btn-danger delete" onclick="IDFuncionario.value = @funcionario.IDFuncionario" data-toggle="modal" data-target="#deletar">
-                                <i class="glyphicon glyphicon-trash"></i>
-                            </button>
-                        </td>
-                    </tr>
-                }
+                @Html.Partial("_tabela", Model.Funcionarios)
 
             </tbody>
         </table>

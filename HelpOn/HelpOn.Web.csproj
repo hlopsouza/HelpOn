@@ -207,6 +207,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Laboratorio\_solicitarMonitor.cshtml" />
     <Content Include="Views\Funcionario\Edit.cshtml" />
+    <Content Include="Views\Funcionario\_tabela.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

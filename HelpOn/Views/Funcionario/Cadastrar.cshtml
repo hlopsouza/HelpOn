@@ -1,9 +1,7 @@
 ﻿
-@model  ICollection<HelpOn.Dominio.Models.Nivel> 
+@model  HelpOn.Web.ViewModel.FuncionarioViewModel
 
-@{
-    ViewBag.Title = "Index";
-}
+@HelperMensagens.Message(Model.Mensagem, "alert bg-danger", "glyph stroked cancel", "#stroked-cancel")
 
 <br>
 <div class="panel panel-default">
@@ -13,9 +11,7 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-md-12">
-                <br />
-
-
+                <br>
 
                 @using (@Html.BeginForm("Cadastrar", "Funcionario", FormMethod.Post))
                 {
@@ -53,13 +49,7 @@
                             <div class="form-group">
                                 <label class="col-md-2 control-label" for="IDNivel">Nível</label>
                                 <div class="col-md-10">
-                                  <select id="IDNivel" name="IDNivel" class="form-control">
-                                      @foreach (var nivel in Model)
-                                      {
-                                        <option value="@nivel.IDNivel">@nivel.Nome</option>
-                                      }
-                                     
-                                  </select>
+                                    @Html.DropDownListFor(f => f.IDNivel, Model.ListaNivel, new { @class = "form-control" })
                                 </div>
                             </div>
 
@@ -71,9 +61,6 @@
                                     @Html.ValidationMessage("Senha", new { @class = "text-danger" })
                                 </div>
                             </div>
-
-
-
 
                             <!-- Form actions -->
                             <div class="form-group">

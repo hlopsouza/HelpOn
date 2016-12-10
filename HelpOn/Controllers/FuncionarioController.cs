@@ -17,16 +17,24 @@ namespace HelpOn.Controllers
         public ActionResult ListarFuncionarios()
         {
             var msg = TempData["mensagem"];
-            ICollection<Funcionario> funcionario = _unit.FuncionarioRepository.Listar();
+            var viewmodel = new FuncionarioViewModel()
+            {
+                Funcionarios = _unit.FuncionarioRepository.Listar()
+            };
 
-            return View(funcionario);
+
+            return View(viewmodel);
         }
 
         [HttpGet]
-        public ActionResult Cadastrar()
+        public ActionResult Cadastrar(string msg)
         {
-            ICollection<Nivel> nivel = _unit.NivelRepository.Listar();
-            return View(nivel);
+            var viewModel = new FuncionarioViewModel()
+            {
+                Mensagem = msg,
+                ListaNivel = ListarNivel()
+            };
+            return View(viewModel);
         }
 
         [HttpGet]
@@ -69,20 +77,40 @@ namespace HelpOn.Controllers
         }
 
         [HttpPost]
-        public ActionResult Cadastrar(Funcionario funcionario)
+        public ActionResult Cadastrar(FuncionarioViewModel funcionarioViewModel)
         {
             if (ModelState.IsValid)
             {
-                funcionario.DataCadastro = DateTime.Now;
+                var funcionario = new Funcionario()
+                {
+                    Nome = funcionarioViewModel.Nome,
+                    CPF = funcionarioViewModel.CPF,
+                    Email = funcionarioViewModel.Email,
+                    Senha = funcionarioViewModel.Senha,
+                    DataCadastro = DateTime.Now,
+                    IDNivel = funcionarioViewModel.IDNivel
+                };
+
                 _unit.FuncionarioRepository.Cadastrar(funcionario);
-                _unit.Salvar();
+
+                try
+                {
+                    _unit.Salvar();
+                }
+                catch (Exception e)
+                {
+                    funcionarioViewModel.Mensagem = "Ocorreu um erro ao tentar cadastrar o funcionário, por favor tente mais tarde." + "Erro: " + e;
+                    funcionarioViewModel.ListaNivel = ListarNivel();
+                    return View(funcionarioViewModel);
+                }
+
                 TempData["mensagem"] = "Funcionário cadastrado com sucesso!";
                 return RedirectToAction("ListarFuncionarios");
             }
             else
             {
-                ICollection<Nivel> nivel = _unit.NivelRepository.Listar();
-                return View("Cadastrar", nivel);
+                funcionarioViewModel.ListaNivel = ListarNivel();
+                return View(funcionarioViewModel);
             }
 
         }
@@ -106,6 +134,12 @@ namespace HelpOn.Controllers
             _unit.Salvar();
             TempData["mensagem"] = "Funcionário removido com sucesso!";
             return RedirectToAction("ListarFuncionarios");
+        }
+
+        private SelectList ListarNivel()
+        {
+            var lista = _unit.NivelRepository.Listar();
+            return new SelectList(lista, "IDNivel", "Nome");
         }
 
         protected override void Dispose(bool disposing)
