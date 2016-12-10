@@ -90,15 +90,10 @@ namespace HelpOn.Controllers
         [HttpPost]
         public ActionResult Cadastrar(FuncionarioViewModel funcionarioViewModel, string repeatsenha)
         {
-            if (funcionarioViewModel.Senha != repeatsenha)
-            {
-                ModelState.AddModelError("repeatsenha", "As senhas não correspondem.");
 
-                funcionarioViewModel.ListaNivel = ListarNivel();
-                return View(funcionarioViewModel);
-            }
+            if (funcionarioViewModel.Senha != repeatsenha) ModelState.AddModelError("repeatsenha", "As senhas não correspondem.");
 
-            else if (ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var funcionario = new Funcionario()
                 {

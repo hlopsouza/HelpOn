@@ -23,7 +23,7 @@ namespace HelpOn.Web.ViewModel
         [Required]
         public string Email { get; set; }
         [Required]
-        [StringLength(10, MinimumLength = 6, ErrorMessage = "Senha deve conter entre 6 e 10 caracteres")]
+        [StringLength(10, MinimumLength = 6, ErrorMessage = "Senha deve conter entre 6 e 10 caracteres.")]
         public string Senha { get; set; }
         public Nullable<System.DateTime> DataCadastro { get; set; }
         [Required]
