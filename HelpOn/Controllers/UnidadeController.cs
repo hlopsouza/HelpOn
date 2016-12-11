@@ -68,8 +68,7 @@ namespace HelpOn.Controllers
                     return View(andarViewModel);
                 }
 
-                andarViewModel.Mensagem = "Andar cadastrado com sucesso!";
-                return RedirectToAction("Andares");
+                return RedirectToAction("Andares", new { msg = "Andar cadastrado com sucesso!" });
             }
             else
             {
