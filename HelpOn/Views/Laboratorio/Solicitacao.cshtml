@@ -65,48 +65,17 @@
  <script>
      $().ready(function () {
 
-                  $("#botoes button").click(function () {
-                  if ($(this).html() == "Solicitar Monitor") {
-                      $("#IDDescricao").val(1);
-                      $("#IDNivel").val(3);
-                  $(".modal-body").html("Deseja Realmente solicitar um Monitor?");
-             } else
-                  if ($(this).html() == "Bloquear Internet") {
-                      $("#IDDescricao").val(2);
-                      $("#IDNivel").val(2);
-                      $(".modal-body").html("Deseja realmente solicitar o bloqueio da Internet no Laboratório?");
-             } else
-                      if ($(this).html() == "Liberar Internet") {
-                          $("#IDDescricao").val(3);
-                          $("#IDNivel").val(2);
-                          $(".modal-body").html("Deseja realmente solicitar a liberação da Internet no Laboratório?");
-             } else
-                          if ($(this).html() == "Bloquear HD Público") {
-                              $("#IDDescricao").val(4);
-                              $("#IDNivel").val(2);
-                              $(".modal-body").html("Deseja realmente solicitar o bloqueio do HD Público no Laboratório?");
-             } else
-                              if ($(this).html() == "Liberar HD Público") {
-                                  $("#IDDescricao").val(5);
-                                  $("#IDNivel").val(2);
-                                  $(".modal-body").html("Deseja realmente solicitar a liberação do HD Público no Laboratório?");
-             } else
-                                  if ($(this).html() == "Bloquear Portal do Aluno") {
-                                      $("#IDDescricao").val(6);
-                                      $("#IDNivel").val(2);
-                                      $(".modal-body").html("Deseja realmente solicitar o bloqueio do Portal do Aluno no Laboratório?");
-             } else
-                                      if ($(this).html() == "Liberar Portal do Aluno") {
-                                          $("#IDDescricao").val(7);
-                                          $("#IDNivel").val(2);
-                                          $(".modal-body").html("Deseja realmente solicitar a liberação do Portal do Aluno no Laboratório?");
-             } else
-                                          if ($(this).html() == "Alterar °C Ar Condicionado") {
-                                              $("#IDDescricao").val(8);
-                                              $("#IDNivel").val(2);
-                                              $(".modal-body").html("Deseja realmente solicitar a alteração de Temperatura do Ar Condicionado no Laboratório?");
-             }
+          @foreach (var tipo in Model.Descricoes)
+         {
+             <text>
+             $("#botoes button").click(function () {
+                 if ($(this).html() == "@tipo.Nome") {
+                     $("#IDDescricao").val(@tipo.IDDescricao);
+                     $("#IDNivel").val(3);
+                     $(".modal-body").html("Deseja Realmente solicitar um Monitor?");
+                 }});
+             </text>
+         }
          });
-      });
 </script>
 }
