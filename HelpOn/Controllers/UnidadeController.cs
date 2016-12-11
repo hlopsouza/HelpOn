@@ -77,6 +77,23 @@ namespace HelpOn.Controllers
             }
         }
 
+        [HttpPost]
+        public ActionResult ExcluirAndar(int NumeroAndar)
+        {
+            _unit.AndarRepository.Remover(NumeroAndar);
+
+            try
+            {
+                _unit.Salvar();
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction("Andares", new { msg = "Ocorreu um erro ao tentar excluir o andar, por favor tente mais tarde." + "Erro: " + e });
+            }
+
+            return RedirectToAction("Andares", new { msg = "Andar removido com sucesso!" });
+        }
+
         [HttpGet]
         public ActionResult Details(int id)
         {

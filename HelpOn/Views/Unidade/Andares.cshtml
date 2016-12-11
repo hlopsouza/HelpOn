@@ -61,8 +61,32 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-primary" type="submit">Cadastrar</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                 </div>
             }
+        </div>
+    </div>
+</div>
+
+<!-- Modal Deletar Andar -->
+<div class="modal fade" id="deletar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 align="center" class="modal-title" id="myModalLabel">Confirmação de Exclusão</h3>
+            </div>
+            <div class="modal-body">
+                Tem certeza que deseja excluir esse andar?
+            </div>
+            <div class="modal-footer">
+                @using (Html.BeginForm("ExcluirAndar", "Unidade", FormMethod.Post))
+                {
+                    <input type="hidden" id="NumeroAndar" name="NumeroAndar">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Não</button>
+                    <button type="submit" class="btn btn-danger">Sim</button>
+                }
+            </div>
         </div>
     </div>
 </div>
