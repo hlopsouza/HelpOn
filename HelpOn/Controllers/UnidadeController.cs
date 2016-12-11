@@ -1,5 +1,6 @@
 ﻿using HelpOn.Dominio.Models;
 using HelpOn.Persistencia.UnitOfWork;
+using HelpOn.ViewModel;
 using HelpOn.Web.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,53 @@ namespace HelpOn.Controllers
         {
 
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult Andares(string msg)
+        {
+            var viewmodel = new AndarViewModel()
+            {
+                Mensagem = msg,
+                Andares = _unit.AndarRepository.Listar(),
+                ListaUnidade = ListarUnidade()
+            };
+            return View(viewmodel);
+        }
+
+
+        [HttpPost]
+        public ActionResult CadastroAndares(AndarViewModel andarViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var andar = new Andar()
+                {
+                    NumeroAndar = andarViewModel.NumeroAndar,
+                    IDUnidade = andarViewModel.IDUnidade
+                };
+
+                _unit.AndarRepository.Cadastrar(andar);
+
+                try
+                {
+                    _unit.Salvar();
+                }
+                catch (Exception e)
+                {
+                    andarViewModel.Mensagem = "Ocorreu um erro ao tentar cadastrar o andar, por favor tente mais tarde." + "Erro: " + e;
+                    andarViewModel.ListaUnidade = ListarUnidade();
+                    return View(andarViewModel);
+                }
+
+                andarViewModel.Mensagem = "Andar cadastrado com sucesso!";
+                return RedirectToAction("Andares");
+            }
+            else
+            {
+                andarViewModel.ListaUnidade = ListarUnidade();
+                return View(andarViewModel);
+            }
         }
 
         [HttpGet]
@@ -110,6 +158,11 @@ namespace HelpOn.Controllers
             return RedirectToAction("ListarUnidades");
         }
 
+        private SelectList ListarUnidade()
+        {
+            var lista = _unit.UnidadeRepository.Listar();
+            return new SelectList(lista, "IDUnidade", "Nome");
+        }
 
         protected override void Dispose(bool disposing)
         {

@@ -11,7 +11,7 @@
 GO
 
 ALTER TABLE [dbo].[Andar]  ADD  CONSTRAINT [FK_Andar_Unidade] FOREIGN KEY([IDUnidade])
-REFERENCES [dbo].[Unidade] ([IDUnidade])
+REFERENCES [dbo].[Unidade] ([IDUnidade]) ON DELETE CASCADE
 GO
 
-ALTER TABLE [dbo].[Andar] CHECK CONSTRAINT [FK_Andar_Unidade]	
+ALTER TABLE [dbo].[Andar] CHECK CONSTRAINT [FK_Andar_Unidade] 

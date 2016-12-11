@@ -176,6 +176,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\AndarViewModel.cs" />
     <Compile Include="ViewModel\ChamadoViewModel.cs" />
     <Compile Include="ViewModel\FuncionarioViewModel.cs" />
     <Compile Include="ViewModel\UnidadeViewModel.cs" />
@@ -208,6 +209,8 @@
     <Content Include="Views\Laboratorio\_solicitarMonitor.cshtml" />
     <Content Include="Views\Funcionario\Edit.cshtml" />
     <Content Include="Views\Funcionario\_tabela.cshtml" />
+    <Content Include="Views\Unidade\Andares.cshtml" />
+    <Content Include="Views\Unidade\_tabelaAndares.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

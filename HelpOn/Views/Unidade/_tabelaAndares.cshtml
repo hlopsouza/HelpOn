@@ -1,0 +1,15 @@
+﻿@model ICollection<HelpOn.Dominio.Models.Andar>
+
+@foreach (var andar in Model)
+{
+    <tr>
+        <td>@andar.Unidade.Nome</td>
+        <td>@andar.NumeroAndar</td>
+
+        <td>
+            <button class="btn btn-danger delete">
+                <i class="glyphicon glyphicon-trash"></i>
+            </button>
+        </td>
+    </tr>
+}
