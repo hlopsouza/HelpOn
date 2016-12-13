@@ -6,7 +6,7 @@
 	[NumeroAndar] [int] NOT NULL,
 	[IDUnidade] [int] NOT NULL,
 	[IDFuncionario] [int] NULL,
-	[DataChamado] [datetime] NULL,
+	[DataChamado] DATETIME2 NULL,
 [IDNivel] INT NULL, 
     PRIMARY KEY CLUSTERED 
 (

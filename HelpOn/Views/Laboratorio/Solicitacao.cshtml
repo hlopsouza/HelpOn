@@ -6,22 +6,22 @@
 <h2>Laboratorio</h2>
 
 
-<div  id="botoes">
+<div id="botoes">
     @foreach (var descricao in Model.Descricoes)
     {
         if ((descricao.IDDescricao % 2) == 1)
         {
-            <div  style="float:left;width:49%">
+            <div style="float:left;width:49%">
                 <button class="btn btn-custom btn-lg btn-block" float="left" data-toggle="modal" data-target="#myModal">@descricao.Nome</button>
             </div>
-            
+
         }
         else
         {
-            <div  style="float:right;width:49%">
+            <div style="float:right;width:49%">
                 <button class="btn btn-custom btn-lg btn-block" float="right" data-toggle="modal" data-target="#myModal">@descricao.Nome</button>
             </div>
-            
+
         }
 
     }
@@ -38,7 +38,7 @@
                 <h4 class="modal-title" id="myModalLabel">Atenção!</h4>
             </div>
             <div class="modal-body">
-
+                <p>Deseja Realmente Enviar esta Solicitação?</p>
             </div>
             <div class="modal-footer">
                 @using (Html.BeginForm("Cadastrar", "Chamado", "POST"))
@@ -50,7 +50,7 @@
                     @Html.HiddenFor(c => c.IDUnidade, new { @Value = Model.Lab.IDUnidade })
                     @Html.HiddenFor(c => c.DataChamado, new { @Value = DateTime.Now })
                     @Html.HiddenFor(c => c.IDNivel)
-                    
+
 
                     <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
                     <button type="submit" class="btn btn-custom">Enviar Solicitação</button>
@@ -62,20 +62,28 @@
 
 
 @section scripts{
- <script>
-     $().ready(function () {
+    <script>
+        $().ready(function () {
 
-          @foreach (var tipo in Model.Descricoes)
-         {
-             <text>
-             $("#botoes button").click(function () {
-                 if ($(this).html() == "@tipo.Nome") {
-                     $("#IDDescricao").val(@tipo.IDDescricao);
-                     $("#IDNivel").val(3);
-                     $(".modal-body").html("Deseja Realmente solicitar um Monitor?");
-                 }});
-             </text>
-         }
-         });
-</script>
+            $.ajax({
+                url: "http://localhost:64222/Laboratorio/GetDescricao",
+                type: "GET",
+                success: function (data) {
+                    $.each(data, function (index, des) {
+                        $("#botoes button").click(function () {
+                            if ($(this).html() == des.descricao) {
+                                $("#IDDescricao").val(des.id);                                
+                                $(".modal-title").html("Atenção - " + des.descricao);
+                                if (des.id == 1) {
+                                    $("#IDNivel").val(3);
+                                } else {
+                                    $("#IDNivel").val(2);
+                                }
+                            }
+                        });
+                    });
+                }
+            });
+        });
+    </script>
 }

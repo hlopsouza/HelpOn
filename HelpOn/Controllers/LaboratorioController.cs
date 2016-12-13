@@ -20,6 +20,13 @@ namespace HelpOn.Controllers
             return View();
         }
 
+        public ActionResult GetDescricao()
+        {
+            var lista = _unit.DescricaoRepository.Listar().Select(d => new { id = d.IDDescricao, descricao = d.Nome });
+            return Json(lista,JsonRequestBehavior.AllowGet);
+        }
+
+
         [HttpGet]
         public ActionResult Solicitacao()
         {
