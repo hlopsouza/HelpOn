@@ -1,31 +1,60 @@
 ﻿@model HelpOn.Web.ViewModel.ChamadoViewModel
+
 @{
-    ViewBag.Title = "Laboratorio";
+    ViewBag.Title = "Laboratório";
 }
 
-<h2>Laboratorio</h2>
+<h2>Solicitações de Laboratório</h2>
 
 
-<div id="botoes">
+<section id="botoes" style="height:220px">
     @foreach (var descricao in Model.Descricoes)
     {
         if ((descricao.IDDescricao % 2) == 1)
         {
-            <div style="float:left;width:49%">
+            <div style="float:left;width:49%;height:50px">
                 <button class="btn btn-custom btn-lg btn-block" float="left" data-toggle="modal" data-target="#myModal">@descricao.Nome</button>
             </div>
 
         }
         else
         {
-            <div style="float:right;width:49%">
+            <div style="float:right;width:49%;height:50px">
                 <button class="btn btn-custom btn-lg btn-block" float="right" data-toggle="modal" data-target="#myModal">@descricao.Nome</button>
             </div>
 
         }
 
     }
+</section>
+
+
+
+<div class="table-responsive" >
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Lista de Solicitações - Laboratório @Model.Lab.NumeroLab
+        </div>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <td>Chamado</td>
+                    <td>Status</td>
+                    <td>Unidade</td>
+                    <td>Andar</td>
+                    <td>Laboratorio</td>
+                </tr>
+            </thead>
+            <tbody id="tabela">
+                @Html.Partial("ListarSolicitacoes", Model.Chamados)
+            </tbody>
+        </table>
+    </div>
+
+    
 </div>
+
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -63,7 +92,23 @@
 
 @section scripts{
     <script>
+        function atualizarTabela() {
+            $.ajax(
+            {
+                type: 'GET',
+                url: "/Laboratorio/ListarSolicitacoes",
+                
+                success: function (data) {
+                    $("#tabela").html(data);
+                }
+            });
+            
+        }
+
+
         $().ready(function () {
+                
+           setInterval(atualizarTabela, 5000);
 
             $.ajax({
                 url: "http://localhost:64222/Laboratorio/GetDescricao",

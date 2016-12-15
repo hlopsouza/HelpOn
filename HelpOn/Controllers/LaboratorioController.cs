@@ -30,7 +30,36 @@ namespace HelpOn.Controllers
         [HttpGet]
         public ActionResult Solicitacao()
         {
-            //ViewBag.IP = Request.UserHostAddress.ToString();
+            int IPLab = GetIp();
+
+            var viewModel = new ChamadoViewModel()
+            {
+                Lab = _unit.LaboratorioRepository.BuscarPorUnitario(lab => lab.NumeroLab == IPLab),
+                Descricoes = _unit.DescricaoRepository.Listar(),
+                Chamados = _unit.ChamadoRepository.BuscarPor(c => c.NumeroLab == IPLab)
+
+            };
+            return View(viewModel);
+        }
+
+        
+        [HttpGet]
+        public PartialViewResult ListarSolicitacoes()
+        {
+
+            int IPLab = GetIp();
+            var viewModel = new ChamadoViewModel()
+            {
+                Lab = _unit.LaboratorioRepository.BuscarPorUnitario(lab => lab.NumeroLab == IPLab),
+                Descricoes = _unit.DescricaoRepository.Listar(),
+                Chamados = _unit.ChamadoRepository.BuscarPor(c => c.NumeroLab == IPLab)
+
+            };
+            return PartialView(viewModel.Chamados);
+        }
+
+        private static int GetIp()
+        {
             //string IP = Request.UserHostAddress.ToString();
 
             string IP = "10.20.21.41";
@@ -42,17 +71,8 @@ namespace HelpOn.Controllers
             ips.Append(IP.Substring(7, 1));
             IP = ips.ToString();
             var IPLab = Int32.Parse(IP);
-
-            var viewModel = new ChamadoViewModel()
-            {
-                Lab = _unit.LaboratorioRepository.BuscarPorUnitario(lab => lab.NumeroLab == IPLab),
-                Descricoes = _unit.DescricaoRepository.Listar(),
-                
-            };
-            return View(viewModel);
+            return IPLab;
         }
-
-
 
     }
 }

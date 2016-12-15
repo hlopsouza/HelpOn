@@ -211,6 +211,7 @@
     <Content Include="Views\Funcionario\_tabela.cshtml" />
     <Content Include="Views\Unidade\Andares.cshtml" />
     <Content Include="Views\Unidade\_tabelaAndares.cshtml" />
+    <Content Include="Views\Laboratorio\ListarSolicitacoes.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

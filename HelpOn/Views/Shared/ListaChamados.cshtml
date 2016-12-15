@@ -1,10 +1,10 @@
 ﻿@model HelpOn.Web.ViewModel.ChamadoViewModel
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lista de Chamados";
     
 }
 
-<h2>Index</h2>
+<h2>Lista de Chamados</h2>
 @using (Ajax.BeginForm("Buscar", null, new AjaxOptions
 {
     HttpMethod = "get",
@@ -68,7 +68,7 @@
             new { @id = "mudaProcessos", @class = "form-inline", @method = "post" }))
                 {
                     <input type="hidden" id="IDChamado" name="IDChamado" />
-                    <button type="submit" class="btn btn-primary botaoChamado" value="Aberto" id="Aberto" name="Processo">Aberto</button>
+                    <button type="submit" class="btn btn-success botaoChamado" value="Aberto" id="Aberto" name="Processo">Aberto</button>
                     <button type="submit" class="btn btn-warning botaoChamado" value="Em Processo" id="EmProcesso" name="Processo">Em Processo</button>
                     <button type="submit" class="btn btn-danger botaoChamado" value="Fechado" id="Fechado" name="Processo">Fechado</button>
                     <button type="button" class="btn btn-default botaoFechaModel" data-dismiss="modal">Cancelar</button>

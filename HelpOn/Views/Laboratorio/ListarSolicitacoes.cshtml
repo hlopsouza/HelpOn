@@ -1,0 +1,40 @@
+﻿@model List<HelpOn.Dominio.Models.Chamado>
+
+      <p>
+          <br />
+    </p> 
+    
+    
+        @foreach (var chamado in Model)
+        {
+            
+            
+            <tr>
+                <td>@chamado.Descricao.Nome</td>
+                <td>
+                    @if (chamado.Processo == "Aberto")
+                    {
+                    <h4>
+                        <span id="status" class="label label-success">@chamado.Processo</span>
+                    </h4>
+                    }
+                    else if (chamado.Processo == "Em Processo")
+                    {
+                        <h4>
+                            <span id="status" class="label label-warning">@chamado.Processo</span>
+                        </h4>
+                    }
+                    else
+                    {
+                        <h4>
+                            <span id="status" class="label label-danger">@chamado.Processo</span>
+                        </h4>
+                    }
+                </td>
+                <td>@chamado.IDUnidade</td>
+                <td>@chamado.NumeroAndar</td>
+                <td>@chamado.NumeroLab</td>
+            </tr>
+            
+    }
+
