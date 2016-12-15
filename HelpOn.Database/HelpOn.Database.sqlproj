@@ -59,13 +59,13 @@
     <Folder Include="Properties" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Unidade.sql" />
-    <Build Include="Andar.sql" />
-    <Build Include="Chamado.sql" />
-    <Build Include="Funcionario.sql" />
-    <Build Include="Laboratorio.sql" />
-    <Build Include="Nivel.sql" />
-    <Build Include="Descricao.sql" />
+     <Build Include="Unidade.sql" />
+     <Build Include="Andar.sql" />
+     <Build Include="Chamado.sql" />
+     <Build Include="Funcionario.sql" />
+     <Build Include="Laboratorio.sql" />
+     <Build Include="Nivel.sql" />
+     <Build Include="Descricao.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="HelpOn.Database.refactorlog" />
