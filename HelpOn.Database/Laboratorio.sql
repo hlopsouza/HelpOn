@@ -10,5 +10,5 @@
 	[NumeroAndar] ASC,
 	[IDUnidade] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON), 
-    CONSTRAINT [FK_Laboratorio_Andar] FOREIGN KEY ([NumeroAndar], [IDUnidade]) REFERENCES [Andar]([NumeroAndar], [IDUnidade])
+    CONSTRAINT [FK_Laboratorio_Andar] FOREIGN KEY ([NumeroAndar], [IDUnidade]) REFERENCES [Andar]([NumeroAndar], [IDUnidade]) ON DELETE CASCADE
 )

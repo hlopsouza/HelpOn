@@ -179,6 +179,7 @@
     <Compile Include="ViewModel\AndarViewModel.cs" />
     <Compile Include="ViewModel\ChamadoViewModel.cs" />
     <Compile Include="ViewModel\FuncionarioViewModel.cs" />
+    <Compile Include="ViewModel\LaboratorioViewModel.cs" />
     <Compile Include="ViewModel\UnidadeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -212,6 +213,8 @@
     <Content Include="Views\Unidade\Andares.cshtml" />
     <Content Include="Views\Unidade\_tabelaAndares.cshtml" />
     <Content Include="Views\Laboratorio\ListarSolicitacoes.cshtml" />
+    <Content Include="Views\Unidade\_tabelaLaboratorios.cshtml" />
+    <Content Include="Views\Unidade\Labs.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

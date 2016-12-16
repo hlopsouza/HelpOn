@@ -24,6 +24,7 @@ namespace HelpOn.Controllers
             return View(unidades);
         }
 
+
         [HttpGet]
         public ActionResult Cadastrar()
         {
@@ -41,6 +42,61 @@ namespace HelpOn.Controllers
                 ListaUnidade = ListarUnidade()
             };
             return View(viewmodel);
+        }
+
+        private SelectList ListarAndar()
+        {
+            var lista = _unit.AndarRepository.Listar();
+            return new SelectList(lista, "NumeroAndar", "NumeroAndar");
+        }
+
+        [HttpGet]
+        public ActionResult Labs(string msg)
+        {
+            var viewmodel = new LaboratorioViewModel()
+            {
+                Mensagem = msg,
+                Laboratorios = _unit.LaboratorioRepository.Listar(),
+                ListaUnidade = ListarUnidade(),
+                ListaAndar = ListarAndar()
+            };
+            return View(viewmodel);
+        }
+
+        [HttpPost]
+        public ActionResult CadastroLabs(LaboratorioViewModel labViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var laboratorio = new Laboratorio()
+                {
+                    NumeroAndar = labViewModel.NumeroAndar,
+                    IDUnidade = labViewModel.IDUnidade,
+                    NumeroLab = labViewModel.NumeroLab
+                };
+
+                _unit.LaboratorioRepository.Cadastrar(laboratorio);
+
+                try
+                {
+                    _unit.Salvar();
+                }
+                catch (Exception e)
+                {
+                    labViewModel.Mensagem = "Ocorreu um erro ao tentar cadastrar o laboratório, por favor tente mais tarde." + "Erro: " + e;
+                    labViewModel.ListaUnidade = ListarUnidade();
+                    labViewModel.ListaAndar = ListarAndar();
+                    return View("Labs", new { msg = "Laboratório cadastrado com sucesso!" });
+                }
+
+                return RedirectToAction("Labs", new { msg = "Laboratório cadastrado com sucesso!" });
+            }
+            else
+            {
+                labViewModel.ListaUnidade = ListarUnidade();
+                labViewModel.ListaAndar = ListarAndar();
+                return View(labViewModel);
+            }
         }
 
 

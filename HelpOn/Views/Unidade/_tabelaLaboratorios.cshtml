@@ -1,0 +1,16 @@
+﻿@model ICollection<HelpOn.Dominio.Models.Laboratorio>
+
+@foreach (var lab in Model)
+{
+    <tr>
+        <td>@lab.Andar.Unidade.Nome</td>
+        <td>@lab.NumeroAndar</td>
+        <td>@lab.NumeroLab</td>
+
+        <td>
+            <button class="btn btn-danger delete" onclick="NumeroLab.value = @lab.NumeroLab" data-toggle="modal" data-target="#deletar">
+                <i class="glyphicon glyphicon-trash"></i>
+            </button>
+        </td>
+    </tr>
+}
