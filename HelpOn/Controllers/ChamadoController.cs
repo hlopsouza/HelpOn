@@ -37,8 +37,17 @@ namespace HelpOn.Web.Controllers
         {
             ICollection<Chamado> lista;
             _usuarioLogado = (Funcionario)Session["usuarioLogado"];
-            lista = _unit.ChamadoRepository.BuscarPor((c => c.Processo.Contains(Processo) &&
-            (c.NumeroAndar == NumeroAndar || Processo == null) && c.IDNivel == _usuarioLogado.IDNivel));
+            if (_usuarioLogado.IDNivel != 1)
+            {
+                lista = _unit.ChamadoRepository.BuscarPor((c => c.Processo.Contains(Processo) &&
+                (c.NumeroAndar == NumeroAndar || Processo == null) && c.IDNivel == _usuarioLogado.IDNivel));
+            }
+            else
+            {
+                lista = _unit.ChamadoRepository.BuscarPor((c => c.Processo.Contains(Processo) &&
+          (c.NumeroAndar == NumeroAndar || Processo == null)));
+            }
+          
 
 
             return PartialView("_listaChamado", lista);

@@ -17,6 +17,7 @@ namespace HelpOn.Controllers
         
         public ActionResult Index()
         {
+            
             return View();
         }
 
@@ -30,6 +31,10 @@ namespace HelpOn.Controllers
         [HttpGet]
         public ActionResult Solicitacao()
         {
+            Session["usuarioLogado"] = new Funcionario
+            {
+                Nome = "Professor"
+            };
             int IPLab = GetIp();
 
             var viewModel = new ChamadoViewModel()
@@ -37,6 +42,8 @@ namespace HelpOn.Controllers
                 Lab = _unit.LaboratorioRepository.BuscarPorUnitario(lab => lab.NumeroLab == IPLab),
                 Descricoes = _unit.DescricaoRepository.Listar(),
                 Chamados = _unit.ChamadoRepository.BuscarPor(c => c.NumeroLab == IPLab)
+                
+                
 
             };
             return View(viewModel);

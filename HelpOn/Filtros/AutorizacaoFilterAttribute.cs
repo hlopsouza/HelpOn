@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HelpOn.Dominio.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,7 @@ namespace HelpOn.Web.Filtros
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            object usuarioLogado = filterContext.HttpContext.Session["usuarioLogado"];
+            Funcionario usuarioLogado = (Funcionario)filterContext.HttpContext.Session["usuarioLogado"];
             if (usuarioLogado == null)
             {
                 filterContext.Result = new RedirectToRouteResult(

@@ -38,6 +38,12 @@ namespace HelpOn.Web.Controllers
             }
            return RedirectToAction("Index", new { msg = "Login ou Senha incorretos" });
         }
+
+        public ActionResult Sair()
+        {
+            Session["usuarioLogado"] = null;
+            return RedirectToAction("Index");
+        }
         #endregion
     }
 }

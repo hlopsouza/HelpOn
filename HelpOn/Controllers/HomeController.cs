@@ -14,7 +14,7 @@ namespace HelpOn.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            ViewBag.IP = Request.UserHostAddress.ToString();
+            
             //string IP = Request.UserHostAddress.ToString();
 
             //String para usar no test - Deve ser um IP que esteja cadastrado no Banco para chamar Laboratorio

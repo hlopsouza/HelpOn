@@ -16,6 +16,10 @@ namespace HelpOn.Persistencia.Repositories
        
         public ICollection<Chamado> BuscarChamadosAbertos(int nivelFuncionario)
         {
+            if (nivelFuncionario != 1)
+            {
+                return _dbSet.Where(c => c.Processo == "Aberto").ToList();
+            }
             return _dbSet.Where(c => c.Processo == "Aberto" && c.IDNivel == nivelFuncionario).ToList();
         }
     }

@@ -95,7 +95,7 @@ namespace HelpOn.Controllers
             {
                 labViewModel.ListaUnidade = ListarUnidade();
                 labViewModel.ListaAndar = ListarAndar();
-                return View(labViewModel);
+                return View("Labs");
             }
         }
 

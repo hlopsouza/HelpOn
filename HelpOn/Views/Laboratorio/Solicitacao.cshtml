@@ -44,6 +44,7 @@
                     <td>Unidade</td>
                     <td>Andar</td>
                     <td>Laboratorio</td>
+                    <td>Enviado para</td>
                 </tr>
             </thead>
             <tbody id="tabela">
@@ -107,7 +108,9 @@
 
 
         $().ready(function () {
-                
+
+            $("#sidebar-collapse").css("visibility", "hidden");
+            
            setInterval(atualizarTabela, 5000);
 
             $.ajax({

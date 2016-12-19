@@ -196,7 +196,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Views\Unidade\ListarUnidades.cshtml" />
     <Content Include="Views\Shared\ListaChamados.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Shared\_listaChamado.cshtml" />
     <Content Include="Views\Laboratorio\Solicitacao.cshtml" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
@@ -207,7 +206,6 @@
     <Content Include="Views\Funcionario\ListarFuncionarios.cshtml" />
     <Content Include="Views\Funcionario\Details.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Laboratorio\_solicitarMonitor.cshtml" />
     <Content Include="Views\Funcionario\Edit.cshtml" />
     <Content Include="Views\Funcionario\_tabela.cshtml" />
     <Content Include="Views\Unidade\Andares.cshtml" />
@@ -215,6 +213,7 @@
     <Content Include="Views\Laboratorio\ListarSolicitacoes.cshtml" />
     <Content Include="Views\Unidade\_tabelaLaboratorios.cshtml" />
     <Content Include="Views\Unidade\Labs.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

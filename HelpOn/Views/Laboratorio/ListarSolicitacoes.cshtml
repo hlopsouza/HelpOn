@@ -34,6 +34,16 @@
                 <td>@chamado.IDUnidade</td>
                 <td>@chamado.NumeroAndar</td>
                 <td>@chamado.NumeroLab</td>
+                <td>
+                    @if (chamado.IDNivel == 2)
+                    {
+                        @:HelpDesk
+                    }
+                    else if(chamado.IDNivel == 3)
+                    {
+                        @:Monitor
+                    }
+                </td>
             </tr>
             
     }
